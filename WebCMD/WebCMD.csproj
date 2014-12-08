@@ -177,19 +177,13 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\WebCMD.Com\WebCMD.Com.csproj">
       <Project>{62b5f2e9-a641-40c9-9a38-df13bb496381}</Project>
       <Name>WebCMD.Com</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WebCMD.IO\WebCMD.Net.csproj">
+    <ProjectReference Include="..\WebCMD.Net\WebCMD.Net.csproj">
       <Project>{ccb1b793-0c8b-4554-b2b1-bf488573b6c7}</Project>
       <Name>WebCMD.Net</Name>
     </ProjectReference>

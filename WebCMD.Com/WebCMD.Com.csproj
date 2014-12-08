@@ -45,7 +45,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WebCMD.IO\WebCMD.Net.csproj">
+    <ProjectReference Include="..\WebCMD.Net\WebCMD.Net.csproj">
       <Project>{ccb1b793-0c8b-4554-b2b1-bf488573b6c7}</Project>
       <Name>WebCMD.Net</Name>
     </ProjectReference>
