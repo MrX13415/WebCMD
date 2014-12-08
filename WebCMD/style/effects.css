@@ -1,0 +1,32 @@
+﻿/*
+
+------------------------------
+    WebCMD Effect StyleSheet    
+------------------------------
+
+    CSS effects
+
+    Version 1.0
+    Team IceLane (c) 2014
+
+*/
+
+.effect-textdown {
+	color: #1C1C1C;
+	text-shadow: -1px -1px 1px #0F0F0F, 1px 1px 1px #505050;
+}
+
+.effect-textdown-2 {
+	color: #1E1E1C;
+	text-shadow: -2px -2px 2px #101010, 2px 2px 2px #505050;
+}
+
+.effect-textdown-dark {
+	color: #1E1E1C;
+	text-shadow: -1px -1px 1px #0F0F0F, 1px 1px 1px #505050;
+}
+
+.effect-boxdown{
+	box-shadow: -1px -1px 1px #101010, 1px 1px 1px #505050;
+}
+

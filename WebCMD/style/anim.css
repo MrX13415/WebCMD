@@ -1,0 +1,94 @@
+﻿/*
+
+------------------------------
+    WebCMD Animation StyleSheet    
+------------------------------
+
+    CSS animations
+
+    Version 1.0
+    Team IceLane (c) 2014
+
+*/
+
+@keyframes blink{
+    from {
+        opacity: 1.0;
+    }
+    to {
+        opacity: 0.0;
+    }
+}
+
+@-webkit-keyframes blink{
+    from {
+        opacity: 1.0;
+    }
+    to {
+        opacity: 0.0;
+    }
+}
+
+@-moz-keyframes blink{
+    from {
+        opacity: 1.0;
+    }
+    to {
+        opacity: 0.0;
+    }
+}
+
+
+@-o-keyframes blink{
+    from {
+        opacity: 1.0;
+    }
+    to {
+        opacity: 0.0;
+    }
+}
+
+@-ms-keyframes blink{
+    from {
+        opacity: 1.0;
+    }
+    to {
+        opacity: 0.0;
+    }
+}
+
+.blink{
+    animation-name: blink;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(1.0, 0, 0, 1.0);
+    animation-duration: 0.8s;
+	
+    -webkit-animation-name: blink;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: cubic-bezier(1.0, 0, 0, 1.0);
+    -webkit-animation-duration: 0.8s;
+	
+	-moz-animation-name: blink;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: cubic-bezier(1.0, 0, 0, 1.0);
+    -moz-animation-duration: 0.8s;
+	
+	-o-animation-name: blink;
+    -o-animation-iteration-count: infinite;
+    -o-animation-timing-function: cubic-bezier(1.0, 0, 0, 1.0);
+    -o-animation-duration: 0.8s;
+	
+	-ms-animation-name: blink;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: cubic-bezier(1.0, 0, 0, 1.0);
+    -ms-animation-duration: 0.8s;
+}
+
+
+
+
+
+
+
+
+

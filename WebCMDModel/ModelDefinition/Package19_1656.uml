@@ -1,0 +1,3101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="44c269b5-a53c-407f-81fb-01e8c0c1d653"
+  name="Com"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="50dc997e-91cf-4f33-abf1-54d6aedab019"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DWebCMD.Com"
+      tag="ViewCode" />
+  </referencesInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="6183eb88-3443-4957-a8ca-7cafbac42e1d">
+      <profileInstance
+        Id="aa80c960-4430-4b46-a00e-5683ac1c4764"
+        name="CSharpProfile" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <enumeration
+        Id="fd426988-9d20-4fc9-bbf1-8ea3d10fe79c"
+        name="CommandType"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="cc533091-5a38-4c1a-9cea-bd3fe7fc543f"
+            handle="viewcode://./CodeSchema_Enum?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3D(Name%3DCommandType ParentType%3DCommand)"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="f5c1f583-1f01-4a84-b020-aa3149b691ce"
+            name="enum"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ddddd7a5-f488-47da-ad08-0d7547347fdf">
+                <propertyInstance
+                  Id="f8347632-a688-4ae1-b1c4-07e2abd35f88"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="69fc6779-7583-470b-b267-ebbadebab3eb">
+                <propertyInstance
+                  Id="f69f8e69-9eb4-4d0e-bb0c-59516eb2bbbe"
+                  name="BaseType"
+                  value="int" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="940970da-cb6f-4835-afd3-9e3c59a91fe5">
+                <propertyInstance
+                  Id="27ff5b1c-9255-4ee5-a36a-cf95a0b9570d"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedLiterals>
+          <enumerationLiteral
+            Id="dfac95d5-e940-401a-9938-91bb78115bc7"
+            name="ServerCommand">
+            <referencesInternal>
+              <reference
+                Id="d2aae57e-325a-4098-bb4e-e334608e6112"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3D(Name%3DCommandType ParentType%3DCommand) Member%3DServerCommand"
+                tag="ViewCode" />
+            </referencesInternal>
+          </enumerationLiteral>
+          <enumerationLiteral
+            Id="76a4fe9c-8f2a-4b9b-a116-e27ab5f472ec"
+            name="ClientCommand">
+            <referencesInternal>
+              <reference
+                Id="31e1d083-a37c-45c0-b7f5-7f6d80c621dd"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3D(Name%3DCommandType ParentType%3DCommand) Member%3DClientCommand"
+                tag="ViewCode" />
+            </referencesInternal>
+          </enumerationLiteral>
+        </ownedLiterals>
+      </enumeration>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="77ad14f9-1a9b-4bb1-85de-dec6ed699c50"
+        name="Command"
+        visibility="Private"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="3243c4ff-2d73-4be0-b06d-5b332d59b70e"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3D(Name%3DCommand ArrayRank%3D1 ParentType%3DCommand)"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="e701309f-8454-4966-b672-1da7563f7c76"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f3c393db-207b-4b4e-b3b1-05b65b286415">
+                <propertyInstance
+                  Id="0c46d83c-b8f9-446f-beed-ef62adbbb27e"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7b0f078e-3050-4323-b03e-46614c6f992a">
+                <propertyInstance
+                  Id="517b142a-29eb-4832-b235-13f4ba774919"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f54720dd-0f3b-40dd-b525-8495d3d70192">
+                <propertyInstance
+                  Id="2719e88a-423e-417d-a2e1-0ed31c613a1c"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="561868d7-e7d2-467a-923a-591ed220e6a4">
+                <propertyInstance
+                  Id="d4dcb82d-3ab4-4167-9e73-d7ca357a0122"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b5b3c342-459c-4a11-b320-ddbee84f5f99">
+                <propertyInstance
+                  Id="3ec46eb7-bbe4-469b-a7f5-fa4f17d13610"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <targetEnds>
+          <association
+            Id="e715ce8d-78f1-4929-a949-c139590b8430"
+            isDerived="false"
+            sourceEndRoleName="Command"
+            targetEndRoleName="Type"
+            isLeaf="false"
+            isAbstract="false">
+            <enumerationMoniker
+              Id="fd426988-9d20-4fc9-bbf1-8ea3d10fe79c"
+              LastKnownName="CommandType"
+              LastKnownLocation="Package19_1656.uml" />
+            <description>Eigenschaft Type Verweistyp CommandType.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="24bb42ed-b0d7-434a-8693-90fff8234f16"
+                  name="Command"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="702a1872-1df5-4a6d-bf2e-a6534f897f79"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="d79e0d63-9760-4196-99a0-b487e3f50004"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="cdb26c08-51c1-4e21-a835-19dacee70e6d"
+                  name="Type"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="946f4019-360d-4863-88e9-c179ad56e8e1"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="4ffcb43c-b412-4a73-8c73-d1c975d6ab92"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="1320eb06-f21f-4d1e-9733-3344379d36f3"
+            name="Type"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="65ac147d-3dfc-4fa7-9d99-bd4b31ccaced"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DCommand Member%3DType"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="974b85c3-4e99-4f2c-aee0-73ac4cb252ea"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="10c96caa-2ab4-45fa-9754-1977c766ec8c">
+                    <propertyInstance
+                      Id="f9e6c3ee-a1e0-4b51-b610-f59bd38beed8"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a0d7acc8-8d4e-427c-85dd-b874cf634de8">
+                    <propertyInstance
+                      Id="4f62bd8a-038a-4263-9e8d-77e78d94a4f9"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="990a2ae2-3371-4ca6-88c3-a8a2c4641ad0">
+                    <propertyInstance
+                      Id="57411f82-b9e9-4d34-9b2c-ef57beebcfc3"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9eedd33a-cd0a-4dd5-b06c-f7e809e7035a">
+                    <propertyInstance
+                      Id="49728897-2a52-4fdb-a465-5f064ac589fe"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="44cc3a88-dc40-41cd-b181-71ede4804e0c">
+                    <propertyInstance
+                      Id="ef92f31b-898e-4a2d-bc12-e5a2b5e2b58f"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cc79bb63-5f0c-49e3-8410-a23e1545985c">
+                    <propertyInstance
+                      Id="1315b033-2183-4789-b251-72a2d9709a1e"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="696112e7-4242-41ca-bf22-da7b9e2117d4">
+                    <propertyInstance
+                      Id="720753af-961d-42af-8435-72d5ec16f37a"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <enumerationMoniker
+                Id="fd426988-9d20-4fc9-bbf1-8ea3d10fe79c"
+                LastKnownName="CommandType"
+                LastKnownLocation="Package19_1656.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="a9187e67-ff05-4b3f-a650-86fc77b228f7"
+            name="Check"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="1b4f9c29-700a-49b2-8fb4-6d3a2e7e572d"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DCommand Member%3D(Name%3DCheck OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="ad923e09-1f6a-440a-a468-332bb94e3614"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="55aae9aa-1e59-44cb-91c0-a091e9258b80">
+                    <propertyInstance
+                      Id="361a6c74-bb42-4d0a-9748-dbd7c25cb980"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d84125fb-8694-46e9-a247-dcffcbfa675b">
+                    <propertyInstance
+                      Id="63024f63-3d47-45ef-8601-3f1388667fbc"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="85ff736f-81ad-4372-b829-1ca34aa3401d">
+                    <propertyInstance
+                      Id="3ad654d8-4c67-48aa-997c-44f6ed6b9311"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bba902ba-d3c3-4a29-b6d6-5ea946fae939">
+                    <propertyInstance
+                      Id="fb4ef1dc-4799-429c-98c4-50b1c75a1a3b"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="330b0cc5-35b1-4ba0-9279-5f732c0c82f9">
+                    <propertyInstance
+                      Id="4932c7ee-c51c-4007-abf7-cb6a452147c9"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="26c939a5-a754-4a18-9597-fb57324b834c">
+                    <propertyInstance
+                      Id="112ff309-8e0e-4c8f-a70b-dffdcc90d253"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="319be9fd-566d-4afc-a558-1da220f8cdda"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="WebCMDModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="011d286b-7848-4d4b-9183-db576afd1cbe"
+                  name="command"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="b0ed0ff6-c3e7-4c90-b931-237519e55767"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DCommand Member%3D(Name%3DCheck OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dcommand"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="WebCMDModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="a995db3c-0f73-406e-b3b4-dd69eb526057"
+            name="CheckServerCommand"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="11f29e2c-7817-4e88-98ea-b2cc2cb21748"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DCommand Member%3D(Name%3DCheckServerCommand OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="7a1da767-555d-498c-9576-caef05a666bc"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="27fcf25c-89e3-4dc7-ad41-479f9b737292">
+                    <propertyInstance
+                      Id="59449e71-2278-4c01-a905-ecdd89113381"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="56b9828a-d6cf-4bcc-ba45-415dd55072bd">
+                    <propertyInstance
+                      Id="d83bf84f-2128-4f47-99d8-e5fcd0bcb481"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1ccfb9d5-def8-4361-819e-ff73ef1ab246">
+                    <propertyInstance
+                      Id="0eb03149-7e46-48f5-8516-6b3e8b272038"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="93323578-f0e6-4801-8bf3-1a2c222734f1">
+                    <propertyInstance
+                      Id="035ce00c-a17e-4fab-9eed-e24b1ab794d7"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="db39de0e-8204-445b-ab67-ebe2feb134f4">
+                    <propertyInstance
+                      Id="d8e8d315-9d73-46a9-a0fd-9e662c0cb75c"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e249d964-d22d-4c65-90c7-943dab30159e">
+                    <propertyInstance
+                      Id="c1b9fdfa-e0b4-44ce-841c-7940f2f41ddc"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9742745f-e2bb-4f00-a56d-6bbdd793027c"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="WebCMDModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3f41e603-55a1-4a5b-be32-80d3a982c7c6"
+                  name="command"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="e34efcbf-242d-4a6d-a5fa-6080b72a09de"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DCommand Member%3D(Name%3DCheckServerCommand OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dcommand"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="WebCMDModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="b483b719-ba86-4c94-b991-cbf202643f98"
+            name="CheckClientCommand"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="46d1d6a4-0647-4209-90c7-bc55b5719520"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DCommand Member%3D(Name%3DCheckClientCommand OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="7f4461ce-a6dd-4c5d-b4fd-a1e0e16ae81b"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8c7424ab-1722-418d-805d-e5b37cf638be">
+                    <propertyInstance
+                      Id="e80b239e-1f6d-4906-a79a-a27eba7ac753"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="84df4bd4-bf38-4468-a7a5-9711f052cacd">
+                    <propertyInstance
+                      Id="028de18a-381f-4172-b0f2-06e109550a1d"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="17d733ad-91fb-4a8c-bb90-288ff0d0dbf4">
+                    <propertyInstance
+                      Id="12234071-7f34-4c76-a9f2-e2caa085bf09"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="afce0fc6-e3c7-4097-baf2-2de209ee8d40">
+                    <propertyInstance
+                      Id="52c9ec2c-d25c-4f62-9996-6c56b2edec14"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6538e48b-aea1-4312-a608-9ebaa362b53d">
+                    <propertyInstance
+                      Id="b7c3b855-7824-476f-9158-aa213cff3516"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a1a1d2d2-507b-4d00-a384-00a0271b8bf2">
+                    <propertyInstance
+                      Id="64b06c46-bec4-43d5-818e-fc97e057ac23"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="635ea401-c08c-4f7e-a67b-3d7ef3a13ccf"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="WebCMDModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c0595fb6-13a1-48e4-9846-d9a8d61828f7"
+                  name="command"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="4bf6b725-d527-40db-87ff-4d883c760a55"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DCommand Member%3D(Name%3DCheckClientCommand OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dcommand"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="WebCMDModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="6a96299b-e461-4a7a-b371-ea11fbe83b07"
+            name="Command"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="c9cf40e6-0047-4c32-bc87-2f0d3bfcb8fd"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DCommand Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="8725bf54-6ea8-453f-9113-a5cd5b67a6f7"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c092214c-f5af-4598-a92c-24ada41a3b75">
+                    <propertyInstance
+                      Id="05f15ede-091d-42f6-a84a-e5e5b1165002"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="17087a5a-e6cd-4d06-b4cf-2543f3b96a8e">
+                    <propertyInstance
+                      Id="1e9721cd-504c-43aa-8d03-8338de6bf615"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0495ed78-e321-4320-8b1c-7201f25701f1">
+                    <propertyInstance
+                      Id="8a0a630c-2889-40b7-8987-996ea1a81cd7"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="283f000d-e747-43e4-9103-82fe121bc505">
+                    <propertyInstance
+                      Id="31d15caf-d79a-4c31-af57-b6c4db0ae0ae"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2be0bfc9-2514-4151-a32e-64bbd84a0435">
+                    <propertyInstance
+                      Id="ffad15a6-a4d1-4c7e-bf88-0ec671fc51a9"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1b2b0674-1f27-4fd7-abda-8c78954df8d2">
+                    <propertyInstance
+                      Id="82391d67-16c4-482a-8662-a53f78d3d1e2"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="90dae225-6b73-4c6b-ae31-ddbf014b33d3"
+        name="CommandAlreadyRegisteredException"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="14ecf1c5-fb27-4380-bc15-bc96dfe43ace"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DCommandAlreadyRegisteredException"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="1a4e0785-42f9-480f-8823-fc446643bc2b"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d195875c-ecc1-4ba9-b913-0f59a4079e6b">
+                <propertyInstance
+                  Id="3d57e4e0-945f-4dd5-9452-a4007bbc860c"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ab4b5000-117d-4945-810e-f4f5c5d4393e">
+                <propertyInstance
+                  Id="dbfb0e05-bb5a-4acb-bff7-5595ac03320d"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="36a24b1a-15ab-498d-b49a-1967391ea6ab">
+                <propertyInstance
+                  Id="467eb3b7-aeb4-4aa4-886c-2b397341eb65"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="78a7c957-655d-4177-8d20-eb2807d55dcd">
+                <propertyInstance
+                  Id="4b5cf202-0dce-4fd4-8718-09b55c031dba"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="61d8c610-4e47-4cca-a02b-449f493902de">
+                <propertyInstance
+                  Id="1ea349fa-8e56-480b-a7e0-f6359bf2d01e"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="d5816afc-2762-417e-8079-488f02612c30"
+            isSubstitutable="false">
+            <classMoniker
+              Id="584a291b-b01d-41e0-897d-d025b882856e"
+              LastKnownName="Exception"
+              LastKnownLocation="Package2_1656.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="685b2a0d-57b1-4cb7-b437-25ea9d5d1f3b"
+            name="CommandAlreadyRegisteredException"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="87a16374-2dd2-43e6-a6b1-55ec54f8aae6"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DCommandAlreadyRegisteredException Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="ad593cf7-8ea7-4072-a641-3b1d6fa3bed2"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a1fc68ad-8dda-4a51-ac50-c468f156cb72">
+                    <propertyInstance
+                      Id="c8e22028-62c3-4f85-b65a-2d9708f56fab"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a2e2175a-5d9b-48c2-9914-efef7571b7fb">
+                    <propertyInstance
+                      Id="0b06d2b9-3bc5-44d7-87b8-a039f90e3bc2"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6aff63b6-fd06-465d-b764-82acf0edfc97">
+                    <propertyInstance
+                      Id="d0ac55b0-2aec-42b0-b37c-bec9dfe141c9"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="21e0db78-139d-42ce-92ce-9909b104c77f">
+                    <propertyInstance
+                      Id="abd31781-2ee9-4483-b8d5-83d526eba49b"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="94f6fb35-fe2f-46f3-8c4d-f0e308465858">
+                    <propertyInstance
+                      Id="4fcc09df-2761-42dd-8607-29e660219956"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5d2e06c7-abcc-4e43-b1e2-7e5b334ec574">
+                    <propertyInstance
+                      Id="f3123c24-55f8-4692-8afd-a37ba018e6de"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c4564474-fcfb-44f1-83e0-bc8853a02d5a"
+                  name="message"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="1556a392-0b95-443e-ac33-bba47506f942"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DCommandAlreadyRegisteredException Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dmessage"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="WebCMDModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="20e996e9-7901-4cce-a390-143f0131443e"
+        name="CommandHandler"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="a406366e-1a67-4d49-b3e9-0997b1131233"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DCommandHandler"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="c2eda9bd-6f16-4053-bb49-03a86d294c45"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7dbd32e7-5831-4a85-85a9-8587e017dcc8">
+                <propertyInstance
+                  Id="519f042b-95e4-4f93-aa26-95eca8e98333"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e706ffe1-462e-48cb-b556-a3c2bfd76d79">
+                <propertyInstance
+                  Id="b63cbd2a-ab0c-445f-ab17-81e8564c91fa"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="44cb1eff-0f84-4885-87c2-b9dabffc5543">
+                <propertyInstance
+                  Id="7ad824fb-17d8-4a77-87fe-fe9aac564f4b"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1cc81ce7-714b-4737-96dd-86062ad07d42">
+                <propertyInstance
+                  Id="68e6fffd-d5cb-4c69-93f1-f03ba4266113"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="507e6465-4662-44bb-8632-bedd55b92bdc">
+                <propertyInstance
+                  Id="626dfd02-965e-4b9f-802a-0b15b0f8add4"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <targetEnds>
+          <association
+            Id="2f1d270b-3fc9-4c2c-b99e-1e2cbf1b960b"
+            isDerived="false"
+            sourceEndRoleName="CommandHandler"
+            targetEndRoleName="CommandList"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="77ad14f9-1a9b-4bb1-85de-dec6ed699c50"
+              LastKnownName="Command"
+              LastKnownLocation="Package19_1656.uml" />
+            <description>Eigenschaft CommandList Verweistyp Command.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="823703c4-4089-49e3-8e4d-35cde1baf8ca"
+                  name="CommandHandler"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="4b42cf9e-4a82-4b1a-a93c-fbad3cb5739d"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="1148697b-acdb-4f81-a882-b69abd9367d2"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="18b79a30-6957-4008-ac1d-725a2fd38812"
+                  name="CommandList"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isOrdered="true"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="4e18ab67-aa5b-4fa0-9551-df465441e5c1"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="d4356599-b426-48fc-a259-60daa3bb9f33"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="35c3dbda-9845-48fb-bae9-2500c86fee3a"
+            name="CommandList"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="true"
+            isOrdered="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="d3b9a04a-fae3-4e04-ad05-0b0ad9de520d"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DCommandHandler Member%3DCommandList"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="0ed42f03-aedd-4bc9-9c8e-ce3a0778bb84"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="09f4fdd9-b276-4ecc-bac8-acb551bbecc9">
+                    <propertyInstance
+                      Id="87c32458-f629-48c2-9ee7-80543195ad56"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2855fc54-8a53-4efc-87f6-dd2ec626794c">
+                    <propertyInstance
+                      Id="2df1878f-ebd7-4304-b791-f018d69485ad"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fcde1929-55a7-4627-8a6d-666c3f92269e">
+                    <propertyInstance
+                      Id="0d63afaa-3a6f-4e68-b366-90175c68991f"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a8b10eaa-19d2-4352-b80a-84c6870df263">
+                    <propertyInstance
+                      Id="0a3e875d-7524-42e7-848b-db7e58181fb8"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9bd2bb94-dd87-433f-99cd-fef9a48aa0fd">
+                    <propertyInstance
+                      Id="670b440d-af18-408d-a3dc-3151c4e49651"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7302d268-3310-4d65-8328-76539350e806">
+                    <propertyInstance
+                      Id="581dd913-5093-4586-888d-df039cddfc90"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0ef552e1-b8dd-4240-a55d-8969c6b3c67a">
+                    <propertyInstance
+                      Id="09520aa2-6da8-478c-9a2a-a01e892591db"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <lowerValueInternal>
+              <literalString
+                Id="8c3177da-b427-466c-abe3-28a8c327a271"
+                name="Lower"
+                value="*" />
+            </lowerValueInternal>
+            <upperValueInternal>
+              <literalString
+                Id="41e662e4-4582-4d5e-a937-66a2e3600b0d"
+                name="Upper"
+                value="*" />
+            </upperValueInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="77ad14f9-1a9b-4bb1-85de-dec6ed699c50"
+                LastKnownName="Command"
+                LastKnownLocation="Package19_1656.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="a7678ac9-d995-4569-a09b-cbc41a6a1633"
+            name="_HTMLTemplate_CMDError"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="14d06989-e768-4122-a024-0ccb4e3e3733"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DCommandHandler Member%3D_HTMLTemplate_CMDError"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="daef43b3-dd8c-47bc-b376-d0b528207f9e"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d095ac04-138c-40ac-9839-eed58f4c3515">
+                    <propertyInstance
+                      Id="481555c3-7828-44b9-9d9a-e3e53d6a96ca"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8a235295-a8a0-45b3-a873-341d391a8ae5">
+                    <propertyInstance
+                      Id="5285e8d9-52d3-41a4-9693-31413983e253"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5368abb0-13d7-496a-8072-cabe6df8cf0d">
+                    <propertyInstance
+                      Id="3902af4f-736b-4273-825f-d1bd51ca16a4"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fa311edb-57e5-4d4f-9d66-2e8cf0ea7fd8">
+                    <propertyInstance
+                      Id="848cc917-2d14-4d5e-a1c9-7bcc16c08225"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7f35e008-4c9b-48da-a730-31c5ea577575">
+                    <propertyInstance
+                      Id="79a47644-0118-4e55-9db6-18df9107fe4f"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="WebCMDModel.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="62af4f46-0a99-4134-82b0-74590fe4cdc7"
+            name="_HTMLTemplate_ServerMessage"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="d4d90076-0dcb-430c-ad02-87b73eaf1a50"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DCommandHandler Member%3D_HTMLTemplate_ServerMessage"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="0ddc0658-2889-44ac-b9d7-58430b6035b7"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e2d145f8-e8ce-489d-8fee-2136f31fccc3">
+                    <propertyInstance
+                      Id="7596a2af-3e50-4644-a4a0-0b231b604f6d"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7dbf5741-889a-48a2-b449-d398cd8ce013">
+                    <propertyInstance
+                      Id="49940b06-410f-4d4d-af3a-c5f649ced113"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="58d67bf6-bf63-41c3-b5c1-b3f5abecb928">
+                    <propertyInstance
+                      Id="5c5abf41-27a7-4ff3-ab87-40d5fe74e750"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="35ac9fb5-214f-49af-8e93-8e29b3a0b403">
+                    <propertyInstance
+                      Id="ae62b16f-3899-4963-83a6-dd1271900b3b"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="04147561-b54e-4aef-b739-7c6c236ba4b4">
+                    <propertyInstance
+                      Id="32ae1b68-8e85-47d9-b65f-c60164764288"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="WebCMDModel.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="5c7642cc-e4df-49de-a3ef-0251483dbf45"
+            name="cmdlist"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="true"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="8df554a7-97a7-4cc8-8711-06782569cde9"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DCommandHandler Member%3Dcmdlist"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="a63e0d0b-fe3a-4973-b72f-555d163201e1"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="61313289-312f-4992-9e4c-dece61b6b00f">
+                    <propertyInstance
+                      Id="78ea660e-7ea2-433b-ba31-e304d67006da"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ee86c34e-6020-4021-a046-1a10f20dac9a">
+                    <propertyInstance
+                      Id="3b0abbee-914e-4f4f-a715-a967051d8eb6"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f8f42890-da1c-41f9-8459-e9d3519b9ee8">
+                    <propertyInstance
+                      Id="fdf1f2ef-e29b-411d-841c-0219d5639b15"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="eade5d05-03b2-4ebd-914f-21721cfcbb58">
+                    <propertyInstance
+                      Id="8b2527e8-a4ee-4ee3-a2d1-9b4d485480de"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="29bef4bc-2443-4195-9133-1c0d273d959a">
+                    <propertyInstance
+                      Id="6deaa7cc-66bd-48df-beab-1a4badaba9e0"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="85c6d0ae-d1eb-4239-86b8-ab1c295889ec"
+                LastKnownName="List&lt;Command‎&gt;"
+                LastKnownLocation="Package5_1656.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="94b7878a-e240-49f9-956f-5356a304b536"
+            name="Register"
+            visibility="Package"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="c28a8e55-b33d-4c7d-90fb-cd0f32b50eaa"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DCommandHandler Member%3D(Name%3DRegister OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DCommand)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="9c9dc4a6-ff87-4316-a759-654588a78bb0"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="223de681-7723-4943-a6aa-5b8971d5cad7">
+                    <propertyInstance
+                      Id="68fe7efb-2777-49e8-a9f3-9016f32a7429"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b7a558e1-7129-4e39-9d51-b27ce489e9a0">
+                    <propertyInstance
+                      Id="f01c0f7a-c6cf-40a0-a655-7b737c2a6afd"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ae9f977d-b8ea-4d06-b9c1-92161b84c134">
+                    <propertyInstance
+                      Id="f3ae236c-c61c-4818-ac6f-ee89671d1999"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f9d52470-3267-4312-8377-e08f9813d6b1">
+                    <propertyInstance
+                      Id="7c2f445e-b8f7-4e42-95c1-579c3de22258"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="565bb853-584b-4e6d-9a09-b5ae4605edd1">
+                    <propertyInstance
+                      Id="deb3bc37-a940-4cad-b03e-2b359294c269"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="aa45e389-ac46-4301-8056-f52a73dae6ca">
+                    <propertyInstance
+                      Id="2c02d5f0-c638-471a-a000-d6b30c5ed564"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f9634247-2c3a-4969-91fc-f09ec10d9e2d"
+                  name="cmd"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="ca1e75db-6f97-4297-a083-1e5283e566c7"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DCommandHandler Member%3D(Name%3DRegister OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DCommand)]) ParameterIdentifier%3Dcmd"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="77ad14f9-1a9b-4bb1-85de-dec6ed699c50"
+                      LastKnownName="Command"
+                      LastKnownLocation="Package19_1656.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="286d19ea-a8ff-4b24-b16c-83715a2ff3eb"
+            name="ProcessCommand"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="da8278da-d621-48f5-927a-bdc003f3bc3d"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DCommandHandler Member%3D(Name%3DProcessCommand OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.IO%2Fbin%2FRelease%2FWebCMD.Net.dll&quot; Namespace%3DWebCMD.Net.Event Type%3DCommandEvent)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="28deed28-00c0-4f50-8ba0-30a8b0f11b4a"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ef53810e-800b-4918-aa53-137a5e25bfaa">
+                    <propertyInstance
+                      Id="8dc71066-53fa-4817-a14d-007b79c7ea77"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="01582fab-6cfd-406b-a35c-ccd4792d4f3c">
+                    <propertyInstance
+                      Id="e70e4879-7dc3-4ed1-846a-885d46c14d2e"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fbd0fe98-da68-448d-aedb-b2df50bebbb5">
+                    <propertyInstance
+                      Id="4aa881c1-69ac-457c-9d14-89317e74f38e"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="798d4011-a4fd-410f-8022-5f4be6eadd8f">
+                    <propertyInstance
+                      Id="f42bcf30-a9d5-4a56-800d-e43388fc86b6"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9f54c369-fdd3-457c-afe4-f21adf088e11">
+                    <propertyInstance
+                      Id="0d121f2b-2d37-4930-bbae-5d96c0299000"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3cce57a2-39d7-4748-9769-518236803566">
+                    <propertyInstance
+                      Id="9fe3e445-8580-4a71-81c8-40505431c9de"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="74709d48-1f86-4442-ad95-124863384930"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="WebCMDModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a86a76cc-07e2-4b46-a7d6-aeeab6b38d91"
+                  name="e"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="29e449ff-a2c0-49ca-9df4-233e1bd8325f"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DCommandHandler Member%3D(Name%3DProcessCommand OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.IO%2Fbin%2FRelease%2FWebCMD.Net.dll&quot; Namespace%3DWebCMD.Net.Event Type%3DCommandEvent)]) ParameterIdentifier%3De"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="ac2e781b-1435-43b4-a673-68888061534f"
+                      LastKnownName="CommandEvent"
+                      LastKnownLocation="Package3_1656.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="fc92e202-cebc-42a1-be4f-4615bc96a8a5"
+            name="Exists"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="ff3ba8b5-d169-4b5d-b5ef-e7e564ff6e9b"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DCommandHandler Member%3D(Name%3DExists OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DCommand)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="63856384-d4a9-4c90-9a92-5712dc91d517"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4844de85-283f-46fc-b758-600f53a59ae7">
+                    <propertyInstance
+                      Id="f7f0f9f4-0b60-44dc-acd7-947ebf904b35"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cf69d139-6328-4f25-9980-381bd4e23214">
+                    <propertyInstance
+                      Id="81a1d597-740c-4380-aee8-925d84468830"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="71451ea4-72de-4a9c-a079-4fd41f329070">
+                    <propertyInstance
+                      Id="5e333bbd-8fd9-485b-80d1-71d0002aa4f3"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ecc4eb06-dbbe-42d1-a4e4-35baf2c8587c">
+                    <propertyInstance
+                      Id="abb83078-51c6-45b3-813a-9af0968dc36d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="518b9510-0eb6-48cc-a4f0-fef6e7061b9c">
+                    <propertyInstance
+                      Id="fe0f0a80-5a43-4cb6-bd40-748784312bf8"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f16dfe6a-5a9e-4321-9689-0c97f70f55aa">
+                    <propertyInstance
+                      Id="9e0b8dee-8387-4c09-b417-a74348189150"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="728ad6f2-037d-4ec1-9fea-7e6b1f8cbf83"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="WebCMDModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e745e818-8f56-4b7f-abde-6b40bef9cd50"
+                  name="cmd"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="3ed395ee-58a9-40cc-87ad-68c22c078e61"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DCommandHandler Member%3D(Name%3DExists OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DCommand)]) ParameterIdentifier%3Dcmd"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="77ad14f9-1a9b-4bb1-85de-dec6ed699c50"
+                      LastKnownName="Command"
+                      LastKnownLocation="Package19_1656.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="415a4f7a-e835-4ac0-ab43-dd8816e3a8a2"
+            name="printUnknowCommandError"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="1c1058e5-4371-4d4f-9ef6-0c953787e70e"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DCommandHandler Member%3D(Name%3DprintUnknowCommandError OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.IO%2Fbin%2FRelease%2FWebCMD.Net.dll&quot; Namespace%3DWebCMD.Net.Event Type%3DCommandEvent)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="9b7526dd-3c36-44c2-81c8-dca36a8371b4"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cebace2e-c763-40a9-b482-7ad42ec17501">
+                    <propertyInstance
+                      Id="86f638ed-6e0b-40bf-abcf-c7c2b74e0bfa"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d3382636-9e12-4367-81c4-66f08c1c1aed">
+                    <propertyInstance
+                      Id="5a19e5a7-1d4f-4027-8c94-3e9445f437fc"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0bcc2ab5-8bfd-4181-a71a-97c2bce0809a">
+                    <propertyInstance
+                      Id="62ebfb40-5843-4cc9-8a54-9ebe70c9a2ca"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5e3adb7f-e1d6-45d8-bdbb-4561c344f75d">
+                    <propertyInstance
+                      Id="862bc87b-efea-48f4-bcc1-46f7d587b6d4"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="90506432-e145-4cd9-9d8b-f502990fdc94">
+                    <propertyInstance
+                      Id="0eebfe45-984b-4b45-9fe6-6adb8b8d4528"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="28737fc4-5c6e-43b3-b86f-7f1d4dd954d9">
+                    <propertyInstance
+                      Id="36c7cff3-758c-4e01-996f-744c3e8443b6"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="26f9e4ab-8f26-4c20-8b07-b2c108990428"
+                  name="e"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="4a3e3bd4-e96c-46a2-908e-8abe50b8658b"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DCommandHandler Member%3D(Name%3DprintUnknowCommandError OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.IO%2Fbin%2FRelease%2FWebCMD.Net.dll&quot; Namespace%3DWebCMD.Net.Event Type%3DCommandEvent)]) ParameterIdentifier%3De"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="ac2e781b-1435-43b4-a673-68888061534f"
+                      LastKnownName="CommandEvent"
+                      LastKnownLocation="Package3_1656.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="9908eb48-071c-4282-bfcd-3c5361265742"
+            name="CommandHandler"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="a2848a76-4488-417b-bc44-15313976d109"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DCommandHandler Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="37ee6f33-3bc8-48c9-8b4b-08bd31125ab2"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cb160cc6-f76a-46e6-907b-3a39d080e6ac">
+                    <propertyInstance
+                      Id="c2bba953-45a9-40fa-8019-09f52eaf142e"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0177cf53-314c-4f2f-a191-7349414494b6">
+                    <propertyInstance
+                      Id="232b0858-3506-4808-98b6-dbf3a002f530"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="23a8f427-f547-4c62-91d1-86ecfa187bc4">
+                    <propertyInstance
+                      Id="6de2e4c7-00f1-4b79-8863-902de55a1ae0"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5951696a-84e0-45ff-8b58-a77ef64b7378">
+                    <propertyInstance
+                      Id="f9b8ab64-0eaa-4330-abf3-94b33b084773"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bd47b36f-0c77-4eb0-891c-3018072ad706">
+                    <propertyInstance
+                      Id="5f10b687-7519-4550-8c06-c4797bf2bb31"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="743b5fb5-87cb-49fa-b936-df9ab9888728">
+                    <propertyInstance
+                      Id="b9af7d38-c5f9-49cd-9288-716d7a208acd"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="47438d3a-f616-40a2-af4b-0c13406903f8"
+        name="InvalidParameterException"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="a45011ed-68be-487d-a586-507a77ccade3"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DInvalidParameterException"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="a5f9d141-c3ae-43cb-ac2c-66826641ed40"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b7117dba-0eed-4280-91b5-09c33d035d29">
+                <propertyInstance
+                  Id="654a01f9-ac69-4a5c-bf0f-d444a9dba1d5"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="2d4109ac-51ae-4b50-bc21-312ebcb272bd">
+                <propertyInstance
+                  Id="0201a593-bb9c-4b9b-a2f9-e57a17c5b830"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bd7a93d5-5d64-4144-a2d0-48961287cdf8">
+                <propertyInstance
+                  Id="1225fa3e-0c7e-46f6-9f4a-894d296f127d"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="cbefd9ce-b608-40df-b75a-7165eb70e234">
+                <propertyInstance
+                  Id="cb05641d-c2ca-4c57-a60b-61c99c7e2bc5"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5564f711-f58c-4d9d-8947-a89518c4a67c">
+                <propertyInstance
+                  Id="df5a50aa-0a5e-4fef-8a7e-b9bf3caa44db"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="65c7241e-4083-4eab-8a00-614f265f9aa7"
+            isSubstitutable="false">
+            <classMoniker
+              Id="584a291b-b01d-41e0-897d-d025b882856e"
+              LastKnownName="Exception"
+              LastKnownLocation="Package2_1656.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="a1d8cac1-7678-4807-9f21-3a3b6bd517ac"
+            name="InvalidParameterException"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="07d40614-d2e3-4604-b7dc-5a554f01eb3c"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DInvalidParameterException Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="ecd6106e-c444-46fa-b886-2b7594fd07a7"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="83660360-4b44-41b2-8699-a131e4e8da44">
+                    <propertyInstance
+                      Id="0d6f24ef-756e-43d1-9f8b-e2ca014f6239"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="88e4bdc8-07e5-418d-911e-d724e53e57ef">
+                    <propertyInstance
+                      Id="d3966790-bc06-430e-839b-38f956ef2ccc"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="606a5afd-e372-46ee-902c-f3f1d650b9a8">
+                    <propertyInstance
+                      Id="7bdfecc1-bc94-47a1-9dcf-3feebd739cf5"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5e9abb33-2444-4f8b-bac0-e3f6b9cea43a">
+                    <propertyInstance
+                      Id="2b08d558-a161-4e53-81c3-586e9cad0794"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="469430bf-57ba-404f-9f1d-528be468d249">
+                    <propertyInstance
+                      Id="7453a59a-4697-4f4d-8238-e99722baf052"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0b9b0f5d-7fe8-40f0-8aa1-b8a91259cae2">
+                    <propertyInstance
+                      Id="3e71f660-46aa-43a7-8b90-87d066ad42ff"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9f5f1dcf-acfd-4b62-aa1a-fb6d8eee936b"
+                  name="message"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="74b3129d-42bb-4f68-98f1-6f50468408db"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DInvalidParameterException Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dmessage"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="WebCMDModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="4b3422e2-9869-4d4e-ba32-7af61a41bc36"
+        name="ServerCommand"
+        isAbstract="true"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="d0ea725a-9d87-4000-94a1-85d85730d629"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DServerCommand"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="ec3ba9a4-d00b-4ba8-9dfa-3a8686c9ddef"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="87e10704-4597-4702-a7fb-e1c8e32807fb">
+                <propertyInstance
+                  Id="3e11e85c-2625-48b4-9de0-648323bdb8e4"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8b363bf0-9354-4d32-96dd-1c922eebb9f1">
+                <propertyInstance
+                  Id="1c55c029-7d61-400b-84cd-ac7467202ece"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b26d387d-77b7-4574-a0ec-ce02bf794cd7">
+                <propertyInstance
+                  Id="f82c4ea3-cf66-44f9-acb7-57547fa9ba74"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="93719c03-4270-42c5-9e5f-f583bccce010">
+                <propertyInstance
+                  Id="c87f04ab-c9c4-4c9a-b03d-6ad19f012cb5"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="2a79b4cd-cd52-4158-87b4-ea4e841a716b">
+                <propertyInstance
+                  Id="ae153d1b-f82b-4860-90d9-cb8394a7e475"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="ceb8a173-d379-48bd-ba92-fc755ebf1b33"
+            isSubstitutable="false">
+            <classMoniker
+              Id="77ad14f9-1a9b-4bb1-85de-dec6ed699c50"
+              LastKnownName="Command"
+              LastKnownLocation="Package19_1656.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="9deb73eb-9a81-4e78-aa54-0dcaaa3e0c31"
+            isDerived="false"
+            sourceEndRoleName="ServerCommand"
+            targetEndRoleName="Thread"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="81b409cb-f01b-45fa-b086-2c57b9d97216"
+              LastKnownName="Thread"
+              LastKnownLocation="Package20_1656.uml" />
+            <description>Eigenschaft Thread Verweistyp Thread.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="aea4d7d1-5742-4ca1-9bef-1e1ee8eadd7f"
+                  name="ServerCommand"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="fa123904-7b6a-410f-977e-19206301770c"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="a8503afd-e895-43e9-bf0f-a5f9687ec87e"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e3f61802-1973-48aa-9de1-0119a840fa18"
+                  name="Thread"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="484e4cb4-a9ed-4e1b-ad5a-693a7467f519"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="84b4ad6f-4075-4c6e-b219-9d23074c2a33"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="1e1af2a4-82c0-4d0a-afb7-068a29a2f6df"
+            isDerived="false"
+            sourceEndRoleName="ServerCommand"
+            targetEndRoleName="EventData"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="ac2e781b-1435-43b4-a673-68888061534f"
+              LastKnownName="CommandEvent"
+              LastKnownLocation="Package3_1656.uml" />
+            <description>Eigenschaft EventData Verweistyp CommandEvent.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8774539f-d206-429f-b8b2-5cbf5799945f"
+                  name="ServerCommand"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="ebc7e8db-1d6b-49d2-b26d-40b90042b241"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="52689b1c-2e93-47e5-ad48-fa65ff30f6aa"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5111d368-de4b-4d42-a05d-b14b9aa2ae95"
+                  name="EventData"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="ed2725d4-a880-4b53-93a2-83e42bac231e"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="0cd5a967-a206-4c74-9cfa-1b0bfeb130cc"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="187c5ea0-d395-47e2-a5c1-0130c9d01d66"
+            name="Label"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="3c0ab388-a90b-4e4a-8caa-0fd7f6cd54bf"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DServerCommand Member%3DLabel"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="144904fd-dc64-4085-bb64-4f9d29ab4462"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3739d302-8fd0-43f8-afb2-e12ff352cfd1">
+                    <propertyInstance
+                      Id="466dc2b4-4988-4536-bab2-95dc9b1c5849"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="905c0dfb-3f56-4007-8452-2da297c2b7ef">
+                    <propertyInstance
+                      Id="b5bb0c2c-a8d9-4923-90c4-4136e00a6586"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="48addc52-7ac9-4e82-89e5-3cfb99e325f6">
+                    <propertyInstance
+                      Id="c1a4cc10-2936-47f4-8b4e-93cc9bc52f74"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5504c957-5c7d-40fb-9961-5d4ec9b1820c">
+                    <propertyInstance
+                      Id="39fad8d7-ad37-4e8e-aa2a-4be36ffcd20b"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="48b2d2bc-3d35-41c9-9b20-0d5cab82b2b9">
+                    <propertyInstance
+                      Id="f7250ae1-b33c-4e23-94c1-b32f2eba0184"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="171fdc79-08e3-42fc-a40c-1750f0d444d7">
+                    <propertyInstance
+                      Id="a3512fad-b6b5-42be-9735-d1b754455fca"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b0d65bb6-5159-4cda-b5c7-ed150fe5bdd3">
+                    <propertyInstance
+                      Id="3873b2c2-6697-4185-9888-13292041204c"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="WebCMDModel.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="b50bee62-7e22-423c-a70c-43a05cd35796"
+            name="Aliase"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="true"
+            isOrdered="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="6d28b402-5f04-486c-bbf3-25e44c79de0c"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DServerCommand Member%3DAliase"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="2f0f2e10-1577-4099-b7af-a2a8b98077ef"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3cc10821-aaa3-4de8-b44e-de70f00f12c1">
+                    <propertyInstance
+                      Id="3369aef3-8511-4cf9-91f4-7e1fd870a20f"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fd802ff9-339b-4f16-b7af-aae30038ff1f">
+                    <propertyInstance
+                      Id="8c303d25-3143-43f7-bb36-3dce4c73c300"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c4b9bfca-b515-4e97-afbe-2d351230383f">
+                    <propertyInstance
+                      Id="dd55fd9f-1fba-4bb3-8596-1e256ea08f6b"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="32f4bd44-4e85-485d-8754-8816536ffe66">
+                    <propertyInstance
+                      Id="3e390b0d-90f1-415b-b3b6-a95484aa1e0c"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b5975a55-263c-4b47-b69e-1d680caabe18">
+                    <propertyInstance
+                      Id="b4bdc2e6-0039-4f23-8153-b43b7b92be9d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2e0a92a3-688a-4593-b61c-3b49862315a7">
+                    <propertyInstance
+                      Id="ef47fdef-9fca-4a17-8347-4431ae1b477f"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f9098541-f015-401d-9141-93c4d8fdf92a">
+                    <propertyInstance
+                      Id="5c1d1812-4df2-4d86-bb6c-ef742136c0a6"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <lowerValueInternal>
+              <literalString
+                Id="ea00f0a6-3b0a-4331-89e9-5c7ded9756d3"
+                name="Lower"
+                value="*" />
+            </lowerValueInternal>
+            <upperValueInternal>
+              <literalString
+                Id="6b35c44b-731d-4417-80e8-f3e4acd6d4d4"
+                name="Upper"
+                value="*" />
+            </upperValueInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="WebCMDModel.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="3addee2e-9708-4819-93d4-0c6d5feff7f3"
+            name="Thread"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="18800358-80f9-43e2-ad0c-6c33274e8c74"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DServerCommand Member%3DThread"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="08ea0133-8d3f-4dd5-a046-233b382db987"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="182e0c01-6399-4691-9f76-ee6fe689bdf5">
+                    <propertyInstance
+                      Id="b2be6328-6183-4e5c-a266-cf383bc343c9"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="374c8bb8-d2e4-4e39-9cd6-312ba33847a3">
+                    <propertyInstance
+                      Id="ec1ced81-eee5-4ac1-9f9a-cf1e6dba6e7e"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4f27dabc-6bbd-41b3-9e07-b4d665d879fc">
+                    <propertyInstance
+                      Id="97d1a460-acd7-4376-8fc5-d71cbf88bd16"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ae9d4305-ff61-446b-ba9a-00f96cdb6a4e">
+                    <propertyInstance
+                      Id="88e163b7-9530-4aee-a569-354939038430"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="709a1d56-4eee-4d69-b976-764bc3a1f2fc">
+                    <propertyInstance
+                      Id="823bef0e-e0db-47af-a3ca-ea3d3bf5a119"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d61e34f2-9658-4149-805c-ddfcc8032e4e">
+                    <propertyInstance
+                      Id="39d2b216-314a-4435-9880-937e62515256"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3e032d84-7a04-4acb-8563-6ddd87cc56fd">
+                    <propertyInstance
+                      Id="b71d0786-c913-4510-8e9c-391115b5ab0b"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="81b409cb-f01b-45fa-b086-2c57b9d97216"
+                LastKnownName="Thread"
+                LastKnownLocation="Package20_1656.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="6e289ef2-665c-4648-9e52-c9921ad69936"
+            name="EventData"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="5c79ee19-ef65-4e91-8610-a421ea4ac233"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DServerCommand Member%3DEventData"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="02a4a282-437b-441f-8caf-4c8125a7776b"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="01f7ac1d-4fe9-498f-b784-95d128094569">
+                    <propertyInstance
+                      Id="432a3398-d6d1-40e3-a021-a4d7ec6d2a76"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="466139a1-6fd2-4fac-bb3d-8f1c62d475ae">
+                    <propertyInstance
+                      Id="07c4afb7-db4d-4977-aa32-9cceda05567c"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="43afc5c0-d1a3-45bc-9b52-417811636bf8">
+                    <propertyInstance
+                      Id="697fb431-9da1-4eb6-a8e1-ac8aafc82073"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3175d07e-bed3-4962-a34e-df843a832c85">
+                    <propertyInstance
+                      Id="3e804886-d77b-4dab-bdb0-c3182f0af6d4"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="118786a6-2f55-4f00-9254-831c940154d9">
+                    <propertyInstance
+                      Id="403d488e-b243-4ccf-8c85-7f61b9155f6b"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5156a916-3fa4-43d6-a338-97bb92c0a8ef">
+                    <propertyInstance
+                      Id="436b76db-f859-47df-b83f-8284276f5447"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="829df3d3-8dd0-4ab3-a517-3386f107158b">
+                    <propertyInstance
+                      Id="c3223852-623b-405c-bfc7-4113225ef5e7"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="ac2e781b-1435-43b4-a673-68888061534f"
+                LastKnownName="CommandEvent"
+                LastKnownLocation="Package3_1656.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="536d3e5a-38c0-43b4-b592-f44d943bb7cd"
+            name="Description"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="a0e93c13-3024-4ee3-8a9a-bfd9fc760be7"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DServerCommand Member%3DDescription"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="20017ce7-c441-4e86-bb1d-b33484ce0b99"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="98854dc1-6ba3-4c91-8177-dd32c9855f6b">
+                    <propertyInstance
+                      Id="d2eb20d8-9c8e-46de-9c24-6f2518718ebc"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9200cdb5-5f0c-4540-8e79-692def98ae4e">
+                    <propertyInstance
+                      Id="177f9a2f-cba7-46b2-a121-89045ab983fa"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="89d3190a-f13e-41b9-8d1a-9755d8c3b507">
+                    <propertyInstance
+                      Id="dbdd51a8-8eb3-4e7d-92cc-2d7eb5ea9139"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="910e82ff-c391-4bd8-9dad-ace9c9b2cc05">
+                    <propertyInstance
+                      Id="7f7ea5ad-1c75-4998-9c5d-63432e9ba0e0"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="75edd7b6-4662-47fd-8987-de3c418d162a">
+                    <propertyInstance
+                      Id="c4056a2d-61b4-48e7-b324-8d71707441c3"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="045d33ec-92a3-4c10-9c18-81f851fd0eb1">
+                    <propertyInstance
+                      Id="86723e9f-30d2-4faa-9308-79ee17e93096"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="887726aa-1aca-4acd-b2e3-4195e83812de">
+                    <propertyInstance
+                      Id="ad95328a-9d1c-49e3-a3b2-f7f90c98c1ab"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="WebCMDModel.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="b5b7008a-3aef-4662-b5d3-65d2ad4025e2"
+            name="Usage"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="7a65aac6-7c68-49ee-b28f-46a0ee816037"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DServerCommand Member%3DUsage"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="e2945761-2865-4311-82aa-a4dca08e353f"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="77c6a861-eb2e-4a13-8f6d-729d0422882b">
+                    <propertyInstance
+                      Id="0be84894-d54f-497d-a379-e7ec99e9efa8"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8b7643d4-a8a6-4408-ab05-e1274775def6">
+                    <propertyInstance
+                      Id="0541ccb0-ec21-466a-b53f-7181894efd89"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a90e4b80-e363-47d7-b845-100f7fe5e437">
+                    <propertyInstance
+                      Id="ffb51589-37f9-4ba1-baaf-9878d6131e5e"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2a6148b3-f476-402d-a6bb-c716e9daa5a5">
+                    <propertyInstance
+                      Id="78c097bd-356e-41f5-9a62-539dbd406f9f"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="237ab066-4d30-435a-bd84-c4742f5cd3f6">
+                    <propertyInstance
+                      Id="ad48100f-cf7a-40f5-8228-c7676caa7f5a"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="841c4551-6763-4bf0-90f3-89ed1636b6a6">
+                    <propertyInstance
+                      Id="bb199262-6c57-4aa6-8c58-f6fef854bb69"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ca347202-ed4c-4e2e-8043-ade15d89737e">
+                    <propertyInstance
+                      Id="01a4c347-03c6-4276-8197-caee75fc23a0"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="WebCMDModel.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="c68eb6cf-9ae2-4891-b70d-022688db460a"
+            name="_Aliase"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isOrdered="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="ed45555a-666e-4044-b39b-4d471059ecbd"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DServerCommand Member%3D_Aliase"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="b47b6700-bc50-42ab-b392-ebb2283e0be1"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9e28112c-389b-4a93-8e27-af789d121dd4">
+                    <propertyInstance
+                      Id="6a55a6e0-f8f9-4477-90e7-ece951d32875"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="15e4bc87-91e7-4e7c-ae9e-5ae5c052f93e">
+                    <propertyInstance
+                      Id="f95c6b69-c7c0-45ff-b39d-38e7536416b3"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e9be2119-2b2d-4ec0-a6d1-b2960ef97dea">
+                    <propertyInstance
+                      Id="0eb382c1-93be-492b-a402-056b2595dd43"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="220359c4-f921-4f84-b69f-91c9921b84c4">
+                    <propertyInstance
+                      Id="824c2ffc-82d3-41b5-bcc7-2f5e0bc1bdc1"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="568dc33d-12d6-4521-bd26-6f28475ab55c">
+                    <propertyInstance
+                      Id="a1a857cf-b9e5-437f-b992-8b78032df876"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <lowerValueInternal>
+              <literalString
+                Id="56f2c341-5312-4468-8e9a-bb3aa970d70b"
+                name="Lower"
+                value="*" />
+            </lowerValueInternal>
+            <upperValueInternal>
+              <literalString
+                Id="b83db297-ea3a-4c3b-b397-53cd55a7aaac"
+                name="Upper"
+                value="*" />
+            </upperValueInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="WebCMDModel.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="47a2f9ce-4768-441a-a1e1-1cb8f22e7fc3"
+            name="Execute"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="88a28dfd-670e-4349-80fa-3e42b171fd11"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DServerCommand Member%3D(Name%3DExecute OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.IO%2Fbin%2FRelease%2FWebCMD.Net.dll&quot; Namespace%3DWebCMD.Net.Event Type%3DCommandEvent)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="429f80d1-7d07-42b6-b8c9-a2bd33e644b2"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e66c02b3-f65b-4bf3-a433-27f692d8f5d7">
+                    <propertyInstance
+                      Id="fc519afd-c6b3-476b-92c9-53ad14c93ac8"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0d432857-acdc-417b-8999-85cfc7d51efa">
+                    <propertyInstance
+                      Id="c3864cc1-50fc-4dbf-8a2a-03e371a28085"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1130dbf8-0402-4f79-9c13-5ab1315bb9b7">
+                    <propertyInstance
+                      Id="8fc331bc-232d-4ef5-9557-778426e3f958"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1f73887b-d09f-4f44-89f2-201140e6bb9b">
+                    <propertyInstance
+                      Id="76c1953c-133f-415e-bedb-6606c911fda3"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8ddffc14-d729-4e38-8d52-d0b8974cecbf">
+                    <propertyInstance
+                      Id="f9b93a2b-01df-4a77-8599-df84f312477c"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3b03bf4c-de2a-466d-a811-436fd43d31f5">
+                    <propertyInstance
+                      Id="785fe055-006f-4364-a175-10cc70faad46"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b2f54697-3e2c-45f9-97de-6a529d32bde0"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="WebCMDModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b24cf024-d905-4a6e-807e-3651859c874a"
+                  name="e"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="b13cb5e6-b4fe-4682-ae6b-f26be92dff6a"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DServerCommand Member%3D(Name%3DExecute OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.IO%2Fbin%2FRelease%2FWebCMD.Net.dll&quot; Namespace%3DWebCMD.Net.Event Type%3DCommandEvent)]) ParameterIdentifier%3De"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="ac2e781b-1435-43b4-a673-68888061534f"
+                      LastKnownName="CommandEvent"
+                      LastKnownLocation="Package3_1656.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="925948a3-7b84-4e39-abf4-16d102592f5d"
+            name="SetAliase"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="e0bd075b-ef82-4142-bcd6-28ebdc32cce0"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DServerCommand Member%3D(Name%3DSetAliase OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3D(Name%3DString ArrayRank%3D1 ParentType%3DString))])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="ecb391f7-26d3-4a98-9303-e6cc589181e8"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b839b78e-864d-4da0-bfb5-1e6fe5202e66">
+                    <propertyInstance
+                      Id="ac844f17-2165-42fa-9c10-aa9c3f230dcf"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="07b1e567-31bc-4765-ade2-77a0f9be409a">
+                    <propertyInstance
+                      Id="eb73ca3c-9ff4-40fa-b255-8d1d0b62a272"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="757fc144-b2e1-4044-8b4c-0c093a5f95c2">
+                    <propertyInstance
+                      Id="78b2ae34-ca0c-450b-a6c8-701a7679bc5e"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="09856b87-4482-44cb-822e-6bd341c1f1a7">
+                    <propertyInstance
+                      Id="0903b0ee-c04a-425f-8b82-d56fcfec3224"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e1686695-37e2-4a03-a6a3-3eb5e8057d55">
+                    <propertyInstance
+                      Id="0b33fce1-25f8-4437-b4dd-c59d4ece96ba"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="932c0d52-9b12-47e9-bb9d-286fa11f953a">
+                    <propertyInstance
+                      Id="ef597292-29c7-4da6-90d4-55ddc6d5f37d"
+                      name="params"
+                      value="True" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a244051c-4d23-48cd-a24f-007371704ccc"
+                  name="alias"
+                  direction="In"
+                  isOrdered="true">
+                  <referencesInternal>
+                    <reference
+                      Id="192f2daa-8f32-4ce9-9394-6ad750d57789"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DServerCommand Member%3D(Name%3DSetAliase OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3D(Name%3DString ArrayRank%3D1 ParentType%3DString))]) ParameterIdentifier%3Dalias"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <lowerValueInternal>
+                    <literalString
+                      Id="ff742b21-ae10-421b-8fa0-48e9445632e4"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="7206317c-f424-4cfb-a12b-369b2daad47d"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="WebCMDModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="5c789b77-5044-489e-a50b-447067713060"
+            name="ServerCommand"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="4c625d20-d979-42ff-8f9f-9df3a97f6444"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DServerCommand Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="eab46d13-849c-401b-9b6d-eb427d4c7bfe"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="61ead449-0d17-4515-b292-19902a10424f">
+                    <propertyInstance
+                      Id="8b0a7194-26e2-43e8-8cf2-c769ef9fc4b5"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a9063e0b-3bbf-4b86-976c-7fb4a704889e">
+                    <propertyInstance
+                      Id="9acda32c-8645-4fde-8bbb-50136d2bcb15"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="90d905c2-41ca-461f-a81e-597703ff62cd">
+                    <propertyInstance
+                      Id="8ad693d2-750d-481e-917c-2e3dd0e6435f"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="29939f09-9a95-493a-bec1-8843e6e3e3f0">
+                    <propertyInstance
+                      Id="81b5aa37-3ff6-4965-800f-fc5fe51f49f0"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="98d15a72-bb66-4716-8789-21df282b43cf">
+                    <propertyInstance
+                      Id="37e355c0-1cfd-414c-bc49-06ada9dd1106"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="de9528c6-a95d-4930-abb9-1963aac49232">
+                    <propertyInstance
+                      Id="306082f8-add1-450b-9a8d-fd7cb7ead5c9"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="2c799f08-c5d5-4781-a370-2047281b09dd"
+            name="Register"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="9f6d449c-d419-4dc9-99b0-0e834ee5f3e4"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DServerCommand Member%3DRegister"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="5904ccaf-63c4-44c8-8856-a316d30205b1"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1ddd4ff4-a828-463d-80e5-4dbe1a2e81ad">
+                    <propertyInstance
+                      Id="96aea993-e13b-4dd4-8ebf-f940c4e93e13"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="12a67f39-8e1a-4774-989d-71afc07d60c1">
+                    <propertyInstance
+                      Id="9b7adbcd-8d8c-4eb7-9c71-6128f913d3a1"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fbac9e2e-3008-4193-b1da-053292277760">
+                    <propertyInstance
+                      Id="271a9b66-8a8c-4cd4-ab71-ffcd2f8d392f"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9f74756c-7439-4b1f-8ac5-e43c51da5798">
+                    <propertyInstance
+                      Id="314fe899-c0a9-4fed-ac98-437a4763f85f"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4d9453a1-0600-4322-9e1a-4888215afc6b">
+                    <propertyInstance
+                      Id="20a86a3c-89ed-4e35-8e06-f9913b7ff80f"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7d9f27a8-93ae-48bd-b337-55e8585caf5b">
+                    <propertyInstance
+                      Id="9123355d-eb81-404c-9f7a-d7da98757e73"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="fccf5d47-0d87-4dac-bd6a-c6e44f2129db"
+            name="_Run"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="8842a96f-6d83-42db-91ec-7c076e7d684c"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DServerCommand Member%3D_Run"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="eb9e5dab-fbf3-400e-a136-1b8a471e3146"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6f37be62-057f-4366-bd41-8b3f1342c0c9">
+                    <propertyInstance
+                      Id="87abdd50-76bd-4f4d-b261-c28864a2b81d"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5050bbb9-0c62-4f6e-a39e-031f2665a55d">
+                    <propertyInstance
+                      Id="dea0c842-97a8-4d67-b86e-361805888314"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dbb630a3-9131-47ab-9cc6-f7db9ab45a29">
+                    <propertyInstance
+                      Id="6c9de8a5-f4a3-4471-ac6d-ed1acf399b07"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="208ff09a-0888-4030-a2c1-0e86bc2446e0">
+                    <propertyInstance
+                      Id="a8a30a67-0ae7-403e-adb9-8f7c7f8fec31"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fcedfc72-e355-4059-8c14-73e828cd05d7">
+                    <propertyInstance
+                      Id="5b97209f-22a7-4f1b-b35c-88a083877454"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3e754a71-27e3-495c-acc9-5a1a3a647326">
+                    <propertyInstance
+                      Id="31b67969-6afc-4a0d-870a-cb34c013813f"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="3a4555d0-9b49-47e6-b2e4-2d81201cd584"
+            name="Process"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="addb0386-0a84-4b39-b1b9-76d063f3ce01"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DServerCommand Member%3D(Name%3DProcess OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.IO%2Fbin%2FRelease%2FWebCMD.Net.dll&quot; Namespace%3DWebCMD.Net.Event Type%3DCommandEvent)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="cf127f08-7ff3-4239-83d9-59a470469583"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4eff77e0-95e3-4de4-8caa-3046f2bdba71">
+                    <propertyInstance
+                      Id="0bb53df6-3e2a-45f3-8a68-6a9c4cb3ce7c"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0aaa77d9-ec86-4ce6-a323-cfe1bfb71160">
+                    <propertyInstance
+                      Id="2da4ad01-880b-4c46-85d5-cb24d65829a3"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9bd6be6d-b062-416e-b5fc-10d4bda6655a">
+                    <propertyInstance
+                      Id="259e7352-fbec-437e-8103-046a7af18b19"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="057c2810-1130-4e88-9c65-027913bb064f">
+                    <propertyInstance
+                      Id="a0e8a7d9-098b-438d-92c7-479e0e105415"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d1a039bf-912e-41cb-9e30-6d245c72b654">
+                    <propertyInstance
+                      Id="73a0ff13-73af-478d-ab99-badbd2ef3efd"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="65d74b80-5a09-4f83-9d62-40e6adf6a4e5">
+                    <propertyInstance
+                      Id="466798d2-05aa-4184-8dbf-620f53479f35"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2ef7fc03-139e-49cc-8c0f-ca5b17d4c8ca"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="WebCMDModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="69a75fa6-9dae-403f-84c7-1179a2645365"
+                  name="e"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="611515f1-09ce-4de6-89fa-375debad9409"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.Com%2Fbin%2FRelease%2FWebCMD.Com.dll&quot; Namespace%3DWebCMD.Com Type%3DServerCommand Member%3D(Name%3DProcess OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FUsers%2FMrX13415%2FDocuments%2FVisual Studio 2013%2FProjects%2FWebCMD%2FWebCMD.IO%2Fbin%2FRelease%2FWebCMD.Net.dll&quot; Namespace%3DWebCMD.Net.Event Type%3DCommandEvent)]) ParameterIdentifier%3De"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="ac2e781b-1435-43b4-a673-68888061534f"
+                      LastKnownName="CommandEvent"
+                      LastKnownLocation="Package3_1656.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

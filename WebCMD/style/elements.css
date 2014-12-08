@@ -1,0 +1,55 @@
+﻿
+/* --------------------------------------------------------------------------------
+ *      WebCMD v1.0
+ * --------------------------------------------------------------------------------
+ *
+ *  CSS: elements
+ * 
+ *  CSS elements
+ *
+ *  Version: 1.0
+ *  Copyright: Team Icelane (c) 2014
+ */
+
+.console-output{
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.console-output > div{
+    padding: 0;
+    padding-left: 15px;
+}
+
+.console-output > div + span{
+    padding: 0;
+    padding-left: 15px;
+}
+
+.console-output > span:first-child{
+    padding: 0;
+    padding-left: 15px;
+}
+
+.console-line{
+
+}
+
+.console-inputline{
+	background-color: #0F0F0F;
+    /*border: 2px solid #282828;*/
+}
+
+.cmd-promt{
+    margin-right: 2px;
+}
+
+.cmd-cursor{
+    color: #ff4848;
+    /*border: 1px dotted #ff4848;*/
+    position: absolute;
+}
+
+.cmd-inputstr{
+
+}

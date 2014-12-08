@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="c8eb0230-2595-4bb0-bf62-3832bad1bdb2"
+  name="WebCMD"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="12d5e633-fd0b-453d-9e40-ec7e5780c7bf"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DWebCMD"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="5b882415-ae07-4d1f-bcf8-776014e51d13"
+        LastKnownName="Net"
+        LastKnownLocation="Package1_1656.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="cfa0bb5d-303f-4bb3-9e26-7c866f4e37b5"
+        LastKnownName="Util"
+        LastKnownLocation="Package14_1656.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="44c269b5-a53c-407f-81fb-01e8c0c1d653"
+        LastKnownName="Com"
+        LastKnownLocation="Package19_1656.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="5a609c30-9b53-45fc-89c1-9fbb4ce8decc"
+        LastKnownName="Core"
+        LastKnownLocation="Package21_1656.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

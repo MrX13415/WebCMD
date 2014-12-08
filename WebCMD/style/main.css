@@ -1,0 +1,99 @@
+﻿
+/* --------------------------------------------------------------------------------
+ *      WebCMD v1.0
+ * --------------------------------------------------------------------------------
+ *
+ *  CSS: main
+ * 
+ *  Contains basic page styleing
+ *
+ *  Version: 1.0
+ *  Copyright: Team Icelane (c) 2014
+ *
+
+Fonts:
+
+    font-family: "Century Gothic", CenturyGothic, "Apple Gothic", sans-serif;
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+
+
+*/
+
+body{
+    margin: 0; 
+    padding: 0;
+	border: 0;
+
+    background-color: #1E1E1C;
+    color: #e3e3eb;
+
+    font-family: "Menlo Regular","Lucida Console",Monaco,monospace,Courier New,Fixed;
+    /*"Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;*/
+    font-size: 12px;
+
+    overflow-x: hidden;
+}
+
+#Main{
+    overflow: visible;
+    padding: 0;
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+
+#Footer{
+	font-family: "Century Gothic", CenturyGothic, "Apple Gothic", sans-serif;
+	font-size: 15pt;
+	text-align: center;
+    position: fixed;
+	top: auto;
+	bottom: 50px;
+	right: -50%;
+    left: -50%;
+    margin-right: auto;
+    margin-left: auto;
+    min-height: 20px;
+}
+
+/* --------------------------------------------------------------------------------
+ *      Console Message Styles
+ * --------------------------------------------------------------------------------*/
+
+.msg-error {
+    background-color: #4d1616;		
+    color: #ff4848;
+}
+
+.msg-server {
+    background-color: #59012c;		
+    color: #ff479e;
+}
+
+.msg-client {
+    background-color: #662a12;
+    color: #ff8538;
+}
+
+.msg-warn {
+    background-color: #664c0e;		
+    color: #ffc640;
+}
+
+.msg-info {
+    background-color: #0e1a40;		
+    color: #3168de;
+}
+
+.msg-success {
+    background-color: #273313;
+    color: #4aa951;
+}
+
+/* --------------------------------------------------------------------------------
+ *      Debug
+ * --------------------------------------------------------------------------------*/
+
+.debug {
+    
+}
+
