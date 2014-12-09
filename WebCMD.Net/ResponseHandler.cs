@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using WebCMD.Net.Event;
 using WebCMD.Util;
+using System.Diagnostics;
 
 namespace WebCMD.Net
 {
@@ -27,28 +28,49 @@ namespace WebCMD.Net
 
         public void DoRespond()
         {
-            if (ResponseWorker != null && ResponseWorker.IsAlive) return;
+            try
+            {
+                if (ResponseWorker != null && ResponseWorker.IsAlive) return;
 
-            ResponseWorker = new Thread(this.RSWorker);
-            ResponseWorker.Name = String.Concat("RSWorker_", ConnectionID); 
-            ResponseWorker.Start();
+                ResponseWorker = new Thread(this.RSWorker);
+                ResponseWorker.Name = String.Concat("ResponseWorker_", ConnectionID);
+                ResponseWorker.IsBackground = true;
+                ResponseWorker.Start();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(String.Concat("ResponseWorker_", ConnectionID, " unable to start: " + ex));
+            }
         }
 
         private void RSWorker()
         {
+            Debug.WriteLine(String.Concat(ResponseWorker.Name, " started"));
+            Stopwatch watch = new Stopwatch();
+            watch.Start();
+
             try
             {
-                System.Diagnostics.Debug.WriteLine(String.Concat(ResponseWorker.Name, " started"));
                 do
                 {
-                    Respond(new ResponseEvent(ConnectionID, NextMessageBlock));
-                    ResponseCount++;
-                } while (GetQueueSize > 0);
-                System.Diagnostics.Debug.WriteLine(String.Concat(ResponseWorker.Name, " stoped"));
+                    while (GetQueueSize > 0)
+                    {
+                        Respond(new ResponseEvent(ConnectionID, NextMessageBlock));
+                        ResponseCount++;
+                    }
+
+                    Thread.Sleep(20);
+                } while (watch.ElapsedMilliseconds <= 5000 || GetQueueSize > 0); //stay active for at least 5 second
+
+                Debug.WriteLine(String.Concat(ResponseWorker.Name, " completed after ", watch.ElapsedMilliseconds, "ms"));
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine(String.Concat(ResponseWorker.Name, " Error: " + ex));
+                Debug.WriteLine(String.Concat(ResponseWorker.Name, " stoped after ", watch.ElapsedMilliseconds, "ms with error: " + ex));
+            }
+            finally
+            {
+                watch.Stop();
             }
         }
 
