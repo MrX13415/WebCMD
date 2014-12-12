@@ -11,23 +11,23 @@ namespace WebCMD.Com
 {
     public class CommandHandler
     {
-        private static List<Command> cmdlist = new List<Command>();
-        public static Command[] CommandList
+        private static List<CommandBase> cmdlist = new List<CommandBase>();
+        public static CommandBase[] CommandList
         {
             get { return cmdlist.ToArray(); }
         }
 
-        internal static void Register(Command cmd)
+        internal static void Register(CommandBase cmd)
         {
             if (Exists(cmd))
                 throw new CommandAlreadyRegisteredException("Command already known and can't be registered again.");
             
             switch (cmd.Type)
             {
-                case Command.CommandType.ServerCommand:
+                case CommandBase.CommandType.ServerCommand:
 
                     break;
-                case Command.CommandType.ClientCommand:
+                case CommandBase.CommandType.ClientCommand:
 
                     break;
                 default:
@@ -45,10 +45,10 @@ namespace WebCMD.Com
 
             for (int index = 0; index < cmdlist.Count; index++)
             {
-                Command cmd = cmdlist[index];
+                CommandBase cmd = cmdlist[index];
                 match = cmd.Check(e.Command);
 
-                if (match && cmd.Type == Command.CommandType.ServerCommand)
+                if (match && cmd.Type == CommandBase.CommandType.ServerCommand)
                 {
                     ServerCommand scmd = (ServerCommand)cmd;
                     returnval = scmd.Execute(e);
@@ -65,16 +65,21 @@ namespace WebCMD.Com
             return returnval;
         }
 
-        public static bool Exists(Command cmd)
+        public static bool Exists(CommandBase cmd)
         {
             for (int index = 0; index < cmdlist.Count; index++)
             {
-                Command ccmd = cmdlist[index];
+                CommandBase ccmd = cmdlist[index];
 
                 if (ccmd.GetType().Name.Equals(cmd.GetType().Name))
                     return true;
             }
             return false;
+        }
+
+        public static void Clear()
+        {
+            cmdlist.Clear();
         }
 
         private static void printUnknowCommandError(CommandEvent e)

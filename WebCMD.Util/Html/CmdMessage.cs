@@ -61,6 +61,31 @@ namespace WebCMD.Util.Html
             return Get(GetIcon(it), msgtype, html);
         }
 
+        public static string GetServerMessage(params string[] html)
+        {
+            return Get(Type.Server, html);
+        }
+        public static string GetErrorMessage(params string[] html)
+        {
+            return Get(Type.Error, html);
+        }
+        public static string GetWarningMessage(params string[] html)
+        {
+            return Get(Type.Warning, html);
+        }
+        public static string GetInfoMessage(params string[] html)
+        {
+            return Get(Type.Info, html);
+        }
+        public static string GetClientMessage(params string[] html)
+        {
+            return Get(Type.Client, html);
+        }
+        public static string GetSuccessMessage(params string[] html)
+        {
+            return Get(Type.Success, html);
+        }
+
         public static string GetTypeClass(Type t)
         {
             switch (t)
@@ -87,11 +112,11 @@ namespace WebCMD.Util.Html
             switch (it)
             {
                 case IconType.Success:
-                    return TextIcons.Unicode_Success;
+                    return TextIcons.Basic_Success;
                 case IconType.Error:
                     return TextIcons.Basic_Error;
                 case IconType.Warning:
-                    return TextIcons.Style1_Warning;
+                    return TextIcons.Basic_Warning;
                 case IconType.Info:
                     return TextIcons.Basic_Info;
                 case IconType.Question:

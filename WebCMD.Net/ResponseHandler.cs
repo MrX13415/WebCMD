@@ -13,17 +13,22 @@ namespace WebCMD.Net
 {
     public class ResponseHandler
     {
-        private Queue responseQueue = Queue.Synchronized(new Queue());
+        private Queue buffer = Queue.Synchronized(new Queue());
+        private Queue lostQueue = Queue.Synchronized(new Queue());
 
         public string ConnectionID { get; set; }
         public Action<ResponseEvent> Respond { get; set; }
         public Thread ResponseWorker { get; private set; }
         public Int64 ResponseCount { get; set; }
+        public int WorkerTimout { get; set; }
+        public int WorkerMinActiveTime { get; set; }
 
         public ResponseHandler(string connectionID, Action<ResponseEvent> function)
         {
             this.Respond = function;
             this.ConnectionID = connectionID;
+            this.WorkerTimout = 40;
+            this.WorkerMinActiveTime = 2500;
         }
 
         public void DoRespond()
@@ -32,20 +37,23 @@ namespace WebCMD.Net
             {
                 if (ResponseWorker != null && ResponseWorker.IsAlive) return;
 
-                ResponseWorker = new Thread(this.RSWorker);
-                ResponseWorker.Name = String.Concat("ResponseWorker_", ConnectionID);
-                ResponseWorker.IsBackground = true;
-                ResponseWorker.Start();
+                Thread rsWorker = new Thread(this.RSWorker);
+                rsWorker.Name = String.Concat("ResponseWorker_", ConnectionID);
+                rsWorker.IsBackground = true;
+                rsWorker.Priority = ThreadPriority.BelowNormal;
+                rsWorker.Start();
+
+                ResponseWorker = rsWorker;
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine(String.Concat("ResponseWorker_", ConnectionID, " unable to start: " + ex));
+                System.Diagnostics.Debug.WriteLine(String.Concat(" (!) ResponseWorker_", ConnectionID, " unable to start: " + ex));
             }
         }
 
         private void RSWorker()
         {
-            Debug.WriteLine(String.Concat(ResponseWorker.Name, " started"));
+            Debug.WriteLine(String.Concat(" (!) ", ResponseWorker.Name, " started"));
             Stopwatch watch = new Stopwatch();
             watch.Start();
 
@@ -53,20 +61,18 @@ namespace WebCMD.Net
             {
                 do
                 {
-                    while (GetQueueSize > 0)
-                    {
-                        Respond(new ResponseEvent(ConnectionID, NextMessageBlock));
-                        ResponseCount++;
-                    }
+                    string data = NextMessageBlock;
+                    Respond(new ResponseEvent(data, ConnectionID));
+                    ResponseCount++;
+                    
+                    Thread.Sleep(WorkerTimout);
+                } while (watch.ElapsedMilliseconds <= WorkerMinActiveTime || GetQueueSize > 0); //stay active for at least 2.5 second (default for WorkerMinActiveTime)
 
-                    Thread.Sleep(20);
-                } while (watch.ElapsedMilliseconds <= 5000 || GetQueueSize > 0); //stay active for at least 5 second
-
-                Debug.WriteLine(String.Concat(ResponseWorker.Name, " completed after ", watch.ElapsedMilliseconds, "ms"));
+                Debug.WriteLine(String.Concat(" (!) ", ResponseWorker.Name, " completed after ", watch.ElapsedMilliseconds, "ms"));
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(String.Concat(ResponseWorker.Name, " stoped after ", watch.ElapsedMilliseconds, "ms with error: " + ex));
+                Debug.WriteLine(String.Concat(" /!\\ ", ResponseWorker.Name, " stoped after ", watch.ElapsedMilliseconds, "ms with error: " + ex));
             }
             finally
             {
@@ -76,13 +82,13 @@ namespace WebCMD.Net
 
         public void Send(params string[] html)
         {
-            lock (this) { responseQueue.Enqueue(CreateOutputResponse(html)); }
+            lock (this) { buffer.Enqueue(CreateOutputResponse(html)); }
             DoRespond();
         }
 
         public void Send(ServerResponse sp)
         {
-            lock (this) { responseQueue.Enqueue(sp); }
+            lock (this) { buffer.Enqueue(sp); }
             DoRespond();
         }
 
@@ -90,7 +96,7 @@ namespace WebCMD.Net
         {
             get
             {
-                lock (this) { return responseQueue.Count; }
+                lock (this) { return buffer.Count; }
             }
         }
 
@@ -99,10 +105,7 @@ namespace WebCMD.Net
             get
             {
                 lock (this)
-                {
-                    try { return (ServerResponse)responseQueue.Dequeue(); }
-                    catch { return null; } 
-                }
+                { return buffer.Count > 0 ? buffer.Dequeue() as ServerResponse : null; }
             }
         }
 
@@ -134,40 +137,53 @@ namespace WebCMD.Net
                 ServerResponse block = null;
                 ServerResponse response = null;
 
+                int index = 0;
+
                 do
                 {
                     response = Next;
-                    if (response == null) break;
-                    if (block == null) block = new ServerResponse(response.HtmlControl);
+                    if (response == null) break; //HTMLcontrol null?
+                    if (block == null) block = new ServerResponse(response.HtmlControlID);
                     block.SetData(response.Mode, response.Data);
+
+                    Thread.Yield();
+                    index++;
+
+                    if (index > 10) break;
                 }
-                while (block.HtmlControl.ClientID.Equals(response.HtmlControl.ClientID));
+                while (block.HtmlControlID == response.HtmlControlID);
 
                 return block.GetResponseMessage;
             }
         }
 
-        public static ServerResponse NewHeaderResponse { get { return new ServerResponse(Ref.ConsoleHeader); } }
-        public static ServerResponse NewDebugResponse { get { return new ServerResponse(Ref.ConsoleDebug); } }
-        public static ServerResponse NewOutputResponse { get { return new ServerResponse(Ref.ConsoleOutput); } }
+        public static ServerResponse NewHeaderResponse { get { return new ServerResponse(Ref.ConsoleHeaderID); } }
+        public static ServerResponse NewDebugResponse { get { return new ServerResponse(Ref.ConsoleDebugID); } }
+        public static ServerResponse NewOutputResponse { get { return new ServerResponse(Ref.ConsoleOutputID); } }
 
         public static ServerResponse CreateHeaderResponse(params string[] html)
         {
-            ServerResponse sr = new ServerResponse(Ref.ConsoleHeader);
-            sr.AddData(html);
-            return sr;
+            return CreateResponse(Ref.ConsoleHeaderID, html);
         }
 
         public static ServerResponse CreateDebugResponse(params string[] html)
         {
-            ServerResponse sr = new ServerResponse(Ref.ConsoleDebug);
-            sr.AddData(html);
-            return sr;
+            return CreateResponse(Ref.ConsoleDebugID, html);
         }
 
         public static ServerResponse CreateOutputResponse(params string[] html)
         {
-            ServerResponse sr = new ServerResponse(Ref.ConsoleOutput);
+            return CreateResponse(Ref.ConsoleOutputID, html);
+        }
+
+        public static ServerResponse CreateFooterResponse(params string[] html)
+        {
+            return CreateResponse(Ref.ConsoleFooterID, html);
+        }
+
+        public static ServerResponse CreateResponse(string controlID, params string[] html)
+        {
+            ServerResponse sr = new ServerResponse(controlID);
             sr.AddData(html);
             return sr;
         }

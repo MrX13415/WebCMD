@@ -8,6 +8,9 @@ using WebCMD.Core;
 using WebCMD.Net.Event;
 using WebCMD.Util;
 using System.Threading;
+using System.Threading.Tasks;
+using System.Diagnostics;
+using WebCMD.Util.Html;
 
 namespace WebCMD.Net.SignalR
 {
@@ -15,18 +18,19 @@ namespace WebCMD.Net.SignalR
     {
         public void Respond(ResponseEvent e)
         {
-            Clients.Client(e.TagretConnectionID).processServerData(e.Data);
+            Clients.Clients(e.ConnectionIDs).processServerData(e.Data);
             Log.Add("       <--- " + e.Data);
         }
 
         public void Request(string eventArgument, string connectionID)
         {
             //Invalid connection ...
-            if (connectionID == null || connectionID.Equals("")) return;
+            if (String.IsNullOrEmpty(connectionID)) return;
             
             //Try to optain the current client object or create a new one ...
-            Client client = Client.Instance(connectionID);
-            if (client == null) client = new Client(connectionID, this.Respond);
+            Client client = Client.Instance(connectionID, this.Respond);
+
+            //TODOD SERVER <-> Client connection cant be restored ??!
 
             client.RequestCount++;   //update requestcounter
 
@@ -45,8 +49,32 @@ namespace WebCMD.Net.SignalR
             //client.Response.Respond(new ResponseEvent(client.Response.NextBlock, connectionID));
             
         }
-
         
+        public override Task OnDisconnected(bool stopCalled)
+        {
+            Client client = Client.Instance(Context.ConnectionId);
+            Debug.WriteLine(" (i) Disconnected " + client);
+            return base.OnDisconnected(stopCalled);
+        }
+
+        public override Task OnConnected()
+        {
+            Guid guid = Guid.Parse(Context.QueryString["guid"]);
+            Client client = Client.Map(guid, this.Context.ConnectionId, this.Respond);
+            Debug.WriteLine(" (i) Connected " + client);
+
+            return base.OnConnected();
+        }
+
+        //HANDLE SERVER CRASH 
+
+        public override Task OnReconnected()
+        {
+            Client client = Client.Instance(Context.ConnectionId, this.Respond);
+            Debug.WriteLine(" (i) Reconnected " + client);
+            return base.OnReconnected();
+        }
+
     }
 
 }

@@ -11,12 +11,12 @@ namespace WebCMD.Core
 
         public static void Add(string t)
         {
-            log.Add(t);
+            lock (log) { log.Add(t); }
         }
 
         public static List<string> Get
         {
-            get { return log;  }
+            get { lock (log) { return log; } }
         }
     }
 }

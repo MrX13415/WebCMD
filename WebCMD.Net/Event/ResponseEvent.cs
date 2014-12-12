@@ -8,12 +8,12 @@ namespace WebCMD.Net.Event
 {
     public class ResponseEvent
     {
-        public string Data { get; set; }
-        public string TagretConnectionID { get; set; }
+        public string Data { get; private set; }
+        public string[] ConnectionIDs { get; private set; }
 
-        public ResponseEvent(string targetID, string data)
+        public ResponseEvent(string data, params string[] targetIDs)
         {
-            TagretConnectionID = targetID;
+            ConnectionIDs = targetIDs;
             Data = data;
         }
     }

@@ -332,7 +332,7 @@ namespace WebCMD.Com.Commands
         {
             BugPrio e = BugPrio.NORMAL;
             try { e = (BugPrio)Enum.Parse(typeof(BugPrio), p, true); }
-            catch (Exception)
+            catch
             {
                 switch (p)
                 {

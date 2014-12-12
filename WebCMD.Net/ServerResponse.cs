@@ -17,7 +17,7 @@ namespace WebCMD.Net
         private const string _Property_innerHTML = "innerHTML";
         public const string _ResponseMessageTemplate = "_RS:{0}:{1}:{2}:{3}";  // id : mode : property/function : data
 
-        public HtmlGenericControl HtmlControl { get; set; }
+        public string HtmlControlID { get; set; }
         public string Data { get; set; }
         public string[] FunctionCallArguments
         {
@@ -29,9 +29,9 @@ namespace WebCMD.Net
         public PropertyMode Mode { get; set; }
 
 
-        public ServerResponse(HtmlGenericControl control)
+        public ServerResponse(string controlID)
         {
-            this.HtmlControl = control;
+            this.HtmlControlID = controlID;
             Mode = PropertyMode.AddEnd;
             Data = "";
             Property = _Property_innerHTML;
@@ -72,7 +72,7 @@ namespace WebCMD.Net
         }
 
         public string GetResponseMessage{
-            get { return CreateResponseMessage(HtmlControl, Property, Mode, Data); }
+            get { return CreateResponseMessage(HtmlControlID, Property, Mode, Data); }
         }
         
         /// <summary>
@@ -93,7 +93,7 @@ namespace WebCMD.Net
             return rdata.Substring(rdata.Length - 1);
         }
 
-        public static string CreateResponseMessage(HtmlGenericControl control, string property, PropertyMode mode, params string[] data)
+        public static string CreateResponseMessage(string controlID, string property, PropertyMode mode, params string[] data)
         {
             string modestr = "0";
 
@@ -113,7 +113,7 @@ namespace WebCMD.Net
                     break;
             }
 
-            string r = String.Format(_ResponseMessageTemplate, control.ClientID, modestr, property, String.Concat(data));
+            string r = String.Format(_ResponseMessageTemplate, controlID, modestr, property, String.Concat(data));
             return r;
         }
 

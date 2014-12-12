@@ -12,9 +12,10 @@ namespace WebCMD.Util
 {
     public static class Ref
     {
-        public static HtmlGenericControl ConsoleHeader;
-        public static HtmlGenericControl ConsoleDebug;
-        public static HtmlGenericControl ConsoleOutput;
+        public const string ConsoleHeaderID = "ConsoleHeader";
+        public const string ConsoleDebugID = "ConsoleDebug";
+        public const string ConsoleOutputID = "ConsoleOutput";
+        public const string ConsoleFooterID = "ConsoleFooter";
         
         public static object GetSessionClassObject(/*string id,*/ Type t)
         {

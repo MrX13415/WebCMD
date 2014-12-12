@@ -44,10 +44,12 @@
                     <!-- <script type="text/javascript" src="Script/Commands/<Your-Command-Scriptfile-here.js>" ></script> -->
 
                 <!-- ********************************************************************************-->
-                <script type="text/javascript" src="scripts/Net/WebCMD.Net.js" ></script>
-                <script type="text/javascript" src="scripts/Core/WebCMD.Core.js" ></script>            
+                <script type="text/javascript" src="scripts/Net/RequestHandler.js" ></script>
+                <script type="text/javascript" src="scripts/IO/InputHandler.js" ></script>            
                 <script type="text/javascript">
                     
+                    //TODO: PUT THIS INOT A SCRIPT FILE
+
                     var _pm = getParameterByName("mobile");
                     if (_pm != null && _pm == "1" || _pm == "true") {
                         forceMobile = true;
@@ -55,10 +57,96 @@
                         forceMobile = false;
                     }
 
+                    connectServer();
+
+                    var webcmd = $.connection.consoleHub;
+
+                        // Send a maximum of 10 messages per second 
+                        // (mouse movements trigger a lot of messages)
+                        //messageFrequency = 10,
+                        // Determine how often to send messages in
+                        // time to abide by the messageFrequency
+                        //updateRate = 1000 / messageFrequency;
+
+                    var crrs = 0;
+                    
+                    webcmd.client.processServerData = function (rsdata) {
+
+                        crrs++;
+
+                        if (rsdata == "") return;
+
+                        rsdata = rsdata.replace("<crrsdata>", crrs);
+
+                        //cbout = String.format("<div class=\"console-line debug {0}\">\n" +
+                        //                                "\t<span>{1}</span>\n" +
+                        //                                "</div>\n", "msg-success", " (i) " + rsdata + " | " + (rsdata - ii));
+                        //ConsoleOutput.get().innerHTML += cbout;
+
+                        //hiddeConsoleInput(false);
+                        //doCmdScroll();
+
+                        //return;
+
+                        var rs = rsdata;
+                        var cbout = "";
+                        var eventArgs = rs.split(':');
+
+                        if (eventArgs[0] != "_RS") return;
+
+                        if (eventArgs.length >= 4) {
+
+                            //"_RS:{0}:{1}:{2}:{3}"  // id : mode : property/function : data
+
+                            var id = eventArgs[1];
+                            var mode = eventArgs[2];
+                            var property = eventArgs[3];
+                            var args = rs.substr("_RS".length + id.length + mode.length + property.length + 4);
+
+                            if (_debugMode) {
+                                cbout = String.format("<div class=\"console-line debug {0}\">\n" +
+                                                        "\t<span>{1}</span>\n" +
+                                                        "</div>\n", "msg-success", " (i) " + rs.substr(0, rs.length - args.length));
+                                ConsoleOutput.get().innerHTML += cbout;
+                            }
+
+                            cbout = args;
+
+                            var target = document.getElementById(id);
+
+                            switch (mode) {
+                                case "1": //PropertyEditMode.AddEnd
+                                    target[property] += args;
+                                    break;
+                                case "2": //PropertyEditMode.Set
+                                    target[property] = args;
+                                    break;
+                                case "3": //PropertyEditMode.AddTop
+                                    target[property] = args + target[property];
+                                    break;
+                                default:
+                                    //target[property] += args;
+                                    break;
+                            }
+
+                            hiddeConsoleInput(false);
+                            doCmdScroll();
+                        } else {
+
+                            cbout = String.format("<div class=\"console-line debug {0}\">\n" +
+                                                        "\t<span>{1}</span>\n" +
+                                                        "</div>\n", "msg-server", " (i) RAW: " + rsdata);
+
+                            ConsoleOutput.get().innerHTML += cbout;
+
+                            hiddeConsoleInput(false);
+                            doCmdScroll();
+                        }
+                    }
+
                 </script>
                  <script type="text/javascript">
                      //*** JS HTML-ELEMENT HANDLEING **********************************************************************************
-                     var GUID = '<%= GUID %>';
                      var ConsoleHeader = new HtmlElement('<%= ConsoleHeader.ClientID %>');
                      var ConsoleDebug = new HtmlElement('<%= ConsoleDebug.ClientID %>');
                      var ConsoleOutput = new HtmlElement('<%= ConsoleOutput.ClientID %>');

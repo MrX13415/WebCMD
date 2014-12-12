@@ -116,15 +116,17 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="com\WebCMD.Com.Lib.TodoList.dll" />
     <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\WebCMD.pubxml" />
     <None Include="scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="scripts\Core\WebCMD.Core.js" />
     <Content Include="scripts\jquery-2.1.1.js" />
     <Content Include="scripts\jquery-2.1.1.min.js" />
     <Content Include="scripts\jquery.signalR-2.1.2.js" />
     <Content Include="scripts\jquery.signalR-2.1.2.min.js" />
     <Content Include="scripts\Core\ErrorHandler.js" />
-    <Content Include="scripts\Net\UpdateWorker.js" />
+    <Content Include="scripts\Net\WebCMD.Net.js" />
     <Content Include="scripts\Util\HtmlElementWrapper.js" />
     <Content Include="scripts\Com\JSCommands.js" />
     <Content Include="scripts\Com\MasterCommand.js" />
@@ -141,12 +143,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="scripts\IO\InputHandler.js" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="local\files\MyApp.exe" />
     <Content Include="local\files\TextFile1.txt" />
-    <Content Include="scripts\Net\Requesthandler.js" />
     <Content Include="scripts\Util\Utilities.js" />
     <Content Include="style\anim.css" />
     <Content Include="style\colors.css" />
@@ -157,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="code\Com\Commands\CMD_Get_PlaylistEntrys.cs" />
+    <Compile Include="code\Com\Commands\CMD_ReloadCommands.cs" />
     <Compile Include="code\Com\Commands\CMD_Server_Test.cs" />
     <Compile Include="code\Com\Commands\CMD_Get_TodoList.cs" />
     <Compile Include="code\Com\Commands\CMD_Get_ChildItem.cs" />

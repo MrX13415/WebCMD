@@ -39,8 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Command.cs" />
+    <Compile Include="Lib\CMD_ReloadCommands.cs" />
+    <Compile Include="ComLoader.cs" />
+    <Compile Include="CommandBase.cs" />
     <Compile Include="CommandHandler.cs" />
+    <Compile Include="Library.cs" />
     <Compile Include="ServerCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

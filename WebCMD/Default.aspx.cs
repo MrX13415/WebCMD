@@ -14,39 +14,41 @@ using WebCMD.Net.Event;
 using WebCMD.Net;
 using WebCMD.Com;
 using WebCMD.Com.Commands;
+using WebCMD.Util.Html;
+using Microsoft.AspNet.SignalR;
+using WebCMD.Net.SignalR;
+using System.Reflection;
+using System.Diagnostics;
 
 namespace WebCMD.Core
 {
     public partial class WebConsolePage : System.Web.UI.Page
     {
         public WebConsole WebConsole { get; protected set; }
+        public Guid GUID;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             //set api references ...
-            Util.Ref.ConsoleHeader = ConsoleHeader;
-            Util.Ref.ConsoleDebug = ConsoleDebug;
-            Util.Ref.ConsoleOutput = ConsoleOutput;
+            //Util.Ref.ConsoleHeader = ConsoleHeader;
+            //Util.Ref.ConsoleDebug = ConsoleDebug;
+            //Util.Ref.ConsoleOutput = ConsoleOutput;
+            //Util.Ref.ConsoleFooter = ConsoleFooter;
 
-            if (IsPostBack){
-                ProcessPostback(sender, e);
-            }else{
+            if (!IsPostBack){
                 ProcessPageLoad(sender, e);
             }
 
-        }
-
-        private void ProcessPostback(object sender, EventArgs e)
-        {
-            string eventTarget = Request.Params.Get("__EVENTTARGET");
-            string eventArgument = Request.Params.Get("__EVENTARGUMENT");
+            Debug.WriteLine(" (i) Page Loaded ");
         }
 
         private void ProcessPageLoad(object sender, EventArgs e)
         {
+            GUID = Guid.NewGuid(); //<==== http://www.codedigest.com/Articles/ASPNET/347_Pass_Values_from_CodeBehind_to_JavaScript_and_From_JavaScript_to_CodeBehind_in_ASPNet.aspx
+            Client.Create(GUID);
 
             //init ...
-            WebConsole = WebConsole.GetInstance;
+            WebConsole = WebConsole.Instance;
 
             if (RequestHandler.GetListener.Count == 0)
             {
@@ -65,32 +67,17 @@ namespace WebCMD.Core
             //process query here
             //make sure p is valid!
 
-            WebConsole.CurrentVirtualPath = querypath;
-
             ConsoleHeader.InnerHtml = string.Format("<div></br><span class=\"orange\">WebCMD v1.0 </span><span class=\"white\">-- CMD.ICELANE.NET/{0}</br></br></span></div>\n", WebConsole.CurrentVirtualPath) + ConsoleHeader.InnerHtml;
 
             ConsoleDebug.InnerHtml += String.Format("<span class=\"yellow\">[Site-Name: </span><span class=\"blue\">{0}</span><span class=\"yellow\">]</span>\n", HostingEnvironment.SiteName);
             ConsoleDebug.InnerHtml += String.Format("<span class=\"yellow\">[VirtualPath: </span><span class=\"blue\">{0}</span><span class=\"yellow\">]</span>\n", WebConsole.CurrentVirtualPath);
             ConsoleDebug.InnerHtml += String.Format("<span class=\"yellow\">[WebConsole: </span><span class=\"blue\">{0}</span><span class=\"yellow\">]</span>\n", WebConsole);
 
-            LoadCommands();
+            ComLoader.LoadAsync();
         }
 
         public static string _HTMLTemplate_ServerMessage = "<div class=\"console-line msg-server\">\n<span>{0}</span><br><div style=\"margin-left: 60px;\">{1}</div>\n</div>";
 
-
-        public static void LoadCommands()
-        {
-            if (CommandHandler.CommandList.Length <= 0)
-            {
-                new CMD_Get_TodoList().Register();
-                new CMD_Server_Test().Register();
-                new CMD_Get_PlaylistEntrys().Register();
-            }
-
-            string str = String.Format(_HTMLTemplate_ServerMessage, @"/!\ " + CommandHandler.CommandList.Length + " Command(s) loaded ...", "");
-            //TODO: e.EventSource.Response.Respond(ResponseHandler.CreateOutputResponse(str));
-        }
 
         public void OnCommandEvent(RequestEvent ev)
         {

@@ -7,7 +7,7 @@ using WebCMD.Net.Event;
 
 namespace WebCMD.Com
 {
-    public abstract class ServerCommand : Command
+    public abstract class ServerCommand : CommandBase
     {
        
 	    public string Label { get; protected set; }

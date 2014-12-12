@@ -38,7 +38,7 @@ namespace WebCMD.Core
             CurrentVirtualPath = "";
         }
 
-        public static WebConsole GetInstance
+        public static WebConsole Instance
         {
             get
             {
