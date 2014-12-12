@@ -49,7 +49,7 @@ namespace WebCMD.Com
                 clWorker.Name = String.Concat("ComLoader");
                 clWorker.IsBackground = true;
                 clWorker.Priority = ThreadPriority.Normal;
-                //clWorker.Start();
+                clWorker.Start();
 
                 WorkerThread = clWorker;
             }
