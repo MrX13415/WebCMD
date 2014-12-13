@@ -157,7 +157,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="code\Com\Commands\CMD_Get_PlaylistEntrys.cs" />
-    <Compile Include="code\Com\Commands\CMD_ReloadCommands.cs" />
     <Compile Include="code\Com\Commands\CMD_Server_Test.cs" />
     <Compile Include="code\Com\Commands\CMD_Get_TodoList.cs" />
     <Compile Include="code\Com\Commands\CMD_Get_ChildItem.cs" />

@@ -96,7 +96,7 @@ namespace WebCMD.Com.Commands
             do
             {
                 ServerResponse response = ResponseHandler.NewOutputResponse;
-                response.AddData(String.Format("<div class=\"console-line msg-warn\">Response Test | Response: #{0, -4} | T: {1, -6} | Buffer: {2}</div>", String.Format("{0, -6}", index.ToString("D3")), stopWatch.ElapsedMilliseconds.ToString("D5"), e.EventSource.Response.GetQueueSize));
+                response.AddData(String.Format("<div class=\"console-line msg-warn\">Response Test | Response: #{0, -4} | T: {1, -6} ms | Buffer: {2}</div>", String.Format("{0, -6}", index.ToString("D3")), stopWatch.ElapsedMilliseconds.ToString("D5"), e.EventSource.Response.GetQueueSize));
                 e.EventSource.Response.Send(response);
                 index++;
 

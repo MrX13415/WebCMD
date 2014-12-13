@@ -49,6 +49,7 @@ namespace WebCMD.Com.Lib
 
         private bool Reload(CommandEvent e)
         {
+            e.EventSource.Response.Send(CmdMessage.GetServerMessage("Loading server command libraries ... "));
 
             ProgressInfo pi = ComLoader.ProgressInfo;
             ComLoader.LoadAsync();
@@ -57,11 +58,11 @@ namespace WebCMD.Com.Lib
                 lock (ComLoader.ProgressInfo)
                 {
                     ComLoader.Wait();
-                    e.EventSource.Response.Send(CmdMessage.Get(ComLoader.ProgressInfo.Library.IsValid ? CmdMessage.Type.Success : CmdMessage.Type.Server, pi.ToString()));
+                    e.EventSource.Response.Send(CmdMessage.Get(ComLoader.ProgressInfo.Library.IsValid ? CmdMessage.Type.Success : CmdMessage.Type.Server, HTML.Encode(pi.ToString())));
                 }
             } while (pi.IsAlive);
 
-            e.EventSource.Response.Send(CmdMessage.Get(CmdMessage.Type.Server, pi.ToString()));
+            e.EventSource.Response.Send(CmdMessage.GetSuccessMessage(String.Concat("Loading server command libraries completed ... (", CommandHandler.CommandList.Length ," commands loaded)")));
 
             return true;
         }

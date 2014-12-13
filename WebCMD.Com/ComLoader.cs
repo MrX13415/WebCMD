@@ -7,13 +7,15 @@ using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace WebCMD.Com
 {
     public static class ComLoader
     {
         public const string CommandFileExtention = ".dll";
-        public const string DefaultPath = /*@"C:\Servers\Web\cmd";*/ @"C:\Users\MrX13415\Documents\Visual Studio 2013\Projects\WebCMD\WebCMD\bin";
+        public static string DefaultPath = HttpContext.Current.Server.MapPath("bin"); /*@"C:\Servers\Web\cmd"; @"C:\Users\MrX13415\Documents\Visual Studio 2013\Projects\WebCMD\WebCMD\bin";*/
+        public static string BasePath = HttpContext.Current.Server.MapPath("~");
         public static List<string> Path = new List<string>();
         public static Thread WorkerThread { get; private set; }
         public static ProgressInfo _progressInfo;
@@ -68,6 +70,7 @@ namespace WebCMD.Com
 
             CommandHandler.Clear();
             new WebCMD.Com.Lib.CMD_ReloadCommands().Register();
+
             FileInfo[] files = GetFileList();
 
             ProgressInfo.Count = files.Length; 
@@ -153,7 +156,7 @@ namespace WebCMD.Com
         {
             return ProgressStep == Step.LoadFileList ?
                 String.Format("{0:000.00} -- {1}", Percentage, "Loading file list ...") :
-                String.Format("{0:000.00} -- #{1:000} F: {2} R: {3} - {4} | {5}", Percentage, Index, Library.CommandCount, Library.RegisteredCount, Library.File.Name, Library.File.FullName);
+                String.Format("{0:000.00} -- #{1:000} F: {2:00} R: {3:00} - {4, -40} | {5}", Percentage, Index, Library.CommandCount, Library.RegisteredCount, Library.File.Name, Library.File.FullName.Replace(ComLoader.BasePath, "~" + Path.DirectorySeparatorChar));
         }
     }
 

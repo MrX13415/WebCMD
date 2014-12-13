@@ -22,7 +22,7 @@ namespace WebCMD.Util.Html
 
         public static string Get(string icon, Type msgtype, params string[] html)
         {
-            return String.Format(_Template_MessageLine, GetTypeClass(msgtype), icon, String.Concat(html));
+            return String.Format(_Template_MessageLine, GetTypeClass(msgtype), HTML.Encode(icon.PadRight(4)), String.Concat(html));
         }
 
         public static string Get(IconType icontype, Type msgtype, params string[] html)

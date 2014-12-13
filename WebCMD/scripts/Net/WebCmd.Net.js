@@ -50,23 +50,23 @@ function initConnection() {
     if (inited) return;
 
     $.connection.hub.reconnecting(function () {
-        console.log(' (i) Reconnecting ...');
+        console.log(' (i)  Reconnecting ...');
 
-        errout = String.format(template, "msg-client", " (i) Reconnecting ...");
+        errout = String.format(template, "msg-client", " (i)  Reconnecting ...");
         ConsoleOutput.get().innerHTML += errout;
     });
 
     $.connection.hub.reconnected(function () {
-        console.log(' (i) Connection successfully restored.');
+        console.log(' (i)  Connection successfully restored.');
 
-        errout = String.format(template, "msg-success", " (i) Connection has been successfully restored.");
+        errout = String.format(template, "msg-success", " (i)  Connection has been successfully restored.");
         ConsoleOutput.get().innerHTML += errout;
     });
 
     $.connection.hub.disconnected(function () {
-        console.log(' /!\\ Disconnected.');
+        console.log(' /!\\  Disconnected.');
 
-        errout = String.format(template, "msg-warn", " /!\\ Disconnected from Server.");
+        errout = String.format(template, "msg-warn", " /!\\  Disconnected from Server.");
         ConsoleOutput.get().innerHTML += errout;
     });
 
@@ -75,17 +75,17 @@ function initConnection() {
     });
 
     $.connection.hub.connectionSlow(function (data) {
-        console.log(' /!\\ Difficulties with the connection detected.');
+        console.log(' /!\\  Difficulties with the connection detected.');
 
-        errout = String.format(template, "msg-warn", " /!\\ Difficulties with the connection detected!");
+        errout = String.format(template, "msg-warn", " /!\\  Connection difficulties detected!");
         ConsoleOutput.get().innerHTML += errout;
     });
 
     $.connection.hub.error(function (error) {
         connected = false;
 
-        console.log(' /!\\ Connecting lost.');
-        errout = String.format(template, "msg-error", " /!\\ Connection lost. Can't reach server ...");
+        console.log(' /!\\  Connecting lost.');
+        errout = String.format(template, "msg-error", " /!\\  Connection lost. Can't reach server ...");
         ConsoleOutput.get().innerHTML += errout;
 
         //throw error;
@@ -93,18 +93,18 @@ function initConnection() {
 
     $.connection.hub.stateChanged(function (change) {
         if (change.newState === $.signalR.connectionState.connecting) {
-            console.log(' (i) Connecting ...');
+            console.log(' (i)  Connecting ...');
 
-            errout = String.format(template, "msg-client", " (i) Connecting ...");
+            errout = String.format(template, "msg-client", " (i)  Connecting ...");
             ConsoleOutput.get().innerHTML += errout;
         }
         else if (change.newState === $.signalR.connectionState.reconnecting) {
            
         }
         else if (change.newState === $.signalR.connectionState.connected) {
-            console.log(' (i) Connected. The server is online.');
+            console.log(' (i)  Connected. The server is online.');
 
-            errout = String.format(template, "msg-success", "(i) Connected. The server is online. ");
+            errout = String.format(template, "msg-success", "(i)  Connected. The server is online. ");
             ConsoleOutput.get().innerHTML += errout;
         }
     });
