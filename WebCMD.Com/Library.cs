@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace WebCMD.Com
 {
-    public class Library
+    public class ComLibrary
     {
         public int CommandCount { get; private set; }
         public int RegisteredCount { get; private set; }
@@ -17,7 +18,7 @@ namespace WebCMD.Com
         public FileInfo File { get; private set; }
         public Assembly Assembly { get; private set; }
 
-        private Library(FileInfo file, Assembly assembly)
+        private ComLibrary(FileInfo file, Assembly assembly)
         {
             this.Assembly = assembly;
             this.File = file;
@@ -26,28 +27,28 @@ namespace WebCMD.Com
             this.IsValid = false;
         }
 
-        public static Library From(string s)
+        public static ComLibrary From(string s)
         {
             try
             { return From(new FileInfo(s)); }
             catch
-            { return new Library(null, null); }
+            { return new ComLibrary(null, null); }
         }
 
-        public static Library From(FileInfo f)
+        public static ComLibrary From(FileInfo f)
         {
             try
             {
-                Library lib = From(Assembly.LoadFile(f.FullName));
+                ComLibrary lib = From(Assembly.LoadFile(f.FullName));
                 lib.File = f;
                 return lib;
             }
-            catch { return new Library(f, null); }
+            catch { return new ComLibrary(f, null); }
         }
 
-        public static Library From(Assembly assembly)
+        public static ComLibrary From(Assembly assembly)
         {
-            return new Library(new FileInfo(assembly.Location), assembly);
+            return new ComLibrary(new FileInfo(assembly.Location), assembly);
         }
 
         public bool Load()
@@ -57,7 +58,7 @@ namespace WebCMD.Com
 
             foreach (Type type in Assembly.GetTypes())
             {
-                if (!IsServerCommand(type)) continue;
+                  if (!IsServerCommand(type)) continue;
                 CommandCount++;
 
                 try
@@ -77,7 +78,9 @@ namespace WebCMD.Com
         public static bool IsServerCommand(Type t)
         {
             try
-            { return t.BaseType.Equals(typeof(WebCMD.Com.ServerCommand)); }
+            {
+                return t.BaseType.FullName == typeof(WebCMD.Com.ServerCommand).FullName;
+            }
             catch
             { return false; }
         }

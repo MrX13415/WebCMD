@@ -10,7 +10,7 @@ using WebCMD.Core;
 using WebCMD.Util;
 using WebCMD.Com;
 
-namespace WebCMD.Com.Commands
+namespace WebCMD.Com.Lib
 {
     public class CMD_Server_Test : ServerCommand
     {

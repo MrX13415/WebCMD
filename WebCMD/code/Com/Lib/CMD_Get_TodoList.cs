@@ -10,7 +10,7 @@ using WebCMD.Util;
 using WebCMD.Com;
 using WebCMD.Util.Html;
 
-namespace WebCMD.Com.Commands
+namespace WebCMD.Com.Lib
 {
     public class CMD_Get_TodoList : ServerCommand
     {

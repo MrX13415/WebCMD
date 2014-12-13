@@ -40,7 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Lib\CMD_ReloadCommands.cs" />
     <Compile Include="ComLoader.cs" />
     <Compile Include="CommandBase.cs" />
     <Compile Include="CommandHandler.cs" />

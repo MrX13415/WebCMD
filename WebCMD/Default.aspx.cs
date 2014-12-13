@@ -13,7 +13,7 @@ using WebCMD.Core;
 using WebCMD.Net.Event;
 using WebCMD.Net;
 using WebCMD.Com;
-using WebCMD.Com.Commands;
+using WebCMD.Com.Lib;
 using WebCMD.Util.Html;
 using Microsoft.AspNet.SignalR;
 using WebCMD.Net.SignalR;

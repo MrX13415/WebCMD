@@ -69,20 +69,21 @@ namespace WebCMD.Com
             PulseAll();
 
             CommandHandler.Clear();
-            new WebCMD.Com.Lib.CMD_ReloadCommands().Register();
+            //new WebCMD.Com.Lib.CMD_ReloadCommands().Register();
 
             FileInfo[] files = GetFileList();
 
             ProgressInfo.Count = files.Length; 
             ProgressInfo.ProgressStep = ProgressInfo.Step.LoadLibraries;
             PulseAll();
+            files[0] = new FileInfo(@"C:\Users\MrX13415\Documents\Visual Studio 2013\Projects\WebCMD\WebCMD\bin\WebCMD.Com.dll");
 
             foreach (FileInfo f in files)
             {
                 try
                 {
                     //debug output here
-                    Library lib = Library.From(f);
+                    ComLibrary lib = ComLibrary.From(f);
                     lib.Load();
                     ProgressInfo.Library = lib;
                     PulseAll();
@@ -100,7 +101,8 @@ namespace WebCMD.Com
         public static void RegisterAssemblyType(Assembly assembly, Type type)
         {
             ServerCommand command = assembly.CreateInstance(type.FullName) as ServerCommand;
-            command.Register();
+            if (command != null) 
+                command.Register();
         }
 
         public static FileInfo[] GetFileList()
@@ -130,7 +132,7 @@ namespace WebCMD.Com
             Initial, LoadFileList, LoadLibraries
         }
 
-        public Library Library { get; internal set; }
+        public ComLibrary Library { get; internal set; }
         public State ProgressState { get; internal set; }
         public Step ProgressStep { get; internal set; }
         public bool IsAlive { get { return ProgressState == State.Running; } internal set { } }
