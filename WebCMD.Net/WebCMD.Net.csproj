@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Client.cs" />
+    <Compile Include="ConsoleSession.cs" />
     <Compile Include="Event\CommandEvent.cs" />
     <Compile Include="Event\KeyEvent.cs" />
     <Compile Include="Event\ResponseEvent.cs" />

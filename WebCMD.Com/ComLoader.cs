@@ -14,7 +14,6 @@ namespace WebCMD.Com
     public static class ComLoader
     {
         public const string CommandFileExtention = ".dll";
-        public static string DefaultPath = HttpContext.Current.Server.MapPath("bin"); /*@"C:\Servers\Web\cmd"; @"C:\Users\MrX13415\Documents\Visual Studio 2013\Projects\WebCMD\WebCMD\bin";*/
         public static string BasePath = HttpContext.Current.Server.MapPath("~");
         public static List<string> Path = new List<string>();
         public static Thread WorkerThread { get; private set; }
@@ -29,7 +28,8 @@ namespace WebCMD.Com
 
         static ComLoader(){
             _progressInfo = new ProgressInfo();
-            Path.Add(DefaultPath);
+            Path.Add(HttpContext.Current.Server.MapPath("bin"));
+            Path.Add(HttpContext.Current.Server.MapPath("com"));
         }
 
         public static void Wait()
@@ -76,7 +76,6 @@ namespace WebCMD.Com
             ProgressInfo.Count = files.Length; 
             ProgressInfo.ProgressStep = ProgressInfo.Step.LoadLibraries;
             PulseAll();
-            files[0] = new FileInfo(@"C:\Users\MrX13415\Documents\Visual Studio 2013\Projects\WebCMD\WebCMD\bin\WebCMD.Com.dll");
 
             foreach (FileInfo f in files)
             {

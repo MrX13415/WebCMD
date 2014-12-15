@@ -40,15 +40,8 @@ namespace WebCMD.Net.SignalR
             //process event ...
             RequestHandler.HandleEvents(client, eventArgument);
 
-            ServerError.SendErrors(client);
             
-            ServerResponse dsr = ResponseHandler.CreateOutputResponse("<div class=\"msg-server\"> /!\\ RQ: " + client.RequestCount + "| RS: " + client.Response.ResponseCount + " | R: <crrsdata> | CONID: " + client.ConnectionID + "</div>");
-            client.Response.Send(dsr);
-            
-
-            //send the response to the client
-            //client.Response.Respond(new ResponseEvent(client.Response.NextBlock, connectionID));
-            
+            client.Response.Send(CmdMessage.GetServerMessage("RQ: ", client.RequestCount.ToString(), "| RS: ", client.Response.ResponseCount.ToString(), " | R: <crrsdata> | CONID: ", client.ConnectionID, "</div>"));
         }
         
         public override Task OnDisconnected(bool stopCalled)

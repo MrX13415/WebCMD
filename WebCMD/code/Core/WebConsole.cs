@@ -13,6 +13,12 @@ namespace WebCMD.Core
 {
     public partial class WebConsole
     {
+        private static Dictionary<Guid, WebConsole> _clientInstances = new Dictionary<Guid, WebConsole>();
+        
+        public bool DebugMode { get; set; }
+
+        public HttpContext HttpContext { get; private set; }
+
         public WebConfiguration WebConfiguration { get; private set; }
 
         public string PreviousVirtualPath { get; private set; }
@@ -26,7 +32,7 @@ namespace WebCMD.Core
 
         public DirectoryInfo CurrentPhysicalPath
         {
-            get { return InvalidPath ? null : new DirectoryInfo(HttpContext.Current.Server.MapPath(CurrentVirtualPath)); }
+            get { return InvalidPath ? null : new DirectoryInfo(HttpContext.Server.MapPath(CurrentVirtualPath)); }
         }
         
         public bool InvalidPath { get; private set; }
@@ -34,30 +40,31 @@ namespace WebCMD.Core
 
         public WebConsole()
         {
+            HttpContext = HttpContext.Current;
             // init default path ...
             CurrentVirtualPath = "";
         }
 
-        public static WebConsole Instance
+        public static WebConsole Instance(Guid guid)
         {
-            get
-            {
-                object wbc = Session;
+            if (guid == null) return null;
 
-                if (wbc != null && wbc.GetType().FullName.Equals(typeof(WebConsole).FullName))
-                    return (WebConsole)wbc;
-                else
-                {
-                    Session = new WebConsole();
-                    return (WebConsole)Session;
-                }
+            WebConsole con = null;
+
+            try
+            { 
+                if (_clientInstances.ContainsKey(guid)) 
+                    con = _clientInstances[guid] as WebConsole;
             }
-        }
+            catch{ }
 
-        private static object Session
-        {
-            get { return Ref.GetSessionClassObject(typeof(WebConsole)); }
-            set { Ref.SetSessionClassObject(typeof(WebConsole), value); }
+            if (con == null)
+            {
+                con = new WebConsole();
+                _clientInstances[guid] = con;
+            }
+
+            return con;
         }
 
         private void CheckVirtualPath(string vpath)

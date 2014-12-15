@@ -43,7 +43,7 @@
     <Compile Include="ComLoader.cs" />
     <Compile Include="CommandBase.cs" />
     <Compile Include="CommandHandler.cs" />
-    <Compile Include="Library.cs" />
+    <Compile Include="ComLibrary.cs" />
     <Compile Include="ServerCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

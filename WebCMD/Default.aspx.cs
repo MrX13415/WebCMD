@@ -13,7 +13,6 @@ using WebCMD.Core;
 using WebCMD.Net.Event;
 using WebCMD.Net;
 using WebCMD.Com;
-using WebCMD.Com.Lib;
 using WebCMD.Util.Html;
 using Microsoft.AspNet.SignalR;
 using WebCMD.Net.SignalR;
@@ -29,17 +28,11 @@ namespace WebCMD.Core
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //set api references ...
-            //Util.Ref.ConsoleHeader = ConsoleHeader;
-            //Util.Ref.ConsoleDebug = ConsoleDebug;
-            //Util.Ref.ConsoleOutput = ConsoleOutput;
-            //Util.Ref.ConsoleFooter = ConsoleFooter;
-
             if (!IsPostBack){
                 ProcessPageLoad(sender, e);
             }
 
-            Debug.WriteLine(" (i) Page Loaded ");
+            Debug.WriteLine(" (i)  Page Loaded ");
         }
 
         private void ProcessPageLoad(object sender, EventArgs e)
@@ -48,7 +41,7 @@ namespace WebCMD.Core
             Client.Create(GUID);
 
             //init ...
-            WebConsole = WebConsole.Instance;
+            WebConsole = WebConsole.Instance(GUID);
 
             if (RequestHandler.GetListener.Count == 0)
             {
@@ -61,6 +54,8 @@ namespace WebCMD.Core
             try
             {
                 querypath = Request.QueryString.Get("p");
+
+                WebConsole.CurrentVirtualPath = querypath;
             }
             catch { }
 
@@ -74,7 +69,6 @@ namespace WebCMD.Core
             ConsoleDebug.InnerHtml += String.Format("<span class=\"yellow\">[WebConsole: </span><span class=\"blue\">{0}</span><span class=\"yellow\">]</span>\n", WebConsole);
 
             ComLoader.LoadAsync();
-
         }
 
         public static string _HTMLTemplate_ServerMessage = "<div class=\"console-line msg-server\">\n<span>{0}</span><br><div style=\"margin-left: 60px;\">{1}</div>\n</div>";

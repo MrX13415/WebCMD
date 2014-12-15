@@ -55,15 +55,16 @@ namespace WebCMD.Com
         {
             IsValid = false;
             CommandCount = 0; RegisteredCount = 0;
+            TypeInfo[] types = Assembly.DefinedTypes.ToArray() as TypeInfo[];
 
-            foreach (Type type in Assembly.GetTypes())
+            foreach (TypeInfo typeI in types)
             {
-                  if (!IsServerCommand(type)) continue;
+                if (!IsServerCommand(typeI)) continue;
                 CommandCount++;
 
                 try
                 {
-                    ComLoader.RegisterAssemblyType(Assembly, type);
+                    ComLoader.RegisterAssemblyType(Assembly, typeI);
                     RegisteredCount++;
                     IsValid = true;
                 }
@@ -72,17 +73,14 @@ namespace WebCMD.Com
 
                 }
             }
+
             return IsValid;
         }
 
-        public static bool IsServerCommand(Type t)
+        public static bool IsServerCommand(TypeInfo t)
         {
-            try
-            {
-                return t.BaseType.FullName == typeof(WebCMD.Com.ServerCommand).FullName;
-            }
-            catch
-            { return false; }
+            if (t.BaseType == null) return false;
+            return t.BaseType.FullName == typeof(WebCMD.Com.ServerCommand).FullName;
         }
     }
 }
