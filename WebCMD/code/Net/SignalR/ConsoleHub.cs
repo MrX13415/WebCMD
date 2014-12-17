@@ -40,7 +40,9 @@ namespace WebCMD.Net.SignalR
             //process event ...
             RequestHandler.HandleEvents(client, eventArgument);
 
-            
+
+
+
             client.Response.Send(CmdMessage.GetServerMessage("RQ: ", client.RequestCount.ToString(), "| RS: ", client.Response.ResponseCount.ToString(), " | R: <crrsdata> | CONID: ", client.ConnectionID, "</div>"));
         }
         

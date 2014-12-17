@@ -60,6 +60,7 @@
                      //*** JS HTML-ELEMENT HANDLEING **********************************************************************************
                      var GUID = '<%= GUID %>';
                      var ConsoleHeader = new HtmlElement('<%= ConsoleHeader.ClientID %>');
+                     var ConsoleConInfo = new HtmlElement('<%= ConsoleConInfo.ClientID %>');
                      var ConsoleDebug = new HtmlElement('<%= ConsoleDebug.ClientID %>');
                      var ConsoleOutput = new HtmlElement('<%= ConsoleOutput.ClientID %>');
                      var ConsoleInput = new HtmlElement('<%= ConsoleInput.ClientID %>');
@@ -76,6 +77,12 @@
                 <div id="ConsoleHeader" class="console-output" runat="server">
 
                 </div>
+
+                <div id="ConsoleConInfo" class="console-output" runat="server">
+                    
+                </div>
+                <br/>
+
 				<div id="ConsoleDebug" class="console-output" style="margin-bottom: 10px;" runat="server" hidden="hidden">
 						
                 </div>

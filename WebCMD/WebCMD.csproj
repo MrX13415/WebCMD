@@ -122,6 +122,7 @@
     <None Include="Properties\PublishProfiles\WebCMD.pubxml" />
     <None Include="scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="scripts\Core\WebCMD.Core.js" />
+    <Content Include="scripts\HTML\WebCMD.HTML.js" />
     <Content Include="scripts\jquery-2.1.1.js" />
     <Content Include="scripts\jquery-2.1.1.min.js" />
     <Content Include="scripts\jquery.signalR-2.1.2.js" />
