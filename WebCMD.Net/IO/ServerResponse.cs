@@ -5,20 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.HtmlControls;
 
-namespace WebCMD.Net
+namespace WebCMD.Net.IO
 {
-    public class ServerResponse
+    public class ServerResponse : ResponseBase
     {
         public enum PropertyMode
         {
             AddEnd, Set, AddTop, FunctionCall
         }
 
-        private const string _Property_innerHTML = "innerHTML";
-        public const string _ResponseMessageTemplate = "_RS:{0}:{1}:{2}:{3}";  // id : mode : property/function : data
+        private const string _DefaultProperty = "innerHTML";
+        public new const string _ResponseMessageTemplate = "_RS:{0}:{1}:{2}:{3}:{4}";  //  request-event-name : target-control-id : property-mode : target-JS-property : data
 
         public string HtmlControlID { get; set; }
-        public string Data { get; set; }
+
         public string[] FunctionCallArguments
         {
             get { return Data.Split(' '); }
@@ -29,13 +29,17 @@ namespace WebCMD.Net
         public PropertyMode Mode { get; set; }
 
 
-        public ServerResponse(string controlID)
+        public ServerResponse(string requestTypeID, string controlID) : base(requestTypeID)
         {
             this.HtmlControlID = controlID;
             Mode = PropertyMode.AddEnd;
-            Data = "";
-            Property = _Property_innerHTML;
+            Property = _DefaultProperty;
         }
+
+        public ServerResponse(string controlID) : this(GetDefaultRequestID, controlID)
+        { }
+
+        public static string GetDefaultRequestID { get { return ServerRequest.GetRequestTypeID(typeof(CommandRequest)); } }
 
         public void SetData(PropertyMode mode, params string[] data)
         {
@@ -56,23 +60,8 @@ namespace WebCMD.Net
             }
         }
 
-        public void SetData(params string[] data)
-        {
-            Data = String.Concat(data);
-        }
-
-        public void AddData(params string[] data)
-        {
-            Data += String.Concat(data);   
-        }
-
-        public void AddDataTop(params string[] data)
-        {
-            Data = String.Concat(data) + Data;
-        }
-
-        public string GetResponseMessage{
-            get { return CreateResponseMessage(HtmlControlID, Property, Mode, Data); }
+        public override string GetResponseMessage{
+            get { return CreateResponseMessage(RequestTypeID, HtmlControlID, Property, Mode, Data); }
         }
         
         /// <summary>
@@ -93,7 +82,7 @@ namespace WebCMD.Net
             return rdata.Substring(rdata.Length - 1);
         }
 
-        public static string CreateResponseMessage(string controlID, string property, PropertyMode mode, params string[] data)
+        public static string CreateResponseMessage(string requesttypeID, string controlID, string property, PropertyMode mode, params string[] data)
         {
             string modestr = "0";
 
@@ -113,8 +102,7 @@ namespace WebCMD.Net
                     break;
             }
 
-            string r = String.Format(_ResponseMessageTemplate, controlID, modestr, property, String.Concat(data));
-            return r;
+            return String.Format(_ResponseMessageTemplate, requesttypeID, controlID, modestr, property, String.Concat(data));
         }
 
     }

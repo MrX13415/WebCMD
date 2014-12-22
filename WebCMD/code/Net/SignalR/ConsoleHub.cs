@@ -5,22 +5,23 @@ using System.Linq;
 using System.Web;
 using WebCMD.Net;
 using WebCMD.Core;
-using WebCMD.Net.Event;
+using WebCMD.Net.IO;
 using WebCMD.Util;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using WebCMD.Util.Html;
 using WebCMD.Com;
+using WebCMD.Net.IO.Event;
 
 namespace WebCMD.Net.SignalR
 {
     public class ConsoleHub : Hub
     {
-        public void Respond(ResponseEvent e)
+        public void Respond(ResponseEventArgs args)
         {
-            Clients.Clients(e.ConnectionIDs).processServerData(e.Data);
-            Log.Add("       <--- " + e.Data);
+            Clients.Clients(args.ConnectionIDs).processServerData(args.Data);
+            Log.Add("       <--- " + args.Data);
         }
 
         public void Request(string eventArgument, string connectionID)
@@ -41,9 +42,7 @@ namespace WebCMD.Net.SignalR
             RequestHandler.HandleEvents(client, eventArgument);
 
 
-
-
-            client.Response.Send(CmdMessage.GetServerMessage("RQ: ", client.RequestCount.ToString(), "| RS: ", client.Response.ResponseCount.ToString(), " | R: <crrsdata> | CONID: ", client.ConnectionID, "</div>"));
+            client.Response.Send(CmdMessage.GetServerMessage("RQ: ", client.RequestCount.ToString(), "| RS: ", client.Response.ResponseCount.ToString(), " | R: <rscountdata> | CONID: ", client.ConnectionID, "</div>"));
         }
         
         public override Task OnDisconnected(bool stopCalled)

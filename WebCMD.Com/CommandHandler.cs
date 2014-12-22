@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using WebCMD.Net;
-using WebCMD.Net.Event;
+using WebCMD.Net.IO;
 using System.Threading;
 using WebCMD.Util.Html;
 
@@ -37,9 +37,9 @@ namespace WebCMD.Com
             cmdlist.Add(cmd);
         }
 
-        public static bool ProcessCommand(CommandEvent e)
+        public static bool ProcessCommand(CommandRequest e)
         {
-            int responds = e.EventSource.Response.GetQueueSize;
+            int responds = e.Source.Response.GetQueueSize;
             bool returnval = false;
             bool match = false;
 
@@ -82,10 +82,10 @@ namespace WebCMD.Com
             cmdlist.Clear();
         }
 
-        private static void printUnknowCommandError(CommandEvent e)
+        private static void printUnknowCommandError(CommandRequest e)
         {
             string errstr = CmdMessage.Get(CmdMessage.Type.Error, @"Error: Unknow Command: '", Color.White(e.Command) , @"</span>'");
-            e.EventSource.Response.Send(ResponseHandler.CreateOutputResponse(errstr));
+            e.Source.Response.Send(ResponseHandler.CreateOutputResponse(errstr));
         }
     }
 

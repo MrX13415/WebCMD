@@ -5,11 +5,12 @@ using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
-using WebCMD.Net.Event;
+using WebCMD.Net.IO;
 using WebCMD.Util;
 using System.Diagnostics;
+using WebCMD.Net.IO.Event;
 
-namespace WebCMD.Net
+namespace WebCMD.Net.IO
 {
     public class ResponseHandler
     {
@@ -17,13 +18,13 @@ namespace WebCMD.Net
         private Queue lostQueue = Queue.Synchronized(new Queue());
 
         public string ConnectionID { get; set; }
-        public Action<ResponseEvent> Respond { get; set; }
+        public Action<ResponseEventArgs> Respond { get; set; }
         public Thread ResponseWorker { get; private set; }
         public Int64 ResponseCount { get; set; }
         public int WorkerTimout { get; set; }
         public int WorkerMinActiveTime { get; set; }
 
-        public ResponseHandler(string connectionID, Action<ResponseEvent> function)
+        public ResponseHandler(string connectionID, Action<ResponseEventArgs> function)
         {
             this.Respond = function;
             this.ConnectionID = connectionID;
@@ -62,9 +63,11 @@ namespace WebCMD.Net
                 do
                 {
                     string data = NextMessageBlock;
-                    Respond(new ResponseEvent(data, ConnectionID));
-                    ResponseCount++;
-                    
+                    if (!String.IsNullOrEmpty(data)){   
+                        Respond(new ResponseEventArgs(data, ConnectionID));
+                        ResponseCount++;
+                    }
+
                     Thread.Sleep(WorkerTimout);
                 } while (watch.ElapsedMilliseconds <= WorkerMinActiveTime || GetQueueSize > 0); //stay active for at least 2.5 second (default for WorkerMinActiveTime)
 
@@ -143,7 +146,7 @@ namespace WebCMD.Net
                 {
                     response = Next;
                     if (response == null) break; //HTMLcontrol null?
-                    if (block == null) block = new ServerResponse(response.HtmlControlID);
+                    if (block == null) block = new ServerResponse(response.RequestTypeID, response.HtmlControlID);
                     block.SetData(response.Mode, response.Data);
 
                     Thread.Yield();
@@ -151,7 +154,7 @@ namespace WebCMD.Net
 
                     if (index > 10) break;
                 }
-                while (block.HtmlControlID == response.HtmlControlID);
+                while (block.HtmlControlID == response.HtmlControlID && block.RequestTypeID == response.RequestTypeID);
 
                 return block.GetResponseMessage;
             }

@@ -28,7 +28,8 @@
     <div id="Main">
 		<div id="Content">
             <form id="form1" runat="server">
-                <ajaxToolkit:ToolkitScriptManager ID="ScriptManager1" runat="server" />
+                <%--<ajaxToolkit:ToolkitScriptManager ID="ScriptManager12" runat="server" />--%>
+                <asp:ScriptManager ID="ScriptManager1" runat="server" />    
 
                 <script src="Scripts/jquery-2.1.1.min.js"></script>
                 
@@ -38,7 +39,7 @@
                 <script type="text/javascript" src="scripts/Com/MasterCommand.js" ></script>
                 <script type="text/javascript" src="scripts/Com/JSCommands.js" ></script>
                 <!-- **** JavaScript Command definitions ********************************************-->
-                    <script type="text/javascript" src="scripts/Com/Commands/SystemInternal.command.js" ></script>
+                    <script type="text/javascript" src="scripts/Com/Lib/WebCMD.Com.Lib.SystemInternal.js" ></script>
                 
                     <!-- **** Add your new command script file here ****-->
                     <!-- <script type="text/javascript" src="Script/Commands/<Your-Command-Scriptfile-here.js>" ></script> -->
@@ -57,8 +58,10 @@
 
                 </script>
                  <script type="text/javascript">
-                     //*** JS HTML-ELEMENT HANDLEING **********************************************************************************
+                     //****************************************************************************************************************
                      var GUID = '<%= GUID %>';
+                     var CommandRequestID = '<%= WebCMD.Net.IO.ServerResponse.GetDefaultRequestID %>';
+                     //*** JS HTML-ELEMENT HANDLEING **********************************************************************************
                      var ConsoleHeader = new HtmlElement('<%= ConsoleHeader.ClientID %>');
                      var ConsoleConInfo = new HtmlElement('<%= ConsoleConInfo.ClientID %>');
                      var ConsoleDebug = new HtmlElement('<%= ConsoleDebug.ClientID %>');

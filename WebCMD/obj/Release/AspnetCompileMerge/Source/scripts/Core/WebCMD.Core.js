@@ -3,14 +3,53 @@
  *      WebCMD v1.0
  * --------------------------------------------------------------------------------
  *
- *  JavaScript: WebCMD.Core
+ *  JavaScript: WebCMD.Core.js
  * 
  *
  *
- *  Version: 1.0
+ *  Version: 2.0
  *  Copyright: Team Icelane (c) 2014
  *
  */
+
+
+//--------------------------------------------------------------------------------
+//     Global vars
+//--------------------------------------------------------------------------------
+
+//current client object holder
+var _client_current = new Client();
+
+//--------------------------------------------------------------------------------
+//     CLASS : Client
+//--------------------------------------------------------------------------------
+
+function Client() {
+
+    var _client_debugMode = false;
+    var _client_halted = false;
+    var _client_connection = new Connection();
+
+    this.debugMode = function () { return _client_debugMode; }
+    this.setDebugMode = function (val) { _client_debugMode = val; }
+
+    this.isHalted = function () { return _client_halted; }
+    this.terminate = function () { return _client_halted = true; }
+
+    this.connection = function () { return _client_connection; }
+
+}
+
+Client.instance = function () { return _client_current; }
+
+Client.debugMode = function () { return _client_current.debugMode(); }
+Client.setDebugMode = function (val) { _client_current.setDebugMode(val); }
+
+Client.terminate = function () { return _client_current.terminate(); }
+Client.isHalted = function () { return _client_current.isHalted(); }
+
+Client.connection = function () { return _client_current.connection(); }
+
 
 //--------------------------------------------------------------------------------
 //     Global Vars
@@ -73,12 +112,8 @@ document.onkeypress = function (e) {
 //RECODE ALL FILES --> WebCmd.Core.js (this / error handler) WebCMD.Net.js (request handler / respojnse ahndler) --> WebCmd.util.js (html elemnt / utilities)
 //
 $(document).ready(function () {
-
-    var conid = GUID;
-
-    connectServer();
-
-    console.log(" (i) Ready GUID:" + GUID + " via CONID:" + conid);
+    Client.connection().start();
+    console.log(" (i) Ready GUID:" + GUID);
 });
 
 $(document).onerror = function (msg, url, row, col, ex) {
@@ -131,8 +166,8 @@ function handleKeyPressEvent(e) {
     var scroll = true;
 
     //store postback data 
-    var dopostback = false;
-    var postbackargs;
+    var doServerRequest = false;
+    var serverargs;
 
     //mod key is active ...
     var modKey = e.ctrlKey || e.altKey || e.metaKey;
@@ -159,8 +194,8 @@ function handleKeyPressEvent(e) {
             var _handled = handleJsCommands(input);
 
             if (!_handled) {
-                postbackargs = String.format("_RQ:{0}:{1}:{2}", '__Page', "CommandEvent", input);
-                dopostback = true;
+                serverargs = String.format("_RQ:{0}:{1}:{2}", '__Page', CommandRequestID, input);
+                doServerRequest = true;
             } else {
                 hiddeConsoleInput(false);
             }
@@ -204,7 +239,7 @@ function handleKeyPressEvent(e) {
     if (!allowDefaultBehaviour) e.preventDefault();
 
     //send request fron ENTER key if set ...
-    if (dopostback) sendRequest(postbackargs);
+    if (doServerRequest) Client.connection().send(serverargs);
 
     return allowDefaultBehaviour;
 }

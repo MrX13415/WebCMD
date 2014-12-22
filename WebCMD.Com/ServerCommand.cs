@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Web;
-using WebCMD.Net.Event;
+using WebCMD.Net.IO;
 
 namespace WebCMD.Com
 {
@@ -15,7 +15,7 @@ namespace WebCMD.Com
         public string[] Aliase { get { return _Aliase; } }
         protected void SetAliase(params string[] alias) { _Aliase = alias; }
         public Thread Thread { get; private set; }
-        public CommandEvent EventData { get; set; }
+        public CommandRequest EventData { get; set; }
 
         public ServerCommand()
         {
@@ -30,7 +30,7 @@ namespace WebCMD.Com
 	    public string Description { get; protected set; }
         public string Usage { get; protected set; }
 
-        public bool Execute(CommandEvent e)
+        public bool Execute(CommandRequest e)
         {
             EventData = e;
             Thread = new Thread(this._Run);
@@ -42,10 +42,11 @@ namespace WebCMD.Com
 
         public void _Run()
         {
+            //TODO: Try chatch here: handle incombatible commands ...
             Process(EventData);
         }
 
-        protected abstract bool Process(CommandEvent e);
+        protected abstract bool Process(CommandRequest e);
 	
     }
 }

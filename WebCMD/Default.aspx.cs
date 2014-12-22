@@ -10,7 +10,7 @@ using System.Threading;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using WebCMD.Core;
-using WebCMD.Net.Event;
+using WebCMD.Net.IO;
 using WebCMD.Net;
 using WebCMD.Com;
 using WebCMD.Util.Html;
@@ -45,8 +45,8 @@ namespace WebCMD.Core
 
             if (RequestHandler.GetListener.Count == 0)
             {
-                RequestHandler.AddListener(OnCommandEvent, typeof(CommandEvent));
-                RequestHandler.AddListener(OnUpdateEvent, typeof(UpdateEvent));
+                RequestHandler.AddListener(OnCommandRequest, typeof(CommandRequest));
+                RequestHandler.AddListener(OnUpdateRequest, typeof(UpdateEvent));
             }
 
             string querypath = "";
@@ -74,13 +74,13 @@ namespace WebCMD.Core
         public static string _HTMLTemplate_ServerMessage = "<div class=\"console-line msg-server\">\n<span>{0}</span><br><div style=\"margin-left: 60px;\">{1}</div>\n</div>";
 
 
-        public void OnCommandEvent(RequestEvent ev)
+        public void OnCommandRequest(ServerRequest ev)
         {
-            CommandEvent e = (CommandEvent) ev;
+            CommandRequest e = (CommandRequest)ev;
             CommandHandler.ProcessCommand(e);
         }
 
-        public void OnUpdateEvent(RequestEvent ev)
+        public void OnUpdateRequest(ServerRequest ev)
         {
             
         }

@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EcmaScript.NET">
+      <HintPath>..\packages\EcmaScript.Net.1.0.1.0\lib\net20\EcmaScript.NET.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -39,20 +42,24 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Yahoo.Yui.Compressor">
+      <HintPath>..\packages\YUICompressor.NET.2.7.0.0\lib\NET20\Yahoo.Yui.Compressor.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Client.cs" />
     <Compile Include="ConnectionInfo.cs" />
     <Compile Include="ConsoleSession.cs" />
-    <Compile Include="Event\CommandEvent.cs" />
-    <Compile Include="Event\KeyEvent.cs" />
-    <Compile Include="Event\ResponseEvent.cs" />
-    <Compile Include="Event\UpdateEvent.cs" />
-    <Compile Include="Event\InvaliedParameterException.cs" />
-    <Compile Include="Event\RequestEvent.cs" />
-    <Compile Include="RequestHandler.cs" />
-    <Compile Include="ResponseHandler.cs" />
-    <Compile Include="ServerResponse.cs" />
+    <Compile Include="IO\CommandRequest.cs" />
+    <Compile Include="IO\Event\ResponseEventArgs.cs" />
+    <Compile Include="IO\_old\KeyEvent.cs" />
+    <Compile Include="IO\_old\UpdateEvent.cs" />
+    <Compile Include="IO\InvaliedParameterException.cs" />
+    <Compile Include="IO\ServerRequest.cs" />
+    <Compile Include="IO\RequestHandler.cs" />
+    <Compile Include="IO\ResponseHandler.cs" />
+    <Compile Include="IO\ServerResponse.cs" />
+    <Compile Include="IO\ResponseBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -61,6 +68,10 @@
       <Name>WebCMD.Util</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -4,7 +4,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WebCMD.Net.Event;
+using WebCMD.Net.IO;
+using WebCMD.Net.IO.Event;
 using WebCMD.Util.Html;
 
 namespace WebCMD.Net
@@ -55,7 +56,7 @@ namespace WebCMD.Net
         /// Initialize the Response handler and define the function wich will process and send the response to the actuall client
         /// </summary>
         /// <param name="function">The function to be called on any response from the client</param>
-        public void InitializeResponseHandler(Action<ResponseEvent> function)
+        public void InitializeResponseHandler(Action<ResponseEventArgs> function)
         {
             Response = new ResponseHandler(ConnectionID, function);
         }
@@ -80,7 +81,7 @@ namespace WebCMD.Net
         /// <param name="connectionID">The ID of the connection to map with the client</param>
         /// <param name="function">The function wich will process and send the response to the actuall client</param>
         /// <returns>The mapped client object</returns>
-        public static Client Map(Guid guid, string connectionID, Action<ResponseEvent> function)
+        public static Client Map(Guid guid, string connectionID, Action<ResponseEventArgs> function)
         {
             Client client = Instance(guid);
             if (client == null)
@@ -95,12 +96,12 @@ namespace WebCMD.Net
         /// <param name="connectionID">The ID of the connection to map with the client</param>
         /// <param name="function">The function wich will process and send the response to the actuall client</param>
         /// <returns>The mapped client object</returns>
-        public Client Map(string connectionID, Action<ResponseEvent> function)
+        public Client Map(string connectionID, Action<ResponseEventArgs> function)
         {
             return _Map(this, connectionID, function);
         }
 
-        private static Client _Map(Client client, string connectionID, Action<ResponseEvent> function)
+        private static Client _Map(Client client, string connectionID, Action<ResponseEventArgs> function)
         {
             client.ConnectionID = connectionID;
             client.InitializeResponseHandler(function);
@@ -115,7 +116,7 @@ namespace WebCMD.Net
         /// <param name="connectionID">The connection ID to map the new client to</param>
         /// <param name="function">The function wich will process and send the response to the actuall client</param>
         /// <returns>The new created client object</returns>
-        public static Client ReCreate(string connectionID, Action<ResponseEvent> function)
+        public static Client ReCreate(string connectionID, Action<ResponseEventArgs> function)
         {
             Client client = Create(Guid.NewGuid());
             _Map(client, connectionID, function);
@@ -133,7 +134,7 @@ namespace WebCMD.Net
         /// <param name="connectionID">The connection id to search for</param>
         /// <param name="function">The function wich will process and send the response to the actuall client</param>
         /// <returns>The client object which matches with the given connection id</returns>
-        public static Client Instance(string connectionID, Action<ResponseEvent> function)
+        public static Client Instance(string connectionID, Action<ResponseEventArgs> function)
         {
             Client client = Client.Instance(connectionID);
             if (client == null) client = Client.ReCreate(connectionID, function);

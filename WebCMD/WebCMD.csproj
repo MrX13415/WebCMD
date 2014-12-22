@@ -28,6 +28,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>AllFilesInTheProject</FilesToIncludeForPublish>
+    <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -43,6 +45,9 @@
     </Reference>
     <Reference Include="AjaxMin">
       <HintPath>..\packages\AjaxMin.4.97.4951.28483\lib\net40\AjaxMin.dll</HintPath>
+    </Reference>
+    <Reference Include="EcmaScript.NET">
+      <HintPath>..\packages\EcmaScript.Net.1.0.1.0\lib\net20\EcmaScript.NET.dll</HintPath>
     </Reference>
     <Reference Include="HtmlAgilityPack">
       <HintPath>..\packages\HtmlAgilityPack.1.4.6\lib\Net45\HtmlAgilityPack.dll</HintPath>
@@ -114,10 +119,11 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Yahoo.Yui.Compressor">
+      <HintPath>..\packages\YUICompressor.NET.2.7.0.0\lib\NET20\Yahoo.Yui.Compressor.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="com\WebCMD.Com.Lib.Internal.dll" />
-    <Content Include="com\WebCMD.Com.Lib.TodoList.dll" />
     <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\WebCMD.pubxml" />
     <None Include="scripts\jquery-2.1.1.intellisense.js" />
@@ -132,7 +138,7 @@
     <Content Include="scripts\Util\HtmlElementWrapper.js" />
     <Content Include="scripts\Com\JSCommands.js" />
     <Content Include="scripts\Com\MasterCommand.js" />
-    <Content Include="scripts\Com\Commands\SystemInternal.command.js" />
+    <Content Include="scripts\Com\Lib\WebCMD.Com.Lib.SystemInternal.js" />
     <Content Include="local\files\Somefile.zip" />
     <Content Include="local\files\web.config" />
     <Content Include="local\web.config" />
@@ -174,10 +180,20 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="code\Com\Lib\" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\..\WebCMD.Com.Lib\Meow\Meow.csproj">
+      <Project>{a1f335bc-457b-4911-bc18-901f7fc1dc34}</Project>
+      <Name>Meow</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WebCMD.Com.Lib\TodoList\TodoList.csproj">
+      <Project>{4adb3c1f-6868-4b39-b200-e9ddf5690162}</Project>
+      <Name>TodoList</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WebCMD.Com.Lib\WebCMD.Internal\WebCMD.Internal.csproj">
+      <Project>{1bf416db-6b34-4277-826c-4ccc10d8e315}</Project>
+      <Name>WebCMD.Internal</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebCMD.Com\WebCMD.Com.csproj">
       <Project>{62b5f2e9-a641-40c9-9a38-df13bb496381}</Project>
       <Name>WebCMD.Com</Name>

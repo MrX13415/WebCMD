@@ -69,7 +69,6 @@ namespace WebCMD.Com
             PulseAll();
 
             CommandHandler.Clear();
-            //new WebCMD.Com.Lib.CMD_ReloadCommands().Register();
 
             FileInfo[] files = GetFileList();
 
