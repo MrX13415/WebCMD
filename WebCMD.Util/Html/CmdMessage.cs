@@ -17,12 +17,12 @@ namespace WebCMD.Util.Html
             Success, Error, Warning, Info, Question, None
         }
 
-        public const string _Template_MessageLine = "<div class=\"console-line {0}\"><span>{1} {2}</span></div>";
+        public const string _Template_MessageLine = "<span>{0} {1}</span>";
 
 
         public static string Get(string icon, Type msgtype, params string[] html)
         {
-            return String.Format(_Template_MessageLine, GetTypeClass(msgtype), HTML.Encode(icon.PadRight(4)), String.Concat(html));
+            return HTML.CreateConsoleLineClass(GetTypeClass(msgtype), String.Format(_Template_MessageLine, HTML.Encode(icon.PadRight(4)), String.Concat(html)));
         }
 
         public static string Get(IconType icontype, Type msgtype, params string[] html)

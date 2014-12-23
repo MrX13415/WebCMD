@@ -84,8 +84,8 @@ namespace WebCMD.Com
 
         private static void printUnknowCommandError(CommandRequest e)
         {
-            string errstr = CmdMessage.Get(CmdMessage.Type.Error, @"Error: Unknow Command: '", Color.White(e.Command) , @"</span>'");
-            e.Source.Response.Send(ResponseHandler.CreateOutputResponse(errstr));
+            string errstr = CmdMessage.Get(CmdMessage.Type.Error, @"Error: Unknow Command: '", Color.RedLight(e.Command) , @"</span>'");
+            e.Source.Response.Send(errstr);
         }
     }
 

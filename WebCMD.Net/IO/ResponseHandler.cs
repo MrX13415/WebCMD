@@ -9,6 +9,7 @@ using WebCMD.Net.IO;
 using WebCMD.Util;
 using System.Diagnostics;
 using WebCMD.Net.IO.Event;
+using WebCMD.Util.Html;
 
 namespace WebCMD.Net.IO
 {
@@ -84,6 +85,20 @@ namespace WebCMD.Net.IO
         }
 
         public void Send(params string[] html)
+        {
+            //TODO: improve this with regex ...
+            //Like: he = new HTMLElement("<div class=..."); ... string[] classes = he.ClassList; ... he.equals(HTML._Template_HE...)
+            if (String.Concat(html).ToLower().Trim().StartsWith("<div class=\"console-line"))
+                SendRaw(html);
+            else
+                SendRaw(HTML.CreateConsoleLine(html));
+        }
+        public void SendClass(string cssClass, params string[] html)
+        {
+            SendRaw(HTML.CreateConsoleLineClass(cssClass, html));
+        }
+
+        public void SendRaw(params string[] html)
         {
             lock (this) { buffer.Enqueue(CreateOutputResponse(html)); }
             DoRespond();

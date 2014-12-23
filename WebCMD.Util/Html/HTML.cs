@@ -14,7 +14,11 @@ namespace WebCMD.Util.Html
 
         public static string Encode(params string[] s)
         {
-            return HttpUtility.HtmlEncode(String.Concat(s)).Replace(" ", "&nbsp;");
+            string encoded = HttpUtility.HtmlEncode(String.Concat(s));
+            encoded = encoded.Replace(" ", "&nbsp;");
+            encoded = encoded.Replace("\r\n", "<br>");
+            encoded = encoded.Replace("\n", "<br>");
+            return encoded;
         }
 
         public static string CreateConsoleLine(params string[] s)

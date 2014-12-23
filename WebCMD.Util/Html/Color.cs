@@ -13,11 +13,16 @@ namespace WebCMD.Util.Html
         public static string White(params string[] s)
         { return Get("white", s); }
 
+        public static string Red(params string[] s)
+        { return Get("red", s); }
+
+        public static string RedLight(params string[] s)
+        { return Get("red-light", s); }
+
         public static string Get(string cssClass, params string[] s)
         {
             return String.Format(_Template_Color, cssClass, String.Concat(s));
         }
-
 
     }
 }
