@@ -201,7 +201,7 @@ function CMD_test() {
         }
         else
         {
-            switch (args[0]) {
+            switch (args[0].toLowerCase()) {
                 case "error":
                     CMD_test_error();
                     break;
@@ -245,7 +245,7 @@ CMD_cd.prototype = new JSCommand;
 
 function CMD_cd() {
 
-    this._aliase = ["cd"];      //command aliase (lower case)
+    this._aliase = ["jscd"];      //command aliase (lower case)
 
     this._execute = function (args) {
         if (args.length <= 0 || args[0].toLowerCase().startsWith("http://") || args[0].toLowerCase().startsWith("https://"))

@@ -126,6 +126,14 @@ namespace WebCMD.Net.IO
                 { return buffer.Count > 0 ? buffer.Dequeue() as ServerResponse : null; }
             }
         }
+        public ServerResponse Peek
+        {
+            get
+            {
+                lock (this)
+                { return buffer.Count > 0 ? buffer.Peek() as ServerResponse : null; }
+            }
+        }
 
         /// <summary>
         /// Get a response message
@@ -150,24 +158,25 @@ namespace WebCMD.Net.IO
         public string NextMessageBlock
         {
             get{
-                if (GetQueueSize == 0) return "";
+                ServerResponse response = Next;
+                if (response == null) return "";
 
-                ServerResponse block = null;
-                ServerResponse response = null;
+                ServerResponse block = new ServerResponse(response.RequestTypeID, response.HtmlControlID);
+                block.Mode = response.Mode;
 
-                int index = 0;
+                int index = 0;          
 
                 do
                 {
-                    response = Next;
-                    if (response == null) break; //HTMLcontrol null?
-                    if (block == null) block = new ServerResponse(response.RequestTypeID, response.HtmlControlID);
                     block.SetData(response.Mode, response.Data);
-
+                                       
                     Thread.Yield();
                     index++;
 
                     if (index > 10) break;
+
+                    response = Next; //get next ...
+                    if (response == null) break; //HTMLcontrol null?
                 }
                 while (block.HtmlControlID == response.HtmlControlID && block.RequestTypeID == response.RequestTypeID);
 

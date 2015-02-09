@@ -10,14 +10,12 @@
  *  Version: 1.0
  *  Copyright: Team Icelane (c) 2014
  *
+ */
 
-Fonts:
-
-    font-family: "Century Gothic", CenturyGothic, "Apple Gothic", sans-serif;
-    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
-
-
-*/
+@font-face {  
+	font-family: SourceCodePro;  
+	src: url(/style/font/source-code-pro/TTF/SourceCodePro-Medium.ttf) format("truetype");  
+}  
 
 body{
     margin: 0; 
@@ -27,9 +25,8 @@ body{
     background-color: #1E1E1C;
     color: #e3e3eb;
 
-    font-family: "Menlo Regular","Lucida Console",Monaco,monospace,Courier New,Fixed;
-    /*"Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;*/
-    font-size: 12px;
+    font-family: Consolas, "Menlo Regular", SourceCodePro, "Lucida Sans Typewriter", "Lucida Typewriter", Monaco, "Courier New", Courier, monospace, Fixed;
+    font-size: 10pt;
 
     overflow-x: hidden;
 }

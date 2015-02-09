@@ -13,48 +13,52 @@ namespace WebCMD.Com
     {
         public int CommandCount { get; private set; }
         public int RegisteredCount { get; private set; }
+
         public bool IsValid { get; private set; }
+        public bool IsLoaded { get; private set; }
 
         public FileInfo File { get; private set; }
         public Assembly Assembly { get; private set; }
 
-        private ComLibrary(FileInfo file, Assembly assembly)
+        private ComLibrary(FileInfo file)
         {
-            this.Assembly = assembly;
-            this.File = file;
             this.CommandCount = 0;
             this.RegisteredCount = 0;
             this.IsValid = false;
+            this.IsLoaded = false;
+
+            this.File = file;
+        }
+        
+        public static ComLibrary Instance(string s)
+        {
+            return Instance(new FileInfo(s));
         }
 
-        public static ComLibrary From(string s)
+        public static ComLibrary Instance(FileInfo f)
         {
-            try
-            { return From(new FileInfo(s)); }
-            catch
-            { return new ComLibrary(null, null); }
+            return new ComLibrary(f);
         }
 
-        public static ComLibrary From(FileInfo f)
+        public static ComLibrary Instance(Assembly assembly)
         {
-            try
-            {
-                ComLibrary lib = From(Assembly.LoadFile(f.FullName));
-                lib.File = f;
-                return lib;
-            }
-            catch { return new ComLibrary(f, null); }
-        }
-
-        public static ComLibrary From(Assembly assembly)
-        {
-            return new ComLibrary(new FileInfo(assembly.Location), assembly);
+            return new ComLibrary(new FileInfo(assembly.Location));
         }
 
         public bool Load()
         {
-            IsValid = false;
-            CommandCount = 0; RegisteredCount = 0;
+
+            byte[] libfile = System.IO.File.ReadAllBytes(File.FullName);
+            byte[] pdbfile = null;
+
+            try { pdbfile = System.IO.File.ReadAllBytes(File.FullName.Replace(".dll", ".pdb")); } catch { }
+            
+            if (pdbfile != null) this.Assembly = Assembly.Load(libfile, pdbfile);
+            else this.Assembly = Assembly.Load(libfile);
+
+            this.IsValid = false;
+            this.CommandCount = 0;
+            this.RegisteredCount = 0;
             TypeInfo[] types = Assembly.DefinedTypes.ToArray() as TypeInfo[];
 
             foreach (TypeInfo typeI in types)
@@ -64,13 +68,22 @@ namespace WebCMD.Com
 
                 try
                 {
-                    ComLoader.RegisterAssemblyType(Assembly, typeI);
-                    RegisteredCount++;
-                    IsValid = true;
-                }
-                catch (Exception)
-                {
+                    // Register Assembly type
+                    Command command = Assembly.CreateInstance(typeI.FullName) as Command;
 
+                    if (command != null)
+                    {
+                        command.Library = this;     //define the lib
+                        command.Register();         //register the command
+                        RegisteredCount++;          //update the counter
+                        IsValid = true;             
+                        IsLoaded = true;
+                        Debug.WriteLine(" (!)  Lib type loaded " + (pdbfile != null ? "with debug symbols" : "") + " : " + typeI.Name);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(" (x)  Error while loading lib types: " + ex);
                 }
             }
 
@@ -80,7 +93,7 @@ namespace WebCMD.Com
         public static bool IsServerCommand(TypeInfo t)
         {
             if (t.BaseType == null) return false;
-            return t.BaseType.FullName == typeof(WebCMD.Com.ServerCommand).FullName;
+            return t.BaseType.FullName == typeof(WebCMD.Com.Command).FullName;
         }
     }
 }

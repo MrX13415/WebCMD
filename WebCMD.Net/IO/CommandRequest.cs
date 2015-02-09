@@ -17,6 +17,8 @@ namespace WebCMD.Net.IO
             set
             {
                 ArgumentList = Regex.Split(value.Trim(), @"\s+");
+                if (ArgumentList[0] == "") ArgumentList = new string[0]; //make sure there is no arg.
+
                 _Arguments = value.Trim();
             }
         }

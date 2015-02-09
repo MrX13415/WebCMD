@@ -15,7 +15,12 @@ namespace WebCMD.Net
         private static List<Client> _clients = new List<Client>();
 
         private ConsoleSession _session = new ConsoleSession();
-        
+
+        /// <summary>
+        /// The client object has just been created. Will be set to false on the next server request from the client.
+        /// </summary>
+        public bool IsNew { get; private set; }
+
         /// <summary>
         /// The connection id of the client
         /// </summary>
@@ -46,10 +51,9 @@ namespace WebCMD.Net
 
         private Client(Guid guid)
         {
+            this.IsNew = true;
             this.GUID = guid;
             Register();
-
-            object sa = Session["adasd"];
         }
 
         /// <summary>
@@ -173,7 +177,11 @@ namespace WebCMD.Net
                      !String.IsNullOrEmpty(c.ConnectionID) &&
                      c.ConnectionID == connectionID) ||
                     (guid != null && c.GUID.Equals(guid)))
-                    return c;
+                {
+                    //reset "is new" state ...
+                    if (c.IsNew && c.RequestCount > 1) c.IsNew = false;
+                    return c;   //found!
+                }
             }
             return null;
         }

@@ -47,10 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComLoader.cs" />
-    <Compile Include="CommandBase.cs" />
-    <Compile Include="CommandHandler.cs" />
+    <Compile Include="ComHandler.cs" />
     <Compile Include="ComLibrary.cs" />
-    <Compile Include="ServerCommand.cs" />
+    <Compile Include="Command.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

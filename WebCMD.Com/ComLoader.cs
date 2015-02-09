@@ -26,7 +26,8 @@ namespace WebCMD.Com
         }
 
 
-        static ComLoader(){
+        static ComLoader()
+        {
             _progressInfo = new ProgressInfo();
             Path.Add(HttpContext.Current.Server.MapPath("bin"));
             Path.Add(HttpContext.Current.Server.MapPath("com"));
@@ -38,16 +39,16 @@ namespace WebCMD.Com
         }
         public static void PulseAll()
         {
-            lock (mylock) { Monitor.PulseAll(mylock); }            
+            lock (mylock) { Monitor.PulseAll(mylock); }
         }
 
-        public static void LoadAsync()
+        public static void Load()
         {
             try
             {
                 if (WorkerThread != null && WorkerThread.IsAlive) return;
 
-                Thread clWorker = new Thread(Load);
+                Thread clWorker = new Thread(_Load);
                 clWorker.Name = String.Concat("ComLoader");
                 clWorker.IsBackground = true;
                 clWorker.Priority = ThreadPriority.Normal;
@@ -61,18 +62,18 @@ namespace WebCMD.Com
             }
         }
 
-        public static void Load()
+        private static void _Load()
         {
             ProgressInfo.Index = 0;
             ProgressInfo.ProgressState = ProgressInfo.State.Running;
             ProgressInfo.ProgressStep = ProgressInfo.Step.LoadFileList;
             PulseAll();
 
-            CommandHandler.Clear();
+            ComHandler.Clear();
 
             FileInfo[] files = GetFileList();
 
-            ProgressInfo.Count = files.Length; 
+            ProgressInfo.Count = files.Length;
             ProgressInfo.ProgressStep = ProgressInfo.Step.LoadLibraries;
             PulseAll();
 
@@ -81,26 +82,19 @@ namespace WebCMD.Com
                 try
                 {
                     //debug output here
-                    ComLibrary lib = ComLibrary.From(f);
+                    ComLibrary lib = ComLibrary.Instance(f);
                     lib.Load();
                     ProgressInfo.Library = lib;
                     PulseAll();
                 }
                 catch (Exception ex)
                 {
-                    
+                    Debug.WriteLine(" (x)  Error while loading lib: " + ex);
                 }
                 ProgressInfo.Index++;
             }
             ProgressInfo.ProgressState = ProgressInfo.State.Stoped;
             PulseAll();
-        }
-
-        public static void RegisterAssemblyType(Assembly assembly, Type type)
-        {
-            ServerCommand command = assembly.CreateInstance(type.FullName) as ServerCommand;
-            if (command != null) 
-                command.Register();
         }
 
         public static FileInfo[] GetFileList()
@@ -136,7 +130,7 @@ namespace WebCMD.Com
         public bool IsAlive { get { return ProgressState == State.Running; } internal set { } }
         public int Index { get; internal set; }
         public int Count { get; internal set; }
-        
+
         public float Percentage
         {
             get { return ((float)Index / (float)Count) * 100f; }
@@ -149,7 +143,7 @@ namespace WebCMD.Com
             ProgressStep = Step.Initial;
             Index = 0;
             Count = 0;
-            Library = null;            
+            Library = null;
         }
 
         public override string ToString()

@@ -124,6 +124,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="com\WebCMD.Com.Lib.Meow.dll" />
+    <Content Include="com\WebCMD.Lib.System.dll" />
+    <Content Include="com\WebCMD.Lib.System.pdb" />
     <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\WebCMD.pubxml" />
     <None Include="scripts\jquery-2.1.1.intellisense.js" />
@@ -143,6 +146,41 @@
     <Content Include="local\files\web.config" />
     <Content Include="local\web.config" />
     <Content Include="scripts\jquery-2.1.1.min.map" />
+    <Content Include="style\font\source-code-pro\EOT\SourceCodePro-Black.eot" />
+    <Content Include="style\font\source-code-pro\EOT\SourceCodePro-Bold.eot" />
+    <Content Include="style\font\source-code-pro\EOT\SourceCodePro-ExtraLight.eot" />
+    <Content Include="style\font\source-code-pro\EOT\SourceCodePro-Light.eot" />
+    <Content Include="style\font\source-code-pro\EOT\SourceCodePro-Medium.eot" />
+    <Content Include="style\font\source-code-pro\EOT\SourceCodePro-Regular.eot" />
+    <Content Include="style\font\source-code-pro\EOT\SourceCodePro-Semibold.eot" />
+    <Content Include="style\font\source-code-pro\OTF\SourceCodePro-Black.otf" />
+    <Content Include="style\font\source-code-pro\OTF\SourceCodePro-Bold.otf" />
+    <Content Include="style\font\source-code-pro\OTF\SourceCodePro-ExtraLight.otf" />
+    <Content Include="style\font\source-code-pro\OTF\SourceCodePro-Light.otf" />
+    <Content Include="style\font\source-code-pro\OTF\SourceCodePro-Medium.otf" />
+    <Content Include="style\font\source-code-pro\OTF\SourceCodePro-Regular.otf" />
+    <Content Include="style\font\source-code-pro\OTF\SourceCodePro-Semibold.otf" />
+    <Content Include="style\font\source-code-pro\TTF\SourceCodePro-Black.ttf" />
+    <Content Include="style\font\source-code-pro\TTF\SourceCodePro-Bold.ttf" />
+    <Content Include="style\font\source-code-pro\TTF\SourceCodePro-ExtraLight.ttf" />
+    <Content Include="style\font\source-code-pro\TTF\SourceCodePro-Light.ttf" />
+    <Content Include="style\font\source-code-pro\TTF\SourceCodePro-Medium.ttf" />
+    <Content Include="style\font\source-code-pro\TTF\SourceCodePro-Regular.ttf" />
+    <Content Include="style\font\source-code-pro\TTF\SourceCodePro-Semibold.ttf" />
+    <Content Include="style\font\source-code-pro\WOFF\OTF\SourceCodePro-Black.otf.woff" />
+    <Content Include="style\font\source-code-pro\WOFF\OTF\SourceCodePro-Bold.otf.woff" />
+    <Content Include="style\font\source-code-pro\WOFF\OTF\SourceCodePro-ExtraLight.otf.woff" />
+    <Content Include="style\font\source-code-pro\WOFF\OTF\SourceCodePro-Light.otf.woff" />
+    <Content Include="style\font\source-code-pro\WOFF\OTF\SourceCodePro-Medium.otf.woff" />
+    <Content Include="style\font\source-code-pro\WOFF\OTF\SourceCodePro-Regular.otf.woff" />
+    <Content Include="style\font\source-code-pro\WOFF\OTF\SourceCodePro-Semibold.otf.woff" />
+    <Content Include="style\font\source-code-pro\WOFF\TTF\SourceCodePro-Black.ttf.woff" />
+    <Content Include="style\font\source-code-pro\WOFF\TTF\SourceCodePro-Bold.ttf.woff" />
+    <Content Include="style\font\source-code-pro\WOFF\TTF\SourceCodePro-ExtraLight.ttf.woff" />
+    <Content Include="style\font\source-code-pro\WOFF\TTF\SourceCodePro-Light.ttf.woff" />
+    <Content Include="style\font\source-code-pro\WOFF\TTF\SourceCodePro-Medium.ttf.woff" />
+    <Content Include="style\font\source-code-pro\WOFF\TTF\SourceCodePro-Regular.ttf.woff" />
+    <Content Include="style\font\source-code-pro\WOFF\TTF\SourceCodePro-Semibold.ttf.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -161,11 +199,22 @@
     <Content Include="style\effects.css" />
     <Content Include="style\elements.css" />
     <Content Include="style\main.css" />
+    <Content Include="style\font\source-code-pro\LICENSE.txt" />
+    <Content Include="style\font\source-code-pro\ReadMe.html" />
+    <Content Include="style\font\source-code-pro\SourceCodeProReadMe.html" />
+    <Content Include="style\font\source-code-pro\SVG\SourceCodePro-Black.svg" />
+    <Content Include="style\font\source-code-pro\SVG\SourceCodePro-Bold.svg" />
+    <Content Include="style\font\source-code-pro\SVG\SourceCodePro-ExtraLight.svg" />
+    <Content Include="style\font\source-code-pro\SVG\SourceCodePro-Light.svg" />
+    <Content Include="style\font\source-code-pro\SVG\SourceCodePro-Medium.svg" />
+    <Content Include="style\font\source-code-pro\SVG\SourceCodePro-Regular.svg" />
+    <Content Include="style\font\source-code-pro\SVG\SourceCodePro-Semibold.svg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="code\Net\SignalR\ConsoleHub.cs" />
-    <Compile Include="code\Net\SignalR\Startup.cs" />
+    <Compile Include="code\Core\IO\VirtualPath.cs" />
+    <Compile Include="code\Core\Net\SignalR\ConsoleHub.cs" />
+    <Compile Include="code\Core\Net\SignalR\Startup.cs" />
     <Compile Include="code\Core\Log.cs" />
     <Compile Include="code\Core\WebConsole.cs" />
     <Compile Include="Default.aspx.cs">
@@ -189,10 +238,6 @@
     <ProjectReference Include="..\..\WebCMD.Com.Lib\TodoList\TodoList.csproj">
       <Project>{4adb3c1f-6868-4b39-b200-e9ddf5690162}</Project>
       <Name>TodoList</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\WebCMD.Com.Lib\WebCMD.Internal\WebCMD.Internal.csproj">
-      <Project>{1bf416db-6b34-4277-826c-4ccc10d8e315}</Project>
-      <Name>WebCMD.Internal</Name>
     </ProjectReference>
     <ProjectReference Include="..\WebCMD.Com\WebCMD.Com.csproj">
       <Project>{62b5f2e9-a641-40c9-9a38-df13bb496381}</Project>

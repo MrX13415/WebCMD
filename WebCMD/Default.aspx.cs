@@ -15,7 +15,7 @@ using WebCMD.Net;
 using WebCMD.Com;
 using WebCMD.Util.Html;
 using Microsoft.AspNet.SignalR;
-using WebCMD.Net.SignalR;
+using WebCMD.Core.Net.SignalR;
 using System.Reflection;
 using System.Diagnostics;
 
@@ -38,7 +38,7 @@ namespace WebCMD.Core
         private void ProcessPageLoad(object sender, EventArgs e)
         {
             GUID = Guid.NewGuid(); //<==== http://www.codedigest.com/Articles/ASPNET/347_Pass_Values_from_CodeBehind_to_JavaScript_and_From_JavaScript_to_CodeBehind_in_ASPNet.aspx
-            Client.Create(GUID);
+            Client client = Client.Create(GUID);
 
             //init ...
             WebConsole = WebConsole.Instance(GUID);
@@ -62,13 +62,13 @@ namespace WebCMD.Core
             //process query here
             //make sure p is valid!
 
-            ConsoleHeader.InnerHtml = string.Format("<div></br><span class=\"orange\">WebCMD v1.0 </span><span class=\"white\">-- CMD.ICELANE.NET/{0}</br></br></span></div>\n", WebConsole.CurrentVirtualPath) + ConsoleHeader.InnerHtml;
+            //WebConsole.UpdateHeaderMessage(client);
 
             ConsoleDebug.InnerHtml += String.Format("<span class=\"yellow\">[Site-Name: </span><span class=\"blue\">{0}</span><span class=\"yellow\">]</span>\n", HostingEnvironment.SiteName);
             ConsoleDebug.InnerHtml += String.Format("<span class=\"yellow\">[VirtualPath: </span><span class=\"blue\">{0}</span><span class=\"yellow\">]</span>\n", WebConsole.CurrentVirtualPath);
             ConsoleDebug.InnerHtml += String.Format("<span class=\"yellow\">[WebConsole: </span><span class=\"blue\">{0}</span><span class=\"yellow\">]</span>\n", WebConsole);
 
-            ComLoader.LoadAsync();
+            ComLoader.Load();
         }
 
         public static string _HTMLTemplate_ServerMessage = "<div class=\"console-line msg-server\">\n<span>{0}</span><br><div style=\"margin-left: 60px;\">{1}</div>\n</div>";
@@ -77,7 +77,7 @@ namespace WebCMD.Core
         public void OnCommandRequest(ServerRequest ev)
         {
             CommandRequest e = (CommandRequest)ev;
-            CommandHandler.ProcessCommand(e);
+            ComHandler.ProcessCommand(e);
         }
 
         public void OnUpdateRequest(ServerRequest ev)

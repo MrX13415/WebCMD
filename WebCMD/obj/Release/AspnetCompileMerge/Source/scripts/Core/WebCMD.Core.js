@@ -99,11 +99,11 @@ const Key_Apostrophe = 47;
 //     Event Handler
 //--------------------------------------------------------------------------------
 
-document.onclick = function (e) {
+window.onclick = function (e) {
     if (isMobile()) focusMobileKeyboard();
 }
 
-document.onkeypress = function (e) {
+window.onkeypress = function (e) {
     if (!isMobile()) handleKeyPressEvent(e);
 }
 
@@ -116,7 +116,7 @@ $(document).ready(function () {
     console.log(" (i) Ready GUID:" + GUID);
 });
 
-$(document).onerror = function (msg, url, row, col, ex) {
+window.onerror = function (msg, url, row, col, ex) {
 
     var template = "<div class=\"console-line {0}\">\n" +
                     "\t<span>{1}</span>\n" +
@@ -194,6 +194,14 @@ function handleKeyPressEvent(e) {
             var _handled = handleJsCommands(input);
 
             if (!_handled) {
+
+                //TODO
+                var s = calcMath(input);
+
+                if (s != "") {
+                    ConsoleOutput.get().innerHTML += s;
+                }
+
                 serverargs = String.format("_RQ:{0}:{1}:{2}", '__Page', CommandRequestID, input);
                 doServerRequest = true;
             } else {
@@ -247,6 +255,16 @@ function handleKeyPressEvent(e) {
 //--------------------------------------------------------------------------------
 //     Handle command input
 //--------------------------------------------------------------------------------
+
+function calcMath(input)
+{
+    try {
+        var cr = eval(input);
+        return cr;
+    } catch (e) {
+        return "";
+    }
+}
 
 function sendToOutput(input) {
     var template = "<div class=\"console-line\">\n" +
