@@ -6,4 +6,4 @@ Copyright: Team Icelane (c) 2015
 
 A terminal styled website based on ASP.NET
 
-Demo: http://cmd.icelane.net
+WebCMD in action: http://cmd.icelane.net
