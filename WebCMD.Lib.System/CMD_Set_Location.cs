@@ -33,7 +33,7 @@ namespace WebCMD.Lib.System
             if (args.Length <= 0)
             {
                 //write out the current directory ...
-                client.Response.Send(Color.Get("yellow", "Current Directory: "), Color.Get("blue-light", cmd.CurrentVirtualPath));
+                client.Response.Send(Color.Get("yellow", "Current Directory: "), Color.Get("blue-light", cmd.WorkingDir));
             }
             else
             {
@@ -51,9 +51,12 @@ namespace WebCMD.Lib.System
                     path0 = path0.Substring(0, eIndex);    //retrive the actuall path
                 }
 
-                cmd.ChangeDirectory(path0);
+                try
+                {
+                    bool changed = cmd.ChangeDirectory(path0);
 
-                if (cmd.InvalidPath)
+                }
+                catch
                 {
                     //send invalid path message ...
                     client.Response.Send(CmdMessage.GetErrorMessage("Invalid path: '", Color.White(path0), "'"));

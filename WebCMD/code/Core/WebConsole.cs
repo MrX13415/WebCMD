@@ -18,18 +18,14 @@ namespace WebCMD.Core
         // Map of all clients ...
         private static Dictionary<Guid, WebConsole> _clientInstances = new Dictionary<Guid, WebConsole>();
 
-        public static char DirectorySeparatorChar = '/';
-
-        private string _CurrentVirtualPath = "/";                               // The current virtual path
+        private string _WorkingDir = VirtualPath.DirSeparatorChar.ToString();   // The current virtual path
 
         public bool DebugMode { get; set; }
 
         public HttpContext HttpContext { get; private set; }                    // The current HTTP Context
         public WebConfiguration WebConfiguration { get; private set; }          // The web-config of the current path
         public string SystemRootDirectory { get; set; }                         // The root directory of the console
-        public string PreviousVirtualPath { get; private set; }                 // The previous virtual path
-        public bool InvalidPath { get; private set; }                           // The current path is invalid
-
+        public string PreviousWorkingDir { get; private set; }                 // The previous virtual path
 
 
         public WebConsole()
@@ -37,7 +33,7 @@ namespace WebCMD.Core
             HttpContext = HttpContext.Current;
 
             // init default ...
-            CurrentVirtualPath = VirtualPath.DirSeparatorChar.ToString();
+            WorkingDir = VirtualPath.DirSeparatorChar.ToString();
         }
 
         public static WebConsole Instance(Guid guid)
@@ -59,102 +55,65 @@ namespace WebCMD.Core
             return con;
         }
 
-        public string CurrentVirtualPath                                        
+        public string WorkingDir                                        
         {
-            get { return _CurrentVirtualPath; }
+            get { return _WorkingDir; }
             set { ChangeDirectory(value); }
         }
-        public DirectoryInfo CurrentPhysicalPath
+
+        public DirectoryInfo ServerWorkingDir
         {
-            get { return InvalidPath ? null : new DirectoryInfo(HttpContext.Server.MapPath(CurrentVirtualPath)); }
+            get { return new DirectoryInfo(VirtualPath.GetServerPath(WorkingDir)); }
         }
 
-
-        public static string CombinePath(string path0, string path1)
-        {
-            string p0 = path0.Trim();
-            string p1 = path1.Trim();
-            
-            if (p0.EndsWith("/") || p0.EndsWith("\\")) return p0 + p1;
-            else  return p0 + "/" + p1;
-        }
-
-        public void ChangeDirectory(string vpath)
+        public bool ChangeDirectory(string vpath)
         {
             //tirm
             vpath = vpath.Trim();
 
             // Handle current dir
-            if (VirtualPath.Compare(CurrentVirtualPath, vpath)) return;
+            if (VirtualPath.Compare(WorkingDir, vpath)) return false;
             // Handle current dir alias
-            if (vpath.Equals(VirtualPath.CurrentDirAlias)) return;
+            if (vpath.Equals(VirtualPath.CurrentDirAlias)) return false;
             // Handle parrent dir alias
-            if (vpath.Equals(VirtualPath.ParentDirAlias)) vpath = VirtualPath.GetParentPath(vpath);
+            if (vpath.Equals(VirtualPath.ParentDirAlias)) vpath = VirtualPath.GetParentPath(WorkingDir);
             // Handle current dir alias at the begining of a path
             if (vpath.StartsWith(String.Concat(VirtualPath.CurrentDirAlias, VirtualPath.DirSeparatorChar)))
-                vpath = VirtualPath.Combine(CurrentVirtualPath, vpath.Substring(2));
+                vpath = VirtualPath.Combine(WorkingDir, vpath.Substring(2));
             // Handle relative path
-            if (!VirtualPath.IsFullPath(vpath)) vpath = CombinePath(CurrentVirtualPath, vpath);
+            if (!VirtualPath.IsFullPath(vpath)) vpath = VirtualPath.Combine(WorkingDir, vpath);
             // Handle parrent dir alias in path 
             vpath = VirtualPath.GetSimplifiedPath(vpath);
             // Try to find a matching path for the given path-like string
-            vpath = VirtualPath.GetSmartPath(CurrentVirtualPath, vpath);
+            vpath = VirtualPath.GetSmartPath(WorkingDir, vpath);
 
             //check config
             WebConfiguration cfg = new WebConfiguration(vpath);
 
             //Only a virtual path with an existing physical path and with "directory browse" enabled are allowed ...
-            if (cfg.DirectoryBrowse.Enabled && VirtualPath.Exists(vpath))
+            if (VirtualPath.Exists(vpath))
             {
-                //reset validation ...
-                InvalidPath = false;
-
-                //path is valid ...
+                //store the current web config
                 WebConfiguration = cfg;
+                //Backup current path
+                PreviousWorkingDir = _WorkingDir;
+                //set the new directory
+                _WorkingDir = vpath;
 
-                //Backup current path and set the the new path ...
-                PreviousVirtualPath = _CurrentVirtualPath;
-                _CurrentVirtualPath = vpath;
-
-                return;
+                return true;
             }
            
-            //path is invalid! Return to the previous path ...
-            InvalidPath = true;
+            throw new ArgumentException("Invalid path!");
         }
 
-
-        /*
-         
-          //Backup current path and set the the new path ...
-            PreviousVirtualPath = _CurrentVirtualPath;
-            _CurrentVirtualPath = GetFormatedVirtualPath(vpath);
-
-            //reset validation ...
-            InvalidPath = false;
-
-            
-
-            //check config
-            WebConfiguration cfg = new WebConfiguration(_CurrentVirtualPath);
-
-            //Only a virtual path with an existing physical path and with "directory browse" enabled are allowed ...
-            if (cfg.DirectoryBrowse.Enabled && CurrentPhysicalPath.Exists)
-            {
-                //path is valid ...
-                WebConfiguration = cfg;
-                return;
-            }
-
-            //path is invalid! Return to the previous path ...
-            InvalidPath = true;
-           // _CurrentVirtualPath = PreviousVirtualPath;
-         * 
-         */
+        public bool Exists()
+        {
+            return VirtualPath.Exists(WorkingDir);
+        }
 
         public void UpdateHeaderMessage(Client client)
         {
-            string html = string.Format("<div></br><span class=\"orange\">WebCMD v1.0 </span><span class=\"white\">-- CMD.ICELANE.NET{0}</br></br></span></div>\n", CurrentVirtualPath);
+            string html = string.Format("<div></br><span class=\"orange\">WebCMD v1.0 </span><span class=\"white\">-- CMD.ICELANE.NET{0}</br></br></span></div>\n", WorkingDir);
             ServerResponse rs = new ServerResponse(Ref.ConsoleHeaderID);
             rs.SetData(html);
             rs.Mode = ServerResponse.PropertyMode.Set;

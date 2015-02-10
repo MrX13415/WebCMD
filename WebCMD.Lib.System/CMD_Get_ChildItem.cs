@@ -29,24 +29,23 @@ namespace WebCMD.Lib.System
             WebConsole webConsole = WebConsole.Instance(client.GUID);
 
             string cmdOut = "";
-            if (webConsole.CurrentPhysicalPath != null)
+            if (webConsole.ServerWorkingDir != null)
             {
-                cmdOut += "<div>\n<span>Directory Content:</span>\n</div>\n<br>\n";
-                foreach (DirectoryInfo dir in webConsole.CurrentPhysicalPath.GetDirectories())
+                cmdOut += "<div>\n<span class=\"yellow\">Directory of: </span><span class=\"blue-light\">" + webConsole.WorkingDir + "</span>\n</div>\n<br>\n";
+                foreach (DirectoryInfo dir in webConsole.ServerWorkingDir.GetDirectories())
                 {
-                    cmdOut += "<div>\n<span class=\"green\" style=\"margin-left: 50px;\">" + dir.Name + "/</span>\n</div>\n";
+                    cmdOut += "<div>\n<span class=\"blue-light\" style=\"margin-left: 50px;\">" + dir.Name + "/</span>\n</div>\n";
                 }
 
-                foreach (FileInfo file in webConsole.CurrentPhysicalPath.GetFiles())
+                foreach (FileInfo file in webConsole.ServerWorkingDir.GetFiles())
                 {
-                    cmdOut += "<div>\n<span class=\"blue\" style=\"margin-left: 50px;\">" + file.Name + "</span>\n</div>\n";
+                    cmdOut += "<div>\n<span class=\"magenta\" style=\"margin-left: 50px;\">" + file.Name + "</span>\n</div>\n";
                 }
             }
-            else if (webConsole.InvalidPath)
+            else if (!webConsole.Exists())
             {
                 cmdOut = "<div>\n<span class=\"magenta\">Server: Invalid server path or not allowed to view the directory content!</span>\n</div>\n";
             }
-
             client.Response.Send(cmdOut);
 
             return true;

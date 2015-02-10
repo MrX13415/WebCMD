@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using WebCMD.Util.WebConfig;
 
 namespace WebCMD.Core.IO
 {
@@ -134,7 +135,7 @@ namespace WebCMD.Core.IO
                 string[] list = Directory.GetDirectories(GetServerPath(current), pattern);
 
                 // path is invalid!
-                if (list.Count() == 0) return "";
+                if (list.Count() == 0) return current;
 
                 current = Combine(current, Path.GetFileName(list[0]));
             }
@@ -144,15 +145,29 @@ namespace WebCMD.Core.IO
 
         public static string GetParentPath(string path)
         {
+            //trim
             path = path.Trim().Replace(AltDirChar, DirChar);
+            //remove last "/"
             if (path.EndsWith(DirChar)) path = path.Substring(0, path.Length - 1);
+            // the given path has no more parents
             if (!path.Contains(DirChar)) return path;
-            return path.Substring(0, path.LastIndexOf(DirChar));
+            // get the parent dor path
+            path = path.Substring(0, path.LastIndexOf(DirChar));
+            // empty string is root level
+            if (String.IsNullOrEmpty(path)) path = DirChar;
+            return path;
+        }
+
+        public static bool ServerPathExists(string path)
+        {
+            return File.Exists(GetServerPath(path)) || Directory.Exists(GetServerPath(path));
         }
 
         public static bool Exists(string path)
         {
-            return File.Exists(GetServerPath(path)) || Directory.Exists(GetServerPath(path));
+            //check config
+            WebConfiguration cfg = new WebConfiguration(path);
+            return cfg.DirectoryBrowse.Enabled && ServerPathExists(path);
         }
 
         public static bool IsFullPath(string path)

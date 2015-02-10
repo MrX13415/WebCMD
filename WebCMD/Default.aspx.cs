@@ -55,7 +55,7 @@ namespace WebCMD.Core
             {
                 querypath = Request.QueryString.Get("p");
 
-                WebConsole.CurrentVirtualPath = querypath;
+                WebConsole.WorkingDir = querypath;
             }
             catch { }
 
@@ -65,7 +65,7 @@ namespace WebCMD.Core
             //WebConsole.UpdateHeaderMessage(client);
 
             ConsoleDebug.InnerHtml += String.Format("<span class=\"yellow\">[Site-Name: </span><span class=\"blue\">{0}</span><span class=\"yellow\">]</span>\n", HostingEnvironment.SiteName);
-            ConsoleDebug.InnerHtml += String.Format("<span class=\"yellow\">[VirtualPath: </span><span class=\"blue\">{0}</span><span class=\"yellow\">]</span>\n", WebConsole.CurrentVirtualPath);
+            ConsoleDebug.InnerHtml += String.Format("<span class=\"yellow\">[VirtualPath: </span><span class=\"blue\">{0}</span><span class=\"yellow\">]</span>\n", WebConsole.WorkingDir);
             ConsoleDebug.InnerHtml += String.Format("<span class=\"yellow\">[WebConsole: </span><span class=\"blue\">{0}</span><span class=\"yellow\">]</span>\n", WebConsole);
 
             ComLoader.Load();
