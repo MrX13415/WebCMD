@@ -66,9 +66,12 @@
       <Name>WebCMD</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /D /y /s /r "$(TargetDir)$(TargetName).*" "$(SolutionDir)WebCMD\com"</PostBuildEvent>
+    <PostBuildEvent>xcopy /D /y /s /r "$(TargetDir)$(TargetName).*" "$(SolutionDir)WebCMD\sys\com"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,0 +1,220 @@
+﻿
+/* --------------------------------------------------------------------------------
+ *      WebCMD v1.0
+ * --------------------------------------------------------------------------------
+ *
+ *  CSS: Default colors
+ * 
+ *  Contains basic page styleing
+ *
+ *  Version: 1.0
+ *  Copyright: Team Icelane (c) 2014
+ */
+
+.black{ 
+	color: #000000;
+}
+
+.white{ 
+	color: #FFFFFF;
+}
+
+.green-light{ 
+	color: #a2d24f;
+}
+.green{ 
+	color: #4aa951;
+}
+.green-dark{ 
+	color: #273313;
+}
+
+.orange-light{ 
+	color: #ffa755;    
+}
+.orange{ 
+	color: #ff8538; 
+}
+.orange-dark{ 
+	color: #662a12;
+}
+
+.yellow-light{
+    color: #ffd980;
+}
+.yellow{
+    color: #ffc640;
+}
+.yellow-dark{ 
+	color: #664c0e;
+}
+
+.red-light{ 
+	color: #ff8080;		/*highlight color*/
+}
+.red{ 
+	color: #ff4848;		/*highlight color*/
+}
+.red-dark{
+    color: #4d1616;
+}
+
+.magenta-light{
+    color: #fe80bd;
+}
+.magenta{ 
+	color: #ff479e;
+}
+.magenta-dark{ 
+	color: #59012c;
+}
+
+.turky-light{
+    color: #d6fffd;
+}
+.turky{ 
+	color: #5bfff5;
+}
+.turky-dark{ 
+	color: #1b4d4a;
+}
+
+.blue-light{ 
+	color: #48a0f5;
+}
+.blue{ 
+	color: #3168de;
+}
+.blue-dark{ 
+	color: #0e1a40;
+}
+
+.gray-light{ 
+	color: #3c3c3c;
+}
+
+.gray{ 
+	color: #1E1E1C; /*#2d2d30*/ 		/*Default Background color*/
+}
+
+.gray-dark{ 
+	color: #0F0F0F; /*#212124;*/
+}
+
+.lightgray-light{
+    color: #e3e3eb;  	/*Default text color*/
+}
+.lightgray{ 
+	color: #c3c3c9;
+}
+
+.lightgray-dark{ 
+	color: #a6a6ab;   
+}
+
+
+
+/**** BACKGROUND COLORS ***************************************************************************/
+
+
+
+.back-black{ 
+	background-color: #000000;
+}
+
+.back-white{ 
+	background-color: #FFFFFF;
+}
+
+.back-green-light{ 
+	background-color: #a2d24f;
+}
+.back-green{ 
+	background-color: #4aa951;
+}
+.back-green-dark{ 
+	background-color: #273313;
+}
+
+.back-orange-light{ 
+	background-color: #ffa755;    
+}
+.back-orange{ 
+	background-color: #ff8538; 
+}
+.back-orange-dark{ 
+	background-color: #662a12;
+}
+
+.back-yellow-light{
+    background-color: #ffd980;
+}
+.back-yellow{
+    background-color: #ffc640;
+}
+.back-yellow-dark{ 
+	background-color: #664c0e;
+}
+
+.back-red-light{ 
+	background-color: #ff8080;		/*highlight color*/
+}
+.back-red{ 
+	background-color: #ff4848;		/*highlight color*/
+}
+.back-red-dark{
+    background-color: #4d1616;
+}
+
+.back-magenta-light{
+    background-color: #fe80bd;
+}
+.back-magenta{ 
+	background-color: #ff479e;
+}
+.back-magenta-dark{ 
+	background-color: #59012c;
+}
+
+.back-turky-light{
+    background-color: #d6fffd;
+}
+.back-turky{ 
+	background-color: #5bfff5;
+}
+.back-turky-dark{ 
+	background-color: #1b4d4a;
+}
+
+.back-blue-light{ 
+	background-color: #48a0f5;
+}
+.back-blue{ 
+	background-color: #3168de;
+}
+.back-blue-dark{ 
+	background-color: #0e1a40;
+}
+
+.back-gray-light{ 
+	background-color: #3c3c3c;
+}
+
+.back-gray{ 
+	background-color: #2d2d30;		/*Default Background color*/
+}
+
+.back-gray-dark{ 
+	background-color: #212124;
+}
+
+.back-lightgray-light{
+    background-color: #e3e3eb;  	/*Default text color*/
+}
+.back-lightgray{ 
+	background-color: #c3c3c9;
+}
+
+.back-lightgray-dark{ 
+	background-color: #a6a6ab;   
+}

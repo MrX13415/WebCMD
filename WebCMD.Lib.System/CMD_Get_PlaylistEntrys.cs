@@ -36,6 +36,7 @@ namespace WebCMD.Lib.System
 
             if (!r)
             {
+                e.Source.Response.Send(CmdMessage.GetErrorMessage("Bad arguments"));
                 e.Source.Response.Send(HTML.Encode(String.Concat("Returns the Video-Links of a YouTube Playlist\n\n", Label, " <playlist id> <start index>")));
             }
                
@@ -44,7 +45,10 @@ namespace WebCMD.Lib.System
 
         private bool GetLinks(CommandRequest e)
         {
+            if (e.ArgumentList.Length <= 0) return false;
+
             string id = e.ArgumentList[0];
+
             if (id.Equals(":3")) id = "PLoJGguUgeh_5HM_kQhT014krKrVzCOXri";
 
             int index = 0;
@@ -72,7 +76,7 @@ namespace WebCMD.Lib.System
                 count++;
             }
 
-            cout = "<div class=\"msg-error\">YOUTUBE | PLAYLIST ID: " + id + " | COUNT: " + count + " | START INDEX: " + index + "</div>" +
+            cout = "<span class=\"msg-error\">YOUTUBE | PLAYLIST ID: " + id + " | COUNT: " + count + " | START INDEX: " + index + "</span></br>" +
                    "<div class=\"yellow\" style=\"margin-left: 20px\">" + cout;
             cout += "</div>";
 

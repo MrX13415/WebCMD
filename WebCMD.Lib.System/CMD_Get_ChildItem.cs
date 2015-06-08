@@ -7,6 +7,7 @@ using WebCMD.Net;
 using WebCMD.Com;
 using WebCMD.Core;
 using System.IO;
+using WebCMD.Core.IO;
 
 namespace WebCMD.Lib.System
 {
@@ -26,23 +27,23 @@ namespace WebCMD.Lib.System
             ServerResponse response = ResponseHandler.NewOutputResponse;
 
             Client client = e.Source;
-            WebConsole webConsole = WebConsole.Instance(client.GUID);
+            Terminal terminal = Terminal.Instance(client.GUID);
 
             string cmdOut = "";
-            if (webConsole.ServerWorkingDir != null)
+            if (terminal.ServerWorkingDir != null)
             {
-                cmdOut += "<div>\n<span class=\"yellow\">Directory of: </span><span class=\"blue-light\">" + webConsole.WorkingDir + "</span>\n</div>\n<br>\n";
-                foreach (DirectoryInfo dir in webConsole.ServerWorkingDir.GetDirectories())
+                cmdOut += "<div>\n<span class=\"yellow\">Directory of: </span><span class=\"blue-light\">" + terminal.WorkingDir + "</span>\n</div>\n<br>\n";
+                foreach (DirectoryInfo dir in terminal.ServerWorkingDir.GetDirectories())
                 {
                     cmdOut += "<div>\n<span class=\"blue-light\" style=\"margin-left: 50px;\">" + dir.Name + "/</span>\n</div>\n";
                 }
 
-                foreach (FileInfo file in webConsole.ServerWorkingDir.GetFiles())
+                foreach (FileInfo file in terminal.ServerWorkingDir.GetFiles())
                 {
                     cmdOut += "<div>\n<span class=\"magenta\" style=\"margin-left: 50px;\">" + file.Name + "</span>\n</div>\n";
                 }
             }
-            else if (!webConsole.Exists())
+            else if (VirtualPath.Exists(terminal.WorkingDir))
             {
                 cmdOut = "<div>\n<span class=\"magenta\">Server: Invalid server path or not allowed to view the directory content!</span>\n</div>\n";
             }

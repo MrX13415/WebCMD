@@ -26,7 +26,10 @@ namespace WebCMD.Lib.System
         {
             bool r = false;
 
-            switch (e.ArgumentList[0].ToLower())
+            string arg0 = "";
+            if (e.ArgumentList.Length > 0) arg0 = e.ArgumentList[0].ToLower();
+
+            switch (arg0)
             {
                 case "response":
                     r = DoResponseTest(e);

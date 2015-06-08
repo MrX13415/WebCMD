@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,6 +8,7 @@ using System.Threading;
 using WebCMD.Util;
 using WebCMD.Com;
 using WebCMD.Util.Html;
+using System;
 
 namespace WebCMD.Lib.System
 {
@@ -27,7 +27,10 @@ namespace WebCMD.Lib.System
 
             bool r = false;
 
-            switch (args[0].ToLower())
+            string arg0 = "";
+            if (args.Length > 0) arg0 = args[0].ToLower();
+
+            switch (arg0)
             {
                 case "list":
                     r = List(e);

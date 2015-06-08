@@ -15,7 +15,12 @@ namespace WebCMD.Net.IO
         }
 
         private const string _DefaultProperty = "innerHTML";
-        public new const string _ResponseMessageTemplate = "_RS:{0}:{1}:{2}:{3}:{4}";  //  request-event-name : target-control-id : property-mode : target-JS-property : data
+
+        //mode: 0 0
+        //      | |
+        //      | \-- property-mode
+        //      \-- use Animation
+        public new const string _ResponseMessageTemplate = "_RS:{0}:{1}:{2}:{3}:{4}";  //  response-event-name : target-control-id : mode : target-JS-property : data
 
         public string HtmlControlID { get; set; }
 
@@ -27,17 +32,38 @@ namespace WebCMD.Net.IO
 
         public string Property { get; set; }
         public PropertyMode Mode { get; set; }
-
+        public bool UseAnimation { get; set; }
 
         public ServerResponse(string requestTypeID, string controlID) : base(requestTypeID)
         {
             this.HtmlControlID = controlID;
             Mode = PropertyMode.AddEnd;
             Property = _DefaultProperty;
+            UseAnimation = true;
         }
 
         public ServerResponse(string controlID) : this(GetDefaultRequestID, controlID)
         { }
+
+        public static ServerResponse Copy(ServerResponse rs)
+        {
+            ServerResponse copy = new ServerResponse(rs.RequestTypeID, rs.HtmlControlID);
+            copy.Mode = rs.Mode;
+            copy.Property = rs.Property;
+            copy.UseAnimation = rs.UseAnimation;
+            return copy;
+        }
+
+        public bool Equals(ServerResponse rs)
+        {
+            if (this.RequestTypeID == rs.RequestTypeID &&
+                this.HtmlControlID == rs.HtmlControlID &&
+                this.Mode == rs.Mode &&
+                this.Property == rs.Property &&
+                this.UseAnimation == rs.UseAnimation) return true;
+
+            return false;
+        }
 
         public static string GetDefaultRequestID { get { return ServerRequest.GetRequestTypeID(typeof(CommandRequest)); } }
 
@@ -61,7 +87,7 @@ namespace WebCMD.Net.IO
         }
 
         public override string GetResponseMessage{
-            get { return CreateResponseMessage(RequestTypeID, HtmlControlID, Property, Mode, Data); }
+            get { return CreateResponseMessage(RequestTypeID, HtmlControlID, Property, Mode, UseAnimation,  Data); }
         }
         
         /// <summary>
@@ -84,25 +110,32 @@ namespace WebCMD.Net.IO
 
         public static string CreateResponseMessage(string requesttypeID, string controlID, string property, PropertyMode mode, params string[] data)
         {
-            string modestr = "0";
+            return CreateResponseMessage(requesttypeID, controlID, property, mode, true, String.Concat(data));
+        }
+
+        public static string CreateResponseMessage(string requesttypeID, string controlID, string property, PropertyMode mode, bool useAnimation, params string[] data)
+        {
+            int modeN = 0;
 
             switch (mode)
             {
                 case PropertyMode.AddEnd:
-                    modestr = "1";
+                    modeN = 1;
                     break;
                 case PropertyMode.Set:
-                    modestr = "2";
+                    modeN = 2;
                     break;
                 case PropertyMode.AddTop:
-                    modestr = "3";
+                    modeN = 3;
                     break;
                 default:
-                    modestr = "0";
+                    modeN = 0;
                     break;
             }
 
-            return String.Format(_ResponseMessageTemplate, requesttypeID, controlID, modestr, property, String.Concat(data));
+            if (useAnimation) modeN += 10;
+
+            return String.Format(_ResponseMessageTemplate, requesttypeID, controlID, modeN, property, String.Concat(data));
         }
 
     }

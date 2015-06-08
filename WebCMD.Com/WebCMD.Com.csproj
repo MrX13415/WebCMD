@@ -50,6 +50,8 @@
     <Compile Include="ComHandler.cs" />
     <Compile Include="ComLibrary.cs" />
     <Compile Include="Command.cs" />
+    <Compile Include="ComProcess.cs" />
+    <Compile Include="Event\ComEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

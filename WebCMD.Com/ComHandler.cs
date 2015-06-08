@@ -6,6 +6,7 @@ using WebCMD.Net;
 using WebCMD.Net.IO;
 using System.Threading;
 using WebCMD.Util.Html;
+using WebCMD.Util;
 
 namespace WebCMD.Com
 {
@@ -25,10 +26,9 @@ namespace WebCMD.Com
             cmdlist.Add(cmd);
         }
 
-        public static bool ProcessCommand(CommandRequest e)
+        public static ComProcess ProcessCommand(CommandRequest e)
         {
-            //int responds = e.Source.Response.GetQueueSize;
-            bool returnval = false;
+            ComProcess process = null;
             bool match = false;
             string input = e.Command;
 
@@ -39,17 +39,20 @@ namespace WebCMD.Com
 
                 if (!match) continue;
 
-                returnval = cmd.Execute(e);
+                ServerResponse rs = new ServerResponse(Ref.ConsoleInputID);
+                rs.Property = "style.visibility";
+                rs.SetData("hidden");
+                rs.Mode = ServerResponse.PropertyMode.Set;
+                //e.Source.Response.Send(rs);
+
+                process = cmd.Execute(e);
+
                 break;
             }
 
             if (!match) printUnknowCommandError(e);
 
-            //make sure there is always a response ...
-            //if (e.EventSource.Response.GetQueueSize == responds)
-            //    e.EventSource.Response.Send(ResponseHandler.CreateOutputResponse(""));
-
-            return returnval;
+            return process;
         }
 
         public static bool Exists(Command cmd)
@@ -71,7 +74,7 @@ namespace WebCMD.Com
 
         private static void printUnknowCommandError(CommandRequest e)
         {
-            string errstr = CmdMessage.Get(CmdMessage.Type.Error, @"Error: Unknow Command: '", Color.RedLight(e.Command) , @"</span>'");
+            string errstr = CmdMessage.Get(CmdMessage.Type.Error, @"Error: Unknow Command: '", Color.RedLight(e.Command) , @"'");
             e.Source.Response.Send(errstr);
         }
     }

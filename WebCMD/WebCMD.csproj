@@ -30,11 +30,14 @@
     <WarningLevel>4</WarningLevel>
     <FilesToIncludeForPublish>AllFilesInTheProject</FilesToIncludeForPublish>
     <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
+    <DocumentationFile>
+    </DocumentationFile>
+    <RegisterForComInterop>false</RegisterForComInterop>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\</OutputPath>
+    <OutputPath>sys\bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -52,14 +55,13 @@
     <Reference Include="HtmlAgilityPack">
       <HintPath>..\packages\HtmlAgilityPack.1.4.6\lib\Net45\HtmlAgilityPack.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AspNet.SignalR.Core">
-      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.1.2\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.0\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AspNet.SignalR.Owin">
-      <HintPath>..\packages\Microsoft.AspNet.SignalR.Owin.1.2.2\lib\net45\Microsoft.AspNet.SignalR.Owin.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb">
-      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.1.2\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.0\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Data.Edm, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -70,14 +72,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.Data.OData.5.2.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin">
-      <HintPath>..\packages\Microsoft.Owin.2.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Host.SystemWeb">
-      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security">
-      <HintPath>..\packages\Microsoft.Owin.Security.2.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Web.Administration, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -93,7 +98,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Owin">
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.Services.Client" />
@@ -124,63 +130,64 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="com\WebCMD.Com.Lib.Meow.dll" />
-    <Content Include="com\WebCMD.Lib.System.dll" />
-    <Content Include="com\WebCMD.Lib.System.pdb" />
+    <Content Include="sys\com\WebCMD.Com.Lib.Meow.dll" />
+    <Content Include="sys\com\WebCMD.Lib.IssueDB.dll" />
+    <Content Include="sys\com\WebCMD.Lib.System.dll" />
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\WebCMD %28dev-branch%29.pubxml" />
     <None Include="Properties\PublishProfiles\WebCMD.pubxml" />
-    <None Include="scripts\jquery-2.1.1.intellisense.js" />
-    <Content Include="scripts\Core\WebCMD.Core.js" />
-    <Content Include="scripts\HTML\WebCMD.HTML.js" />
-    <Content Include="scripts\jquery-2.1.1.js" />
-    <Content Include="scripts\jquery-2.1.1.min.js" />
-    <Content Include="scripts\jquery.signalR-2.1.2.js" />
-    <Content Include="scripts\jquery.signalR-2.1.2.min.js" />
-    <Content Include="scripts\Core\ErrorHandler.js" />
-    <Content Include="scripts\Net\WebCMD.Net.js" />
-    <Content Include="scripts\Util\HtmlElementWrapper.js" />
-    <Content Include="scripts\Com\JSCommands.js" />
-    <Content Include="scripts\Com\MasterCommand.js" />
-    <Content Include="scripts\Com\Lib\WebCMD.Com.Lib.SystemInternal.js" />
+    <Content Include="sys\script\core\WebCMD.Core.js" />
+    <Content Include="sys\script\html\WebCMD.HTML.js" />
+    <Content Include="sys\script\core\ErrorHandler.js" />
+    <None Include="sys\script\jquery\jquery-2.1.3.intellisense.js" />
+    <Content Include="sys\script\jquery\jquery-2.1.3.js" />
+    <Content Include="sys\script\jquery\jquery-2.1.3.min.js" />
+    <Content Include="sys\script\jquery\jquery.signalR-2.2.0.js" />
+    <Content Include="sys\script\jquery\jquery.signalR-2.2.0.min.js" />
+    <Content Include="sys\script\net\WebCMD.Net.js" />
+    <Content Include="sys\script\util\HtmlElementWrapper.js" />
+    <Content Include="sys\script\com\JSCommands.js" />
+    <Content Include="sys\script\com\MasterCommand.js" />
+    <Content Include="sys\script\com\Lib\WebCMD.Com.Lib.SystemInternal.js" />
     <Content Include="local\files\Somefile.zip" />
     <Content Include="local\files\web.config" />
     <Content Include="local\web.config" />
-    <Content Include="scripts\jquery-2.1.1.min.map" />
-    <Content Include="style\font\source-code-pro\EOT\SourceCodePro-Black.eot" />
-    <Content Include="style\font\source-code-pro\EOT\SourceCodePro-Bold.eot" />
-    <Content Include="style\font\source-code-pro\EOT\SourceCodePro-ExtraLight.eot" />
-    <Content Include="style\font\source-code-pro\EOT\SourceCodePro-Light.eot" />
-    <Content Include="style\font\source-code-pro\EOT\SourceCodePro-Medium.eot" />
-    <Content Include="style\font\source-code-pro\EOT\SourceCodePro-Regular.eot" />
-    <Content Include="style\font\source-code-pro\EOT\SourceCodePro-Semibold.eot" />
-    <Content Include="style\font\source-code-pro\OTF\SourceCodePro-Black.otf" />
-    <Content Include="style\font\source-code-pro\OTF\SourceCodePro-Bold.otf" />
-    <Content Include="style\font\source-code-pro\OTF\SourceCodePro-ExtraLight.otf" />
-    <Content Include="style\font\source-code-pro\OTF\SourceCodePro-Light.otf" />
-    <Content Include="style\font\source-code-pro\OTF\SourceCodePro-Medium.otf" />
-    <Content Include="style\font\source-code-pro\OTF\SourceCodePro-Regular.otf" />
-    <Content Include="style\font\source-code-pro\OTF\SourceCodePro-Semibold.otf" />
-    <Content Include="style\font\source-code-pro\TTF\SourceCodePro-Black.ttf" />
-    <Content Include="style\font\source-code-pro\TTF\SourceCodePro-Bold.ttf" />
-    <Content Include="style\font\source-code-pro\TTF\SourceCodePro-ExtraLight.ttf" />
-    <Content Include="style\font\source-code-pro\TTF\SourceCodePro-Light.ttf" />
-    <Content Include="style\font\source-code-pro\TTF\SourceCodePro-Medium.ttf" />
-    <Content Include="style\font\source-code-pro\TTF\SourceCodePro-Regular.ttf" />
-    <Content Include="style\font\source-code-pro\TTF\SourceCodePro-Semibold.ttf" />
-    <Content Include="style\font\source-code-pro\WOFF\OTF\SourceCodePro-Black.otf.woff" />
-    <Content Include="style\font\source-code-pro\WOFF\OTF\SourceCodePro-Bold.otf.woff" />
-    <Content Include="style\font\source-code-pro\WOFF\OTF\SourceCodePro-ExtraLight.otf.woff" />
-    <Content Include="style\font\source-code-pro\WOFF\OTF\SourceCodePro-Light.otf.woff" />
-    <Content Include="style\font\source-code-pro\WOFF\OTF\SourceCodePro-Medium.otf.woff" />
-    <Content Include="style\font\source-code-pro\WOFF\OTF\SourceCodePro-Regular.otf.woff" />
-    <Content Include="style\font\source-code-pro\WOFF\OTF\SourceCodePro-Semibold.otf.woff" />
-    <Content Include="style\font\source-code-pro\WOFF\TTF\SourceCodePro-Black.ttf.woff" />
-    <Content Include="style\font\source-code-pro\WOFF\TTF\SourceCodePro-Bold.ttf.woff" />
-    <Content Include="style\font\source-code-pro\WOFF\TTF\SourceCodePro-ExtraLight.ttf.woff" />
-    <Content Include="style\font\source-code-pro\WOFF\TTF\SourceCodePro-Light.ttf.woff" />
-    <Content Include="style\font\source-code-pro\WOFF\TTF\SourceCodePro-Medium.ttf.woff" />
-    <Content Include="style\font\source-code-pro\WOFF\TTF\SourceCodePro-Regular.ttf.woff" />
-    <Content Include="style\font\source-code-pro\WOFF\TTF\SourceCodePro-Semibold.ttf.woff" />
+    <Content Include="sys\ui\style\font\source-code-pro\EOT\SourceCodePro-Black.eot" />
+    <Content Include="sys\ui\style\font\source-code-pro\EOT\SourceCodePro-Bold.eot" />
+    <Content Include="sys\ui\style\font\source-code-pro\EOT\SourceCodePro-ExtraLight.eot" />
+    <Content Include="sys\ui\style\font\source-code-pro\EOT\SourceCodePro-Light.eot" />
+    <Content Include="sys\ui\style\font\source-code-pro\EOT\SourceCodePro-Medium.eot" />
+    <Content Include="sys\ui\style\font\source-code-pro\EOT\SourceCodePro-Regular.eot" />
+    <Content Include="sys\ui\style\font\source-code-pro\EOT\SourceCodePro-Semibold.eot" />
+    <Content Include="sys\ui\style\font\source-code-pro\OTF\SourceCodePro-Black.otf" />
+    <Content Include="sys\ui\style\font\source-code-pro\OTF\SourceCodePro-Bold.otf" />
+    <Content Include="sys\ui\style\font\source-code-pro\OTF\SourceCodePro-ExtraLight.otf" />
+    <Content Include="sys\ui\style\font\source-code-pro\OTF\SourceCodePro-Light.otf" />
+    <Content Include="sys\ui\style\font\source-code-pro\OTF\SourceCodePro-Medium.otf" />
+    <Content Include="sys\ui\style\font\source-code-pro\OTF\SourceCodePro-Regular.otf" />
+    <Content Include="sys\ui\style\font\source-code-pro\OTF\SourceCodePro-Semibold.otf" />
+    <Content Include="sys\ui\style\font\source-code-pro\TTF\SourceCodePro-Black.ttf" />
+    <Content Include="sys\ui\style\font\source-code-pro\TTF\SourceCodePro-Bold.ttf" />
+    <Content Include="sys\ui\style\font\source-code-pro\TTF\SourceCodePro-ExtraLight.ttf" />
+    <Content Include="sys\ui\style\font\source-code-pro\TTF\SourceCodePro-Light.ttf" />
+    <Content Include="sys\ui\style\font\source-code-pro\TTF\SourceCodePro-Medium.ttf" />
+    <Content Include="sys\ui\style\font\source-code-pro\TTF\SourceCodePro-Regular.ttf" />
+    <Content Include="sys\ui\style\font\source-code-pro\TTF\SourceCodePro-Semibold.ttf" />
+    <Content Include="sys\ui\style\font\source-code-pro\WOFF\OTF\SourceCodePro-Black.otf.woff" />
+    <Content Include="sys\ui\style\font\source-code-pro\WOFF\OTF\SourceCodePro-Bold.otf.woff" />
+    <Content Include="sys\ui\style\font\source-code-pro\WOFF\OTF\SourceCodePro-ExtraLight.otf.woff" />
+    <Content Include="sys\ui\style\font\source-code-pro\WOFF\OTF\SourceCodePro-Light.otf.woff" />
+    <Content Include="sys\ui\style\font\source-code-pro\WOFF\OTF\SourceCodePro-Medium.otf.woff" />
+    <Content Include="sys\ui\style\font\source-code-pro\WOFF\OTF\SourceCodePro-Regular.otf.woff" />
+    <Content Include="sys\ui\style\font\source-code-pro\WOFF\OTF\SourceCodePro-Semibold.otf.woff" />
+    <Content Include="sys\ui\style\font\source-code-pro\WOFF\TTF\SourceCodePro-Black.ttf.woff" />
+    <Content Include="sys\ui\style\font\source-code-pro\WOFF\TTF\SourceCodePro-Bold.ttf.woff" />
+    <Content Include="sys\ui\style\font\source-code-pro\WOFF\TTF\SourceCodePro-ExtraLight.ttf.woff" />
+    <Content Include="sys\ui\style\font\source-code-pro\WOFF\TTF\SourceCodePro-Light.ttf.woff" />
+    <Content Include="sys\ui\style\font\source-code-pro\WOFF\TTF\SourceCodePro-Medium.ttf.woff" />
+    <Content Include="sys\ui\style\font\source-code-pro\WOFF\TTF\SourceCodePro-Regular.ttf.woff" />
+    <Content Include="sys\ui\style\font\source-code-pro\WOFF\TTF\SourceCodePro-Semibold.ttf.woff" />
+    <Content Include="sys\script\jquery\jquery-2.1.3.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -193,30 +200,30 @@
     <Content Include="Global.asax" />
     <Content Include="local\files\MyApp.exe" />
     <Content Include="local\files\TextFile1.txt" />
-    <Content Include="scripts\Util\Utilities.js" />
-    <Content Include="style\anim.css" />
-    <Content Include="style\colors.css" />
-    <Content Include="style\effects.css" />
-    <Content Include="style\elements.css" />
-    <Content Include="style\main.css" />
-    <Content Include="style\font\source-code-pro\LICENSE.txt" />
-    <Content Include="style\font\source-code-pro\ReadMe.html" />
-    <Content Include="style\font\source-code-pro\SourceCodeProReadMe.html" />
-    <Content Include="style\font\source-code-pro\SVG\SourceCodePro-Black.svg" />
-    <Content Include="style\font\source-code-pro\SVG\SourceCodePro-Bold.svg" />
-    <Content Include="style\font\source-code-pro\SVG\SourceCodePro-ExtraLight.svg" />
-    <Content Include="style\font\source-code-pro\SVG\SourceCodePro-Light.svg" />
-    <Content Include="style\font\source-code-pro\SVG\SourceCodePro-Medium.svg" />
-    <Content Include="style\font\source-code-pro\SVG\SourceCodePro-Regular.svg" />
-    <Content Include="style\font\source-code-pro\SVG\SourceCodePro-Semibold.svg" />
+    <Content Include="sys\script\util\Utilities.js" />
+    <Content Include="sys\ui\style\anim.css" />
+    <Content Include="sys\ui\style\colors.css" />
+    <Content Include="sys\ui\style\effects.css" />
+    <Content Include="sys\ui\style\elements.css" />
+    <Content Include="sys\ui\style\main.css" />
+    <Content Include="sys\ui\style\font\source-code-pro\LICENSE.txt" />
+    <Content Include="sys\ui\style\font\source-code-pro\ReadMe.html" />
+    <Content Include="sys\ui\style\font\source-code-pro\SourceCodeProReadMe.html" />
+    <Content Include="sys\ui\style\font\source-code-pro\SVG\SourceCodePro-Black.svg" />
+    <Content Include="sys\ui\style\font\source-code-pro\SVG\SourceCodePro-Bold.svg" />
+    <Content Include="sys\ui\style\font\source-code-pro\SVG\SourceCodePro-ExtraLight.svg" />
+    <Content Include="sys\ui\style\font\source-code-pro\SVG\SourceCodePro-Light.svg" />
+    <Content Include="sys\ui\style\font\source-code-pro\SVG\SourceCodePro-Medium.svg" />
+    <Content Include="sys\ui\style\font\source-code-pro\SVG\SourceCodePro-Regular.svg" />
+    <Content Include="sys\ui\style\font\source-code-pro\SVG\SourceCodePro-Semibold.svg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="code\Core\IO\VirtualPath.cs" />
-    <Compile Include="code\Core\Net\SignalR\ConsoleHub.cs" />
-    <Compile Include="code\Core\Net\SignalR\Startup.cs" />
-    <Compile Include="code\Core\Log.cs" />
-    <Compile Include="code\Core\WebConsole.cs" />
+    <Compile Include="src\Core\IO\VirtualPath.cs" />
+    <Compile Include="src\Core\Net\SignalR\ConsoleHub.cs" />
+    <Compile Include="src\Core\Net\SignalR\Startup.cs" />
+    <Compile Include="src\Core\Log.cs" />
+    <Compile Include="src\Core\Terminal.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -229,16 +236,10 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\..\WebCMD.Com.Lib\Meow\Meow.csproj">
-      <Project>{a1f335bc-457b-4911-bc18-901f7fc1dc34}</Project>
-      <Name>Meow</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\WebCMD.Com.Lib\TodoList\TodoList.csproj">
-      <Project>{4adb3c1f-6868-4b39-b200-e9ddf5690162}</Project>
-      <Name>TodoList</Name>
-    </ProjectReference>
+    <Folder Include="src\Core\sys\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\WebCMD.Com\WebCMD.Com.csproj">
       <Project>{62b5f2e9-a641-40c9-9a38-df13bb496381}</Project>
       <Name>WebCMD.Com</Name>
@@ -251,6 +252,9 @@
       <Project>{b21f84ff-9f8f-4218-b9c0-51c552fdd606}</Project>
       <Name>WebCMD.Util</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

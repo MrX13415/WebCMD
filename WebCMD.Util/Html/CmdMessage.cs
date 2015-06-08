@@ -8,6 +8,14 @@ namespace WebCMD.Util.Html
 {
     public static class CmdMessage
     {
+        public const string _CSS_CLASS_CMD_MESSAGE = "console-message";
+        public const string _CSS_CLASS_MSG_TYPE_SERVER = "msg-server";
+        public const string _CSS_CLASS_MSG_TYPE_CLIENT = "msg-client";
+        public const string _CSS_CLASS_MSG_TYPE_ERROR = "msg-error";
+        public const string _CSS_CLASS_MSG_TYPE_INFO = "msg-info";
+        public const string _CSS_CLASS_MSG_TYPE_SUCCESS = "msg-success";
+        public const string _CSS_CLASS_MSG_TYPE_WARN = "msg-warn";
+
         public enum Type
         {
             Server, Client, Error, Info, Success, Warning
@@ -17,12 +25,13 @@ namespace WebCMD.Util.Html
             Success, Error, Warning, Info, Question, None
         }
 
-        public const string _Template_MessageLine = "<span>{0} {1}</span>";
+        public const string _Template_MessageLine = "<div>{0} {1}</div>";
 
 
         public static string Get(string icon, Type msgtype, params string[] html)
         {
-            return HTML.CreateConsoleLineClass(GetTypeClass(msgtype), String.Format(_Template_MessageLine, HTML.Encode(icon.PadRight(4)), String.Concat(html)));
+            return HTML.CreateCssClassOutput(String.Format("{0} {1}", _CSS_CLASS_CMD_MESSAGE, GetTypeClass(msgtype)),
+                String.Format(_Template_MessageLine, HTML.Encode(icon.PadRight(4)), String.Concat(html)));
         }
 
         public static string Get(IconType icontype, Type msgtype, params string[] html)
@@ -91,19 +100,19 @@ namespace WebCMD.Util.Html
             switch (t)
             {
                 case Type.Server:
-                    return "msg-server";
+                    return _CSS_CLASS_MSG_TYPE_SERVER;
                 case Type.Client:
-                    return "msg-client";
+                    return _CSS_CLASS_MSG_TYPE_CLIENT;
                 case Type.Error:
-                    return "msg-error";
+                    return _CSS_CLASS_MSG_TYPE_ERROR;
                 case Type.Info:
-                    return "msg-info";
+                    return _CSS_CLASS_MSG_TYPE_INFO;
                 case Type.Success:
-                    return "msg-success";
+                    return _CSS_CLASS_MSG_TYPE_SUCCESS;
                 case Type.Warning:
-                    return "msg-warn";
+                    return _CSS_CLASS_MSG_TYPE_WARN;
                 default:
-                    return "msg-client";
+                    return _CSS_CLASS_MSG_TYPE_CLIENT;
             }
         }
 

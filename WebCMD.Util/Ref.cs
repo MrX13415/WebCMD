@@ -16,6 +16,9 @@ namespace WebCMD.Util
         public const string ConsoleDebugID = "ConsoleDebug";
         public const string ConsoleOutputID = "ConsoleOutput";
         public const string ConsoleFooterID = "ConsoleFooter";
+        public const string ConsoleInputID = "ConsoleInput";
+        public const string CmdPromtID = "CmdPromt";
+        public const string CmdChevronID = "CmdChevron";
         
         public static object GetSessionClassObject(/*string id,*/ Type t)
         {

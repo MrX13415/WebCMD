@@ -51,7 +51,7 @@ namespace WebCMD.Com
             byte[] libfile = System.IO.File.ReadAllBytes(File.FullName);
             byte[] pdbfile = null;
 
-            try { pdbfile = System.IO.File.ReadAllBytes(File.FullName.Replace(".dll", ".pdb")); } catch { }
+            try { pdbfile = System.IO.File.ReadAllBytes(File.FullName.ToLower().Replace(".dll", ".pdb")); } catch { }
             
             if (pdbfile != null) this.Assembly = Assembly.Load(libfile, pdbfile);
             else this.Assembly = Assembly.Load(libfile);
@@ -78,14 +78,19 @@ namespace WebCMD.Com
                         RegisteredCount++;          //update the counter
                         IsValid = true;             
                         IsLoaded = true;
-                        Debug.WriteLine(" (!)  Lib type loaded " + (pdbfile != null ? "with debug symbols" : "") + " : " + typeI.Name);
+                        Debug.WriteLine(" (i)  Command type loaded: " + typeI.Name + " Library: " + Assembly.FullName);
                     }
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine(" (x)  Error while loading lib types: " + ex);
+                    Debug.WriteLine(" (x)  Error while loading command type:  " + typeI.Name + " Library: " + Assembly.FullName + " Error: " + ex);
                 }
             }
+
+            if (IsValid)
+                Debug.WriteLine(" (i)  Library loaded" + (pdbfile != null ? " with debug symbols" : "") + ": " + Assembly.FullName + " (" + RegisteredCount + " commands)");
+            else
+                Debug.WriteLine(" /!\\  Invalid library: " + Assembly.FullName);
 
             return IsValid;
         }

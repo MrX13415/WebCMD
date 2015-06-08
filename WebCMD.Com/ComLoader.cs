@@ -30,7 +30,7 @@ namespace WebCMD.Com
         {
             _progressInfo = new ProgressInfo();
             Path.Add(HttpContext.Current.Server.MapPath("bin"));
-            Path.Add(HttpContext.Current.Server.MapPath("com"));
+            Path.Add(HttpContext.Current.Server.MapPath("sys/com"));
         }
 
         public static void Wait()
@@ -49,7 +49,7 @@ namespace WebCMD.Com
                 if (WorkerThread != null && WorkerThread.IsAlive) return;
 
                 Thread clWorker = new Thread(_Load);
-                clWorker.Name = String.Concat("ComLoader");
+                clWorker.Name = String.Concat("ComLoader-Worker");
                 clWorker.IsBackground = true;
                 clWorker.Priority = ThreadPriority.Normal;
                 clWorker.Start();
@@ -58,7 +58,7 @@ namespace WebCMD.Com
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine(String.Concat("ComLoader: unable to start: " + ex));
+                System.Diagnostics.Debug.WriteLine(String.Concat(" (x)  Error: Unable to start the ComLoader-Worker! Could not load any command librarys. Error: ", ex));
             }
         }
 
@@ -89,7 +89,7 @@ namespace WebCMD.Com
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine(" (x)  Error while loading lib: " + ex);
+                    Debug.WriteLine(" (x)  Error while loading library '" + f.Name + "': " + ex);
                 }
                 ProgressInfo.Index++;
             }

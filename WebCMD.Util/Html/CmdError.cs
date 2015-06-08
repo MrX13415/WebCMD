@@ -9,7 +9,7 @@ namespace WebCMD.Util.Html
 {
     public class CmdError
     {
-        public static string _HTMLTemplate_ErrorMessage = "<span>Server-Error: {0}: <span class=\"red-light\">{1}</span></span><br><div class=\"red-light\" style=\"margin-left: 60px;\">{2}</div>";
+        public static string _HTMLTemplate_ErrorMessage = "<span>Server-Error: {0}: <span class=\"red-light\">{1}</span></span></br><span class=\"red-light\" style=\"margin-left: 60px;\">{2}</span>";
 
         public static string Get(Exception ex)
         {

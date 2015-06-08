@@ -28,7 +28,7 @@ namespace WebCMD.Lib.System
             string[] args = e.ArgumentList;
 
             Client client = e.Source;
-            WebConsole cmd = WebConsole.Instance(client.GUID);
+            Terminal cmd = Terminal.Instance(client.GUID);
             
             if (args.Length <= 0)
             {
@@ -53,17 +53,18 @@ namespace WebCMD.Lib.System
 
                 try
                 {
+                    //TODO: detailed err msgs.
                     bool changed = cmd.ChangeDirectory(path0);
 
                 }
-                catch
+                catch(Exception ex)
                 {
                     //send invalid path message ...
-                    client.Response.Send(CmdMessage.GetErrorMessage("Invalid path: '", Color.White(path0), "'"));
+                    client.Response.Send(CmdMessage.GetErrorMessage("Invalid path: '", Color.White(path0), "'", " Error: ", ex.ToString()));
                 }
 
                 //update current path display
-                cmd.UpdateHeaderMessage(client);
+                cmd.UpdatePrompt(client);
             }
 
             return true;

@@ -49,13 +49,14 @@ namespace WebCMD.Net.IO
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine(String.Concat(" (!) ResponseWorker_", ConnectionID, " unable to start: " + ex));
+                System.Diagnostics.Debug.WriteLine(String.Concat(" (!)  ResponseWorker_", ConnectionID, " unable to start: " + ex));
             }
         }
 
         private void RSWorker()
         {
-            Debug.WriteLine(String.Concat(" (!) ", ResponseWorker.Name, " started"));
+            Debug.WriteLine(String.Concat(" (!)  ", Thread.CurrentThread.Name, " started"));
+
             Stopwatch watch = new Stopwatch();
             watch.Start();
 
@@ -72,11 +73,11 @@ namespace WebCMD.Net.IO
                     Thread.Sleep(WorkerTimout);
                 } while (watch.ElapsedMilliseconds <= WorkerMinActiveTime || GetQueueSize > 0); //stay active for at least 2.5 second (default for WorkerMinActiveTime)
 
-                Debug.WriteLine(String.Concat(" (!) ", ResponseWorker.Name, " completed after ", watch.ElapsedMilliseconds, "ms"));
+                Debug.WriteLine(String.Concat(" (!)  ", Thread.CurrentThread.Name   , " completed after ", watch.ElapsedMilliseconds, "ms"));
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(String.Concat(" /!\\ ", ResponseWorker.Name, " stoped after ", watch.ElapsedMilliseconds, "ms with error: " + ex));
+                Debug.WriteLine(String.Concat(" /!\\  ", Thread.CurrentThread.Name   , " stoped after ", watch.ElapsedMilliseconds, "ms with error: " + ex));
             }
             finally
             {
@@ -88,14 +89,14 @@ namespace WebCMD.Net.IO
         {
             //TODO: improve this with regex ...
             //Like: he = new HTMLElement("<div class=..."); ... string[] classes = he.ClassList; ... he.equals(HTML._Template_HE...)
-            if (String.Concat(html).ToLower().Trim().StartsWith("<div class=\"console-line"))
+            if (String.Concat(html).ToLower().Trim().StartsWith("<span class=\"console-line"))
                 SendRaw(html);
             else
-                SendRaw(HTML.CreateConsoleLine(html));
+                SendRaw(HTML.CreateOutputLine(html));
         }
         public void SendClass(string cssClass, params string[] html)
         {
-            SendRaw(HTML.CreateConsoleLineClass(cssClass, html));
+            SendRaw(HTML.CreateCssClassOutputLine(cssClass, html));
         }
 
         public void SendRaw(params string[] html)
@@ -161,8 +162,7 @@ namespace WebCMD.Net.IO
                 ServerResponse response = Next;
                 if (response == null) return "";
 
-                ServerResponse block = new ServerResponse(response.RequestTypeID, response.HtmlControlID);
-                block.Mode = response.Mode;
+                ServerResponse block = ServerResponse.Copy(response);
 
                 int index = 0;          
 
@@ -178,7 +178,7 @@ namespace WebCMD.Net.IO
                     response = Next; //get next ...
                     if (response == null) break; //HTMLcontrol null?
                 }
-                while (block.HtmlControlID == response.HtmlControlID && block.RequestTypeID == response.RequestTypeID);
+                while (block.Equals(response));
 
                 return block.GetResponseMessage;
             }

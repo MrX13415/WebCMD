@@ -1,0 +1,158 @@
+﻿
+/* --------------------------------------------------------------------------------
+ *      WebCMD v1.0
+ * --------------------------------------------------------------------------------
+ *
+ *  CSS: main
+ * 
+ *  Contains basic page styleing
+ *
+ *  Version: 1.0
+ *  Copyright: Team Icelane (c) 2014
+ *
+ */
+
+@font-face {  
+	font-family: SourceCodePro;  
+	src: url(/style/font/source-code-pro/TTF/SourceCodePro-Medium.ttf) format("truetype");  
+}  
+
+body{
+    margin: 0; 
+    padding: 0;
+	border: 0;
+
+    background-color: #1E1E1C;
+    color: #e3e3eb;
+
+    font-family: Consolas, "Menlo Regular", SourceCodePro, "Lucida Sans Typewriter", "Lucida Typewriter", Monaco, "Courier New", Courier, monospace, Fixed;
+    font-size: 10pt;
+
+    overflow-x: hidden;
+}
+
+#Main{
+    overflow: visible;
+    padding: 0;
+    margin: 5px;
+    /*padding-top: 15px;*/
+    /*padding-bottom: 20px;*/
+}
+
+#Footer{
+	font-family: "Century Gothic", CenturyGothic, "Apple Gothic", sans-serif;
+	font-size: 15pt;
+	text-align: center;
+    position: fixed;
+	top: auto;
+	bottom: 50px;
+	right: -50%;
+    left: -50%;
+    margin-right: auto;
+    margin-left: auto;
+    min-height: 20px;
+    z-index: -9999;
+}
+
+#WindowHeader{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%; 
+}
+
+#ConsoleConInfo{
+    position: absolute;
+    z-index: 99999;
+    display: block;
+    width: 100%; 
+}
+
+#ConsoleDebug{
+    background-color: rgba(30, 33, 70, 0.75);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.35);
+    padding: 3px;
+}
+
+/* line 38, ../../_sass/404.scss */
+#ConsoleOutputXX :last-child:after {
+  visibility: visible;
+  content: '';
+  background-color: #d4f8e3;
+  display: inline-block;
+  position: relative;
+  width: 0.5em;
+  height: 1em;
+  top: 5px;
+  margin-left: 0;
+
+  -moz-box-shadow: -2px 0 0px rgba(0, 0, 225, 0.4), -1px 0 3px rgba(103, 171, 236, 0.6), 1px 0 4px rgba(69, 112, 204, 0.5);
+  -webkit-box-shadow: -2px 0 0px rgba(0, 0, 225, 0.4), -1px 0 3px rgba(103, 171, 236, 0.6), 1px 0 4px rgba(69, 112, 204, 0.5);
+  box-shadow: -2px 0 0px rgba(0, 0, 225, 0.4), -1px 0 3px rgba(103, 171, 236, 0.6), 1px 0 4px rgba(69, 112, 204, 0.5);
+
+  -moz-animation: flicker 0.1s steps(2, start) infinite, ready 1s steps(2, start) 25s infinite;
+  -webkit-animation: flicker 0.1s steps(2, start) infinite, ready 1s steps(2, start) 25s infinite;
+  animation: flicker 0.1s steps(2, start) infinite, ready 1s steps(2, start) 25s infinite;
+}
+
+
+
+/* --------------------------------------------------------------------------------
+ *      Console Message Styles
+ * --------------------------------------------------------------------------------*/
+
+.console-message {
+    display: block;
+    /*padding: 0px 2px 8px;*/
+    box-shadow: rgba(10, 10, 10, 0.60) 3px 3px 3px;
+    /*background: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.25)) repeat scroll 0% 0%, transparent -moz-linear-gradient(-45deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0)) repeat scroll 0% 0%;*/
+}
+
+#ConsoleConInfo .console-message {
+    padding: 3px 3px 3px;
+    box-shadow: rgba(10, 10, 10, 0.60) 0px 3px 5px;
+}
+
+
+.msg-nomsg {
+    background-color: rgba(0, 0, 0, 0.00)!important;
+}
+
+.msg-error {
+    background-color: #4d1616; 	
+    color: #ff4848;
+}
+
+.msg-server {
+    background-color: #59012c;		
+    color: #ff479e;
+}
+
+.msg-client {
+    background-color: #662a12;
+    color: #ff8538;
+}
+
+.msg-warn {
+    background-color: #664c0e;		
+    color: #ffc640;
+}
+
+.msg-info {
+    background-color: #0e1a40;		
+    color: #3168de;
+}
+
+.msg-success {
+    background-color: #273313;
+    color: #4aa951;
+}
+
+/* --------------------------------------------------------------------------------
+ *      Debug
+ * --------------------------------------------------------------------------------*/
+
+.debug {
+    
+}
+

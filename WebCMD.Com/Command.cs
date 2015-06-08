@@ -20,8 +20,6 @@ namespace WebCMD.Com
         public string[] Aliase { get { return _Aliase; } }
         protected void SetAliase(params string[] alias) { _Aliase = alias; }
         
-        public Thread Thread { get; private set; }
-        public CommandRequest Request { get; set; }
         public ComLibrary Library { get; internal set; }
 
 
@@ -51,29 +49,27 @@ namespace WebCMD.Com
             return false;
         }
 
-        public bool Execute(CommandRequest e)
+        public ComProcess Execute(CommandRequest request)
         {
-            Request = e;
-            Thread = new Thread(this._Run);
-            Thread.Name = "WebCMD-COMMAND_" + this.GetType().Name;
-            Thread.Start();
-            
-            return true;
+            ComProcess process = new ComProcess(this, request);
+            process.Start(this._Run);
+            return process;
         }
 
-        private void _Run()
+        private void _Run(object obj)
         {
+            CommandRequest request = obj as CommandRequest;
             try
             {
-                _Execute(Request);
+                _Execute(request);
             }
             catch (Exception ex)
             {
-                Request.Source.Response.Send(CmdError.Get(ex));
+                request.Source.Response.Send(CmdError.Get(ex));
             }
         }
 
-        protected abstract bool _Execute(CommandRequest e);
+        protected abstract bool _Execute(CommandRequest request);
 	
     }
 }
