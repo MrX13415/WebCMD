@@ -25,6 +25,7 @@
       
     <%--<script type="text/javascript" src="sys/script/util/TypingText.js" ></script>--%>
               
+    <meta name="description" content="A fency web-console page ;)" />
 </head>
 <body onload="handlePageLoadEvent();">
     <div id="Main">
