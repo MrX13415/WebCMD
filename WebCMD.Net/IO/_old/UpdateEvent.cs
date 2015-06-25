@@ -6,6 +6,7 @@ using System.Web;
 
 namespace WebCMD.Net.IO
 {
+    [Obsolete]
     public class UpdateEvent : ServerRequest
     {
         private UpdateEvent(Client client, string targetid) : base(client, targetid, typeof(UpdateEvent))

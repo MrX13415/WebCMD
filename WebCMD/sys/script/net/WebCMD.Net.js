@@ -312,7 +312,6 @@ function Connection() {
                         //reactivate cursor animation 
                         CmdCursor.get().style = '';
 
-
                         // +++ TODO +++ 
                         // Do this only after the commenand has been quit ! (event required !!)
 
@@ -322,12 +321,8 @@ function Connection() {
 
                         // +++ TODO +++  
 
-
                         //keep the screen pos. up to date 
-                        doCmdScroll();
-
-                        //DEBUG
-                        console.info(" (!)  Typing animation has been finished");
+                        //doCmdScroll();
 
                         return; //END
                     }
@@ -399,10 +394,7 @@ function Connection() {
                     }
 
                     //keep the screen pos. up to date
-                    //doCmdScroll();
-                    //var x = document.body.scrollWidth;
-                    //var y = document.body.scrollHeight;
-                    //window.scrollTo(0, 999);
+                    doCmdScroll();
 
                     //determine the deleay type
                     if (lineMode)

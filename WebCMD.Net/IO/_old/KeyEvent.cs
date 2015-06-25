@@ -5,6 +5,7 @@ using System.Web;
 
 namespace WebCMD.Net.IO
 {
+    [Obsolete]
     public class KeyEvent : ServerRequest
     {
         public enum KeyEventType

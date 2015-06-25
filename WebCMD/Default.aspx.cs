@@ -46,7 +46,6 @@ namespace WebCMD.Core
             if (RequestHandler.GetListener.Count == 0)
             {
                 RequestHandler.AddListener(OnCommandRequest, typeof(CommandRequest));
-                RequestHandler.AddListener(OnUpdateRequest, typeof(UpdateEvent));
             }
 
             string querypath = "";
@@ -67,9 +66,8 @@ namespace WebCMD.Core
             ComLoader.Load();
         }
 
-        public static string _HTMLTemplate_ServerMessage = "<div class=\"console-line msg-server\">\n<span>{0}</span><br><div style=\"margin-left: 60px;\">{1}</div>\n</div>";
-
-
+        //public static string _HTMLTemplate_ServerMessage = "<div class=\"console-line msg-server\">\n<span>{0}</span><br><div style=\"margin-left: 60px;\">{1}</div>\n</div>";
+        
         public void OnCommandRequest(ServerRequest ev)
         {
             CommandRequest req = (CommandRequest)ev;
@@ -78,11 +76,6 @@ namespace WebCMD.Core
 
             //cmd.UpdateDebugHeader(ev.Source, "Site-Name", HostingEnvironment.SiteName);
             //cmd.UpdateDebugHeader(ev.Source, "Terminal", cmd.ToString());
-        }
-
-        public void OnUpdateRequest(ServerRequest ev)
-        {
-            
         }
 
     }

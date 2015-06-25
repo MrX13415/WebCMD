@@ -375,13 +375,7 @@ function hiddeConsoleInput(hidden) {
 }
 
 function doCmdScroll() {
-   // var x = document.body.scrollWidth;
-   // var y = document.body.scrollHeight;
-
-    // window.scrollTo(0, y);
-
-
-    // PERFORMANCE ISSUE !!!!!!!!!
+    document.documentElement.scrollTop = document.body.scrollTop = document.body.scrollHeight;
 
 }
 
